@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mentors - Design Your Degree</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* BACKGROUND */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top, #2b2d42, #0f172a);
+    color: white;
+}
+
+.header {
+    text-align: center;
+    padding: 10px 10px 20px;
+}
+/* HEADER */
+.header p {
+    margin-top: 15px; /* closer to MENTORS */
+    font-size: 1.4em;
+
+    background: linear-gradient(90deg, #00dbde, #fc00ff);
+    -webkit-background-clip: text;
+    color: transparent;
+
+    font-style: italic;
+    letter-spacing: 1px;
+
+    display: block; /* ensures it comes below */
+}
+
+/* TITLE */
+.header h1 {
+    font-size: 4.5em;
+    font-weight: 900;
+    letter-spacing: 4px;
+    margin: 0;
+
+    background: linear-gradient(90deg, #8b5cf6, #d946ef);
+    -webkit-background-clip: text;
+    color: transparent;
+
+    display: inline-block;
+    position: relative;
+}
+
+/* FULL UNDERLINE (MENTORS) */
+.header h1::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 10px;
+    width: 100%;
+    height: 4px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #00dbde, #fc00ff);
+    box-shadow: 0 0 10px #fc00ff;
+}
+
+/* SUBTITLE */
+.header p {
+    margin-top: 10px;
+    font-size: 1.4em;
+    font-weight: 700; /* BOLD */
+
+    background: linear-gradient(90deg, #00dbde, #fc00ff);
+    -webkit-background-clip: text;
+    color: transparent;
+
+    font-style: italic;
+    text-align: center;
+    display: block;
+    position: relative;
+}
+
+/* UNDERLINE (CENTERED & CLEAN) */
+.header p::after {
+    content: "";
+    display: block;
+    width: 25%;
+    height: 2px;
+    margin: 8px auto 0; /* center underline */
+    border-radius: 10px;
+    background: linear-gradient(90deg, #00dbde, #fc00ff);
+}
+/* SOFT GLOW BACKGROUND */
+.header h1::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -30px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(168,85,247,0.3), transparent);
+    filter: blur(60px);
+    z-index: -1;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 10px;
+    padding: 10px;
+}
+
+/* CARD */
+.card {
+    position: relative;
+    padding: 25px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+    text-align: center;
+    transition: 0.4s;
+    overflow: hidden;
+}
+
+/* GLOW BORDER */
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 2px;
+    background: linear-gradient(45deg, #ff00cc, #3333ff, #00ffcc);
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+}
+
+/* HOVER */
+.card:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+/* IMAGE */
+/* IMAGE */
+.card img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 3px solid white;
+    object-fit: cover;      /* changed from contain → fills the circle */
+    object-position: center top; /* keeps faces centered, adjust if needed */
+    background: rgba(255,255,255,0.05);
+    margin-bottom: 15px;
+    transition: 0.4s;
+}.card:hover img {
+    transform: scale(1.1) rotate(3deg);
+}
+
+/* NAME */
+.card h3 {
+    margin: 4px 0 0;   /* 👈 bottom margin removed */
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.card p {
+    margin: 2px 0 0;   /* 👈 very small gap from name */
+    color: #ddd;
+    font-size: 12.5px;
+}
+/* DEPT */
+.card p {
+    color: #ccc;
+    font-size: 0.9em;
+}
+
+/* BOTTOM LINE */
+.card::after {
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 0%;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg, #00dbde, #fc00ff);
+    transition: 0.4s;
+}
+
+.card:hover::after {
+    width: 100%;
+}
+
+/* RESPONSIVE */
+@media(max-width: 600px) {
+    .header h1 {
+        font-size: 2.2em;
+    }
+}
+
+/* REMOVE LINK COLORS */
+a, a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+    <h1>MENTORS</h1>
+    <p>Design Your Degree Program</p>
+</div>
+
+<!-- CARDS -->
+<div class="grid">
+
+<a href="alka mam.html" target="_blank">
+<div class="card">
+<img src="director-alka.jpg" alt="Alka">
+<h3>Prof. Alka Sharma</h3>
+<p> Marketing, Management & Entrepreneurship </p> <br>
+</div>
+</a>
+
+<a href="kuldeep_singh_charak_profile.html" target="_blank">
+<div class="card">
+<img src="charak.jpg" alt="charak_sir">
+<h3>Prof. K.S. Charak</h3>
+<p> Mathematics (Complex Analysis & its related areas)</p> <br>
+</div>
+</a>
+
+<a href="sadaf mam.html" target="_blank">
+<div class="card">
+<img src="Sadaf.jpeg" alt="Sadaf">
+<h3>Prof. Sadaf Shah</h3>
+<p>Literature (Indian writing in English)</p> <br>
+</div>
+</a>
+
+<a href="anil gupta sir.html" target="_blank">
+<div class="card">
+<img src="anil (2).jpg" alt="anil">
+<h3>Prof. Anil Gupta</h3>
+<p>Management (Entrepreneurship)</p> <br>
+</div>
+</a>
+
+<a href="jatinder_manhas_profile.html" target="_blank">
+<div class="card">
+<img src="jatindermanhas.jpg" alt="jatinder">
+<h3>Prof. Jatinder Manhas</h3>
+<p>Computer Science & IT (Artificial Intelligence)</p> <br>
+</div>
+</a>
+
+
+<a href="shallu_sehgal_profile.html" target="_blank">
+<div class="card">
+<img src="Shallu.png" alt="shallu">
+<h3>Prof. Shallu Sehgal</h3>
+<p>Applied Economics (Productivity & Efficiency Studies in Agriculture & Industry)</p>
+</div>
+</a>
+
+
+<a href="sandeep_arya_profile.html" target="_blank">
+<div class="card">
+<img src="Sandeep.jpeg" alt="Sandeep">
+<h3>Dr. Sandeep Arya</h3>
+<p>Physics (Nano-Technology)</p>
+<br> <br>
+</div>
+</a>
+
+<a href="sarika_verma_profile.html" target="_blank">
+<div class="card">
+<img src="sarika.jpeg" alt="sarika">
+<h3>Dr. Sarika Verma</h3>
+<p>Mathematics (Complex Analysis & its related areas)</p> <br>
+</div>
+</a>
+
+<a href="pallavi_sachdeva_profile.html" target="_blank">
+<div class="card">
+<img src="pallavi.jpg" alt="pallavi">
+<h3>Dr. Pallavi Sachdeva</h3>
+<p>Psychology (Clinical & Counselling)</p> <br>
+</div>
+</a>
+
+<a href="https://admin.jammuuniversity.ac.in/JUProfiles/profilepage.aspx?id=221" target="_blank">
+<div class="card">
+<img src="singh.jpeg" alt="singh">
+<h3>Dr. Sandeep Singh</h3>
+<p>Border Studies, State Politics & Rural Studies</p> <br>
+</div>
+</a>
+
+<a href="https://admin.jammuuniversity.ac.in/JUProfiles/profilepage.aspx?id=73" target="_blank">
+<div class="card">
+<img src="harish.jpg" alt="harish">
+<h3>Dr. Harish Chander</h3>
+<p>Botony (Ethnobotany & Ecology)</p> <br> <br>
+</div>
+</a>
+
+<a href="sunil_kumar_profile.html" target="_blank">
+<div class="card">
+<img src="sunil.jpg" alt="sunil">
+<h3>Dr. Sunil Bhougal</h3>
+<p>Statistics (Sample Survey, Data Analytics)</p> <br>
+</div>
+</a>
+
+<a href="https://admin.jammuuniversity.ac.in/JUProfiles/profilepage.aspx?id=81" target="_blank">
+<div class="card">
+<img src="chinmoye.jpeg" alt="chinmoyee">
+<h3>Dr. Chinmmoye Maharana</h3>
+<p>Zoology (Neuroscience)</p> <br> <br>
+</div>
+</a>
+
+<a href="https://admin.jammuuniversity.ac.in/JUProfiles/profilepage.aspx?id=79" target="_blank">
+<div class="card">
+<img src="ripu.jpg" alt="ripu">
+<h3>Dr. Ripu Daman</h3> 
+<p>Zoology (Nematology)</p> <br> <br>
+</div>
+</a>
+
+<a href="https://admin.jammuuniversity.ac.in/JUProfiles/profilepage.aspx?id=184" target="_blank">
+<div class="card">
+<img src="manish.jpg" alt="manish">
+<h3>Dr. Manish Kumar</h3>
+<p>Mathematics (Complex Analysis & its related areas)</p> <br>
+</div>
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>

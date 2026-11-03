@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vice Chairman Message</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #eef2ff, #fce4ec);
+}
+
+/* MAIN CONTAINER */
+.container {
+    width: 85%;
+    margin: 40px auto;
+    background: white;
+    border-radius: 20px;
+    padding: 60px 50px 60px 160px;
+    
+    /* smoother shadow */
+    box-shadow: 0 20px 45px rgba(0,0,0,0.12);
+    
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+}
+
+/* DECORATIVE SHAPES */
+.container::before {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, #3f51b5, transparent);
+    opacity: 0.12;
+    top: -80px;
+    right: -80px;
+    border-radius: 50%;
+}
+
+.container::after {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, #d81b60, transparent);
+    opacity: 0.12;
+    bottom: -80px;
+    left: -80px;
+    border-radius: 50%;
+}
+
+/* SIDE TEXT */
+.side-text {
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    
+    font-size: 28px;
+    font-weight: 900;
+    
+    /* gradient text */
+    background: linear-gradient(45deg, #d81b60, #3f51b5);
+    -webkit-background-clip: text;
+    color: transparent;
+
+    letter-spacing: 3px;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* LEFT TEXT */
+.left h2 {
+    margin: 0;
+    font-size: 30px;
+
+    /* soft gradient */
+    background: linear-gradient(45deg, #3f51b5, #d81b60);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.left p {
+    margin: 5px 0;
+    color: #555;
+}
+
+/* IMAGE */
+.right {
+    width: 280px;
+    text-align: right;
+}
+
+.right img {
+    width: 260px;
+    height: auto;
+    object-fit: contain;
+
+    border-radius: 15px;
+    border: 4px solid #fff;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transition: 0.3s;
+}
+.right img:hover {
+    transform: scale(1.05);
+}
+
+/* CONTENT */
+.content {
+    margin-top: 30px;
+    line-height: 1.95;   /* slightly more readable */
+    text-align: justify;
+    color: #333;
+    font-size: 15px;
+}
+
+/* SIGNATURE */
+.signature {
+    margin-top: 40px;
+    text-align: right;
+}
+
+.signature h3 {
+    margin: 0;
+
+    /* gradient touch */
+    background: linear-gradient(45deg, #d81b60, #3f51b5);
+    -webkit-background-clip: text;
+    color: transparent;
+
+    font-size: 22px;
+}
+
+.signature p {
+    margin: 0;
+    color: #666;
+}</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="side-text">
+        FROM THE DESK OF THE VICE-CHAIRMAN
+    </div>
+
+    <div class="header">
+        <div class="left">
+            <h2>VICE-CHAIRMAN</h2>
+            <p><b>J&K HIGHER EDUCATION COUNCIL</b></p>
+            <p>AND</p>
+            <p>FORMER VICE-CHANCELLOR</p>
+            <p>UNIVERSITY OF DELHI</p>
+        </div>
+
+        <div class="right">
+            <img src="vice-chairman.jpg" alt="Vice Chairman">
+        </div>
+    </div>
+
+    <div class="content">
+
+        <p>
+        It gives me great pleasure to be a part of the story of the creation of one of the most well-designed of learning programmes that independent India has ever offered. I speak of the just announced University of Jammu’s “Design Your Degree”.
+        </p>
+
+        <p>
+        In all my years as a teacher and educator I have constantly come across parents and students who are straight out of high school and who are not sure about what they wish to pursue as a course of study after high school. The tragedy is that most of these students end up studying for degrees that are not suited to their talents. Such students—and there are thousands of them across India—stay unhappy and dissatisfied with life. In addition, I find that most students after taking their degrees, seem to be unsuited for any real career in life.
+        </p>
+
+        <p>
+        To all the above discussed students and their parents, I recommend wholeheartedly that they must take a close and serious look at Jammu University’s marvellous idea that allows a student to design her/his degree as she/he progresses from semester to semester. This degree is not just a collection of credit courses; it has a very well thought out pedagogy that first enriches and gives sharpness to a student’s skills in communication, IT, data and analytical and critical abilities. The pedagogy also trains the student to learn to solve real world problems through the practical application of knowledge. They are also trained to work collaboratively in groups and are encouraged to be creative entrepreneurs if they so desire. However, because of the way the degree programme is designed, it allows every student to find her/his true calling in life and then take a degree in that area.
+        </p>
+
+        <p>
+        This degree has been designed in consultation with experts across a wide spectrum of life. It has drawn enormous appreciation in India and is also being hailed abroad. It has gained recognition and acceptability all across India and abroad as well.
+        </p>
+
+        <p>
+        If I had been a student who had just finished high school, I would have most certainly enrolled to study for the ‘Design Your Degree’ programme of the University of Jammu.
+        </p>
+
+    </div>
+
+    <div class="signature">
+        <h3>Prof. Dinesh Singh</h3>
+        <p>Vice-Chairman</p>
+    </div>
+
+</div>
+
+</body>
+</html>

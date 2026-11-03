@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Director Message</title>
+
+<style>
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #eef2ff, #fce4ec);
+}
+
+/* MAIN CONTAINER */
+.container {
+    width: 85%;
+    margin: 40px auto;
+    background: white;
+    border-radius: 20px;
+    padding: 60px 50px 60px 160px;
+    
+    /* smoother shadow */
+    box-shadow: 0 20px 45px rgba(0,0,0,0.12);
+    
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+}
+
+/* DECORATIVE SHAPES */
+.container::before {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, #3f51b5, transparent);
+    opacity: 0.12;
+    top: -80px;
+    right: -80px;
+    border-radius: 50%;
+}
+
+.container::after {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, #d81b60, transparent);
+    opacity: 0.12;
+    bottom: -80px;
+    left: -80px;
+    border-radius: 50%;
+}
+
+/* SIDE TEXT */
+.side-text {
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    
+    font-size: 28px;
+    font-weight: 900;
+    
+    /* gradient text */
+    background: linear-gradient(45deg, #d81b60, #3f51b5);
+    -webkit-background-clip: text;
+    color: transparent;
+
+    letter-spacing: 3px;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* LEFT TEXT */
+.left h2 {
+    margin: 0;
+    font-size: 30px;
+
+    /* soft gradient */
+    background: linear-gradient(45deg, #3f51b5, #d81b60);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.left p {
+    margin: 5px 0;
+    color: #555;
+}
+
+/* IMAGE */
+.right {
+    width: 280px; /* fix space */
+    text-align: right;
+}
+
+.right img {
+    width: 260px;   /* medium size */
+    height: auto;   /* IMPORTANT */
+    object-fit: contain;
+
+    border-radius: 15px;
+    border: 4px solid #fff;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transition: 0.3s;
+}
+
+.right img:hover {
+    transform: scale(1.05);
+}
+
+.left img {
+    width: 80px;
+    height: auto;
+    margin-bottom: 10px;
+
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* CONTENT */
+.content {
+    margin-top: 10px;
+    line-height: 1.95;   /* slightly more readable */
+    text-align: justify;
+    color: #333;
+    font-size: 15px;
+}
+
+/* SIGNATURE */
+.signature {
+    margin-top: 40px;
+    text-align: right;
+}
+
+.signature h3 {
+    margin: 0;
+
+    /* gradient touch */
+    background: linear-gradient(45deg, #d81b60, #3f51b5);
+    -webkit-background-clip: text;
+    color: transparent;
+
+    font-size: 22px;
+}
+
+.signature p {
+    margin: 0;
+    color: #666;}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="side-text">
+        FROM THE DESK OF THE DIRECTOR
+    </div>
+
+    <div class="header">
+
+        <!-- LEFT -->
+        <div class="left">
+            <!-- LEFT small logo -->
+                   <img src="university.png">
+            <h3>DIRECTOR</h3>
+            <p>
+                SKILL, INCUBATION, INNOVATION AND <br>
+                ENTREPRENEURSHIP DEVELOPMENT CENTRE <br>
+                UNIVERSITY OF JAMMU
+            </p>
+        </div>
+
+        <!-- RIGHT IMAGE -->
+        <div class="right">
+           <!-- RIGHT main image -->
+                     <img src="director-alka.jpg" alt="Director Alka Mam">
+        </div>
+
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <p><b>Dear Students,</b></p>
+
+        <p>
+        I am extremely happy to announce the launch of "Design Your Degree" program under the Skill, Incubation, Innovation, and Entrepreneurial Development Centre. As the Director of this initiative, it is my honor to introduce you to this innovative 4-year undergraduate degree program.
+        </p>
+
+        <p>
+        At University of Jammu, we have always been at the forefront of pioneering education, and this new program is a testament to our commitment to empowering students to shape their academic journey. The "Design Your Degree" program is a unique opportunity for each student to personalize their learning experience, aligning it precisely with their individual passions, aspirations, and career goals.
+        </p>
+
+        <p>
+        This program is a bold step towards revolutionizing traditional education, and I am confident that it will empower each student to become a trailblazer in their respective fields. We believe that by providing you with the tools and resources to design your academic journey, we are fostering a new generation of innovators and leaders who will make a significant impact on society.
+        </p>
+
+        <p>
+        I encourage all students to embrace this opportunity with an open mind and a passion for exploration. Let us embark on this exciting journey together, and I am eager to witness the incredible achievements that will undoubtedly arise from the "Design Your Degree" program.
+        </p>
+
+    </div>
+
+    <!-- SIGNATURE -->
+    <div class="signature">
+     
+        <h4>Prof. Alka Sharma</h4>
+        <p>Director</p>
+    </div>
+
+</div>
+
+</body>
+</html>

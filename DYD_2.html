@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University of Jammu | Excellence Enshrined</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fraunces:opsz,wght@9..144,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #A31F34; 
+            --dark: #050505;
+            --light-bg: #fdfdfd;
+            --transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light-bg);
+            color: #1a1a1a;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 1.5rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 2000;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .nav-logo { font-weight: 800; font-size: 1.2rem; text-transform: uppercase; cursor: pointer; }
+        .nav-logo span { color: var(--primary); }
+        .nav-links a {
+            text-decoration: none; color: var(--dark);
+            margin-left: 2.5rem; font-weight: 600; font-size: 0.75rem;
+            text-transform: uppercase; letter-spacing: 1.5px;
+            transition: var(--transition);
+        }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* --- STRAIGHT HERO SECTION --- */
+        .hero-flow {
+            position: relative;
+            height: 90vh;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--dark);
+            clip-path: none;
+        }
+
+        .flow-bg-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            opacity: 0.85; 
+            filter: brightness(0.9); 
+            z-index: 1;
+            transition: transform 0.1s ease-out;
+        }
+
+        .flow-bg-layer img { width: 100%; height: 100%; object-fit: cover; }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(3.5rem, 10vw, 7rem);
+            line-height: 0.95;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+            animation: fadeInScale 1.5s var(--transition);
+        }
+
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* --- HERITAGE SECTION --- */
+        .heritage-section { padding: 100px 8%; background: #fff; position: relative; }
+        .heritage-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 80px; align-items: start; }
+        .heritage-content h2 { font-family: 'Fraunces', serif; font-size: 3.5rem; margin-bottom: 30px; color: var(--dark); line-height: 1.1; }
+        .heritage-text p { margin-bottom: 20px; font-size: 1.1rem; color: #333; text-align: justify; line-height: 1.7; }
+        
+        .heritage-highlight { 
+            background: #fcfcfc;
+            border-left: 5px solid var(--primary); 
+            padding: 30px; 
+            margin: 30px 0;
+            box-shadow: 10px 10px 30px #f0f0f0;
+        }
+        .heritage-highlight h4 { font-family: 'Fraunces', serif; font-size: 1.6rem; margin-bottom: 15px; color: var(--primary); }
+        .heritage-highlight li { margin-bottom: 12px; list-style: none; font-weight: 500; color: #444; position: relative; padding-left: 20px; }
+        .heritage-highlight li::before { content: "→"; position: absolute; left: 0; color: var(--primary); }
+
+        /* --- CAMPUS FEATURES SECTION --- */
+        .features-section { padding: 80px 8%; background: #f9f9f9; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+        .feature-card { background: #fff; padding: 35px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border-top: 4px solid var(--primary); }
+        .feature-card h3 { font-family: 'Fraunces', serif; font-size: 1.5rem; margin-bottom: 12px; color: var(--dark); }
+        .feature-card p { color: #666; font-size: 0.95rem; line-height: 1.6; }
+
+        /* --- STATS CARD --- */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 80px 8%;
+            background: var(--dark);
+            color: white;
+        }
+        .stat-card { padding: 30px; border-left: 1px solid #333; transition: var(--transition); }
+        .stat-card h3 { font-size: 3.5rem; font-family: 'Fraunces', serif; color: var(--primary); margin-bottom: 10px; }
+        .stat-card p { text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; color: #aaa; }
+
+        /* --- CAMPUS MAP --- */
+        .map-section { padding: 100px 8%; background: var(--light-bg); }
+        .section-header { text-align: center; margin-bottom: 40px; }
+        .section-header h2 { font-family: 'Fraunces', serif; font-size: 3rem; color: var(--dark); }
+        .map-container {
+            width: 100%; height: 500px; background: #eee;
+            border-radius: 8px; overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+        .map-container iframe { width: 100%; height: 100%; border: 0; }
+
+        /* --- LANDMARK SECTION --- */
+        .gallery-section { padding: 80px 8%; background: #fff; text-align: center; }
+        
+        .main-toggle-btn {
+            background: var(--primary);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: var(--transition);
+            box-shadow: 0 10px 25px rgba(163, 31, 52, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .main-toggle-btn:hover {
+            transform: translateY(-3px);
+            background: #8e1b2d;
+        }
+
+        .landmark-container {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+            opacity: 0;
+        }
+
+        .landmark-container.open {
+            max-height: 5000px;
+            opacity: 1;
+            padding-top: 30px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            text-align: left;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .gallery-item {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+            transition: var(--transition);
+        }
+        .gallery-item:hover { transform: translateY(-8px); }
+        .gallery-img-container { aspect-ratio: 4 / 3; overflow: hidden; position: relative; cursor: pointer; background: #e9ecf3; }
+        .gallery-img-container img { width: 100%; height: 100%; object-fit: cover; transition: 1s ease; }
+        .gallery-item:hover .gallery-img-container img { transform: scale(1.05); }
+
+        /* per-photo focus so the important part stays inside the frame */
+        .pos-gate    { object-position: center 60%; }
+        .pos-fountain{ object-position: center 60%; }
+        .pos-sports  { object-position: center 80%; }
+        /* Garden photo is a 2-photo collage: show it whole instead of cropping through the divider */
+        .gallery-img-container.fit-whole { background: #0d1a10; }
+        .gallery-img-container.fit-whole img { object-fit: contain; }
+        .gallery-item:hover .gallery-img-container.fit-whole img { transform: none; }
+        
+        .gallery-nav {
+            padding: 20px 30px;
+            background: var(--dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .gallery-nav h4 { color: #fff; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px; }
+        
+        .explore-btn {
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 8px 16px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 50px;
+            cursor: pointer;
+        }
+        .explore-btn:hover { background: var(--primary); border-color: var(--primary); }
+        .gallery-description { padding: 25px; background: #fff; }
+        .gallery-description p { color: #555; font-size: 0.95rem; line-height: 1.6; }
+
+        /* --- MODAL --- */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 3000;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+        .modal-content { max-width: 85%; max-height: 75%; border-radius: 8px; }
+        .modal-caption { color: #fff; margin-top: 15px; font-family: 'Fraunces', serif; font-size: 1.5rem; text-align: center; }
+        .close-modal { position: absolute; top: 20px; right: 40px; color: #fff; font-size: 2.5rem; cursor: pointer; }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: var(--transition); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        footer { background: #000; color: #777; padding: 40px 8%; text-align: center; font-size: 0.8rem; letter-spacing: 1px; }
+
+        @media (max-width: 992px) {
+            .heritage-grid, .gallery-grid { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 3.5rem; }
+            .flow-bg-layer { grid-template-columns: 1fr; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-content h1 { animation: none; }
+            .reveal { opacity: 1; transform: none; transition: none; }
+            .landmark-container { transition: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="exploreModal" class="modal">
+        <span class="close-modal">×</span>
+        <img class="modal-content" id="modalImg" alt="">
+        <div class="modal-caption" id="modalCaption"></div>
+    </div>
+
+    <nav>
+        <div class="nav-logo" onclick="window.scrollTo(0,0)">About <span>Campus</span></div>
+        <div class="nav-links">
+            <a href="#heritage">History</a>
+            <a href="#features">Highlights</a>
+            <a href="#map">Campus Map</a>
+            <a href="#gallery">Landmarks</a>
+        </div>
+    </nav>
+
+    <header class="hero-flow">
+        <div class="flow-bg-layer" id="parallax-bg">
+            <img src="entrance.jpg" alt="University Main Entrance">
+            <img src="Fountain.jpg" alt="Fountain Plaza">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content reveal">
+            <h4 style="letter-spacing: 5px; text-transform: uppercase; margin-bottom: 15px; font-weight: 400; opacity: 0.9;"></h4>
+            <h1>University of <br>Jammu.</h1>
+        </div>
+    </header>
+
+    <section id="heritage" class="heritage-section">
+        <div class="heritage-grid">
+            <div class="heritage-content reveal">
+                <h2>A Place of <br>Learning.</h2>
+                <div class="heritage-text">
+                    <p>Located near the Tawi river and near the Trikuta hills, Jammu is widely known as the city of temples. Among its key landmarks, the University of Jammu stands out as a center of study and growth.</p>
+                    <p>The University of Jammu holds an <strong>'A++' Grade accreditation</strong> from NAAC. It was established in 1969 to offer higher learning, research, and technical education to students from all backgrounds.</p>
+                    <p>The main goal of the university is to share knowledge, support new research ideas, and help students develop clear thinking and practical skills for the future.</p>
+                </div>
+            </div>
+            
+            <div class="reveal">
+                <div class="heritage-highlight">
+                    <h4>Main Objectives</h4>
+                    <ul>
+                        <li>Provide high quality teaching and support research.</li>
+                        <li>Help students gain practical skill and confidence.</li>
+                        <li>Support regional culture and diversity.</li>
+                        <li>Use simple technology to make learning easier.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features-section">
+        <div class="section-header reveal">
+            <h2>Campus Highlights</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card reveal">
+                <h3>No Vehicle Zone</h3>
+                <p>Selected core areas are reserved only for walking to keep the environment safe, clean, and quiet for students.</p>
+            </div>
+            <div class="feature-card reveal">
+                <h3>Green Campus</h3>
+                <p>Open green lawns, shade trees, and gardens offer a fresh space for daily study and group discussions.</p>
+            </div>
+            <div class="feature-card reveal">
+                <h3>Smart Central Library Access</h3>
+                <p>24/7 digital resource access, e-journals, and quiet study zones with high-speed internet.</p>
+            </div>
+            <div class="feature-card reveal">
+                <h3>Smart Classrooms</h3>
+                <p>Simple modern teaching tools make complex topics easier to explain and understand in class.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-grid">
+        <div class="stat-card reveal">
+            <h3 class="counter" data-target="51">0</h3>
+            <p>NIRF Rank</p>
+        </div>
+        <div class="stat-card reveal">
+            <h3 class="counter" data-target="24000">0</h3>
+            <p>Students</p>
+        </div>
+        <div class="stat-card reveal">
+            <h3 class="counter" data-target="158">0</h3>
+            <p>Faculties</p>
+        </div>
+        <div class="stat-card reveal">
+            <h3 class="counter" data-target="3.72">0</h3>
+            <p>NAAC Score</p>
+        </div>
+    </section>
+
+    <section id="map" class="map-section">
+        <div class="section-header reveal">
+            <h2>Campus Map</h2>
+        </div>
+        <div class="map-container reveal">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3356.556209592473!2d74.86311687545934!3d32.7231023736859!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391e84605963f47d%3A0x6964a2b9a7812903!2sUniversity%20of%20Jammu!5e0!3m2!1sen!2sin!4v1709123456789" title="University of Jammu campus map" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery-section">
+        <div class="section-header reveal">
+            <button class="main-toggle-btn" id="landmarkToggle" onclick="toggleLandmarks()">Explore Landmarks</button>
+        </div>
+        
+        <div class="landmark-container" id="landmarkWrapper">
+            <div class="gallery-grid">
+
+                <div class="gallery-item">
+                    <div class="gallery-img-container" onclick="openExplore(this)">
+                        <img class="pos-gate" src="entrance.jpg" alt="Main Entrance Gate">
+                    </div>
+                    <div class="gallery-nav">
+                        <h4>Main Gate</h4>
+                        <span class="explore-btn" onclick="openExplore(this.parentElement.previousElementSibling)">View</span>
+                    </div>
+                    <div class="gallery-description">
+                        <p>The primary entry point leading into the peaceful learning campus.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-img-container" onclick="openExplore(this)">
+                        <img class="pos-fountain" src="Fountain.jpg" alt="Fountain Plaza Area">
+                    </div>
+                    <div class="gallery-nav">
+                        <h4>Fountain Plaza</h4>
+                        <span class="explore-btn" onclick="openExplore(this.parentElement.previousElementSibling)">View</span>
+                    </div>
+                    <div class="gallery-description">
+                        <p>An open central space used by students to relax and talk between classes.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-img-container" onclick="openExplore(this)">
+                        <img src="Academic complex.jpg" alt="General Zorawar Singh Auditorium">
+                    </div>
+                    <div class="gallery-nav">
+                        <h4>Zorawar Singh Auditorium</h4>
+                        <span class="explore-btn" onclick="openExplore(this.parentElement.previousElementSibling)">View</span>
+                    </div>
+                    <div class="gallery-description">
+                        <p>One of the largest and most famous event venues on campus for cultural programs, conferences, and fests.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-img-container" onclick="openExplore(this)">
+                        <img src="library.jpg" alt="Central Library Building">
+                    </div>
+                    <div class="gallery-nav">
+                        <h4>Dhanvantri Library</h4>
+                        <span class="explore-btn" onclick="openExplore(this.parentElement.previousElementSibling)">View</span>
+                    </div>
+                    <div class="gallery-description">
+                        <p>A quiet central resource center with thousands of books and digital records.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-img-container fit-whole" onclick="openExplore(this)">
+                        <img src="Garden.jpg" alt="Botanical Garden & Herbarium">
+                    </div>
+                    <div class="gallery-nav">
+                        <h4>Botanical Garden</h4>
+                        <span class="explore-btn" onclick="openExplore(this.parentElement.previousElementSibling)">View</span>
+                    </div>
+                    <div class="gallery-description">
+                        <p>A lush green landscape featuring diverse plant species, perfect for nature walks and botany research.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-img-container" onclick="openExplore(this)">
+                        <img class="pos-sports" src="Sports Complex.jpeg" alt="Central Sports Complex">
+                    </div>
+                    <div class="gallery-nav">
+                        <h4>Sports Complex</h4>
+                        <span class="explore-btn" onclick="openExplore(this.parentElement.previousElementSibling)">View</span>
+                    </div>
+                    <div class="gallery-description">
+                        <p>Open grounds, indoor hall, and modern fitness facilities that promote student wellness and sports events.</p>
+                    </div>
+                </div>
+
+                <!--
+                CAMPUS CANTEEN CARD (currently hidden)
+                Steps to show it: put Cafetaria.jpg in the same folder as this file,
+                then delete the opening and closing comment markers around this card.
+
+                <div class="gallery-item">
+                    <div class="gallery-img-container" onclick="openExplore(this)">
+                        <img src="Cafetaria.jpg" alt="University Campus Cafeteria">
+                    </div>
+                    <div class="gallery-nav">
+                        <h4>Campus Canteen</h4>
+                        <span class="explore-btn" onclick="openExplore(this.parentElement.previousElementSibling)">View</span>
+                    </div>
+                    <div class="gallery-description">
+                        <p>Vibrant dining spots providing fresh meals, refreshments, and a lively socializing space for students.</p>
+                    </div>
+                </div>
+                -->
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="reveal">
+            <p style="margin-bottom: 10px;">UNIVERSITY OF JAMMU | NAAC A++ GRADE</p>
+            <p>© 2026. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleLandmarks() {
+            const wrapper = document.getElementById('landmarkWrapper');
+            const btn = document.getElementById('landmarkToggle');
+            wrapper.classList.toggle('open');
+            if (wrapper.classList.contains('open')) {
+                btn.innerText = "Hide Landmarks";
+                setTimeout(() => {
+                    wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 300);
+            } else {
+                btn.innerText = "Explore Landmarks";
+            }
+        }
+
+        const modal = document.getElementById("exploreModal");
+        const modalImg = document.getElementById("modalImg");
+        const modalCaption = document.getElementById("modalCaption");
+
+        function openExplore(container) {
+            const img = container.querySelector('img');
+            modal.style.display = "flex";
+            modalImg.src = img.src;
+            modalCaption.innerText = img.alt;
+            document.body.style.overflow = "hidden";
+        }
+
+        document.querySelector(".close-modal").onclick = function() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        };
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        };
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.style.display === 'flex') {
+                modal.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        });
+
+        window.addEventListener('scroll', () => {
+            const bg = document.getElementById('parallax-bg');
+            const offset = window.pageYOffset;
+            bg.style.transform = `translateY(${offset * 0.3}px)`;
+        });
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        const animateCounter = (el) => {
+            const target = parseFloat(el.getAttribute('data-target'));
+            const duration = 1500;
+            let start = null;
+
+            const step = (timestamp) => {
+                if (!start) start = timestamp;
+                const progress = Math.min((timestamp - start) / duration, 1);
+                const currentVal = progress * target;
+
+                el.innerText = target % 1 === 0 
+                    ? Math.floor(currentVal) 
+                    : currentVal.toFixed(2);
+
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                } else {
+                    el.innerText = target + (target > 100 ? '+' : '');
+                }
+            };
+            window.requestAnimationFrame(step);
+        };
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 1.0 });
+
+        document.querySelectorAll('.counter').forEach(count => counterObserver.observe(count));
+    </script>
+</body>
+</html>

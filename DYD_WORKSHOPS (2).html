@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DYD Program — Workshops</title>
+<meta name="description" content="DYD Program — Comprehensive skill-building workshops empowering students through hands-on, industry-aligned training in digital skills, communication, AI, and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #000080;
+    --navy-mid: #0a0a9a;
+    --navy-lt: #1a1ab5;
+    --sky: #e8f0ff;
+    --bg: #F3FDFE;
+    --gold: #c8a84b;
+    --gold-soft: rgba(200,168,75,0.12);
+    --gold-border: rgba(200,168,75,0.3);
+    --crimson: #8b1a1a;
+    --white: #ffffff;
+    --text: #1a1a2e;
+    --muted: #5a6480;
+    --border: #c5d5f0;
+    --card-bg: rgba(255,255,255,0.72);
+    --card-border: rgba(197,213,240,0.6);
+
+    /* Category accents */
+    --accent-skill: var(--gold);
+    --accent-digital: var(--navy-lt);
+    --accent-comm: var(--crimson);
+    --accent-tech: #6c5ce7;
+    --accent-ai: #00917c;
+    --accent-creative: #d4730e;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* ──────────────── SUBTLE BG PATTERN ──────────────── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(0,0,128,0.03) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(200,168,75,0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ──────────────── NAVBAR ──────────────── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 48px;
+    background: rgba(255,255,255,0.82);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border-bottom: 1px solid var(--border);
+    transition: box-shadow 0.3s;
+  }
+
+  nav.scrolled {
+    box-shadow: 0 4px 32px rgba(0,0,128,0.06);
+  }
+
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-lt) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.25s;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0; right: 0;
+    height: 2px;
+    background: var(--navy);
+    border-radius: 2px;
+    transform: scaleX(0);
+    transition: transform 0.25s cubic-bezier(0.23,1,0.32,1);
+    transform-origin: center;
+  }
+
+  .nav-links a:hover { color: var(--navy); }
+  .nav-links a:hover::after { transform: scaleX(1); }
+
+  /* ──────────────── HERO ──────────────── */
+  .hero {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 48px 80px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    background: linear-gradient(170deg, var(--white) 0%, var(--sky) 40%, var(--bg) 100%);
+  }
+
+  .hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+  }
+
+  .orb-1 {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(0,0,128,0.10) 0%, transparent 70%);
+    top: -150px; left: -200px;
+    animation: drift1 12s ease-in-out infinite alternate;
+  }
+
+  .orb-2 {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(200,168,75,0.10) 0%, transparent 70%);
+    bottom: -100px; right: -150px;
+    animation: drift2 15s ease-in-out infinite alternate;
+  }
+
+  .orb-3 {
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(139,26,26,0.06) 0%, transparent 70%);
+    top: 40%; left: 60%;
+    animation: drift3 10s ease-in-out infinite alternate;
+  }
+
+  @keyframes drift1 { to { transform: translate(80px, 60px); } }
+  @keyframes drift2 { to { transform: translate(-60px, -80px); } }
+  @keyframes drift3 { to { transform: translate(-40px, 40px); } }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--gold-soft);
+    border: 1px solid var(--gold-border);
+    border-radius: 100px;
+    padding: 6px 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .badge-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    animation: pulse-dot 1.5s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+  }
+
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+    animation: fadeUp 0.8s 0.1s ease both;
+    color: var(--text);
+  }
+
+  @keyframes shimmerText {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .hero h1 .line-gold {
+    background: linear-gradient(135deg, var(--gold) 0%, #f3e8c8 30%, var(--gold) 70%, #ddb94f 100%);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmerText 8s ease-in-out infinite;
+  }
+
+  .hero h1 .line-cyan {
+    background: linear-gradient(135deg, var(--navy) 0%, #4a4ae5 30%, var(--navy-lt) 70%, var(--navy) 100%);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmerText 10s ease-in-out infinite reverse;
+  }
+
+  .hero-sub {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--muted);
+    max-width: 600px;
+    margin: 0 auto 48px;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    animation: fadeUp 1s 0.8s ease both;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--navy), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ──────────────── SECTION SHELL ──────────────── */
+  section { padding: 100px 48px; position: relative; z-index: 1; }
+  .container { max-width: 1200px; margin: 0 auto; }
+
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--navy-lt);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--navy-lt);
+    border-radius: 1px;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    color: var(--navy);
+  }
+
+  .section-desc {
+    color: var(--muted);
+    font-size: 1rem;
+    max-width: 560px;
+    margin-bottom: 64px;
+    line-height: 1.7;
+  }
+
+  /* ──────────────── FILTER TABS ──────────────── */
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 52px;
+  }
+
+  .filter-btn {
+    padding: 8px 20px;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    background: var(--white);
+    color: var(--muted);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.23,1,0.32,1);
+    letter-spacing: 0.02em;
+  }
+
+  .filter-btn:hover {
+    border-color: var(--navy);
+    color: var(--navy);
+    background: var(--sky);
+    transform: translateY(-1px);
+  }
+
+  .filter-btn.active {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: var(--white);
+    font-weight: 600;
+    box-shadow: 0 4px 16px rgba(0,0,128,0.20);
+  }
+
+  /* ──────────────── WORKSHOP GRID ──────────────── */
+  .workshop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
+    perspective: 1200px;
+  }
+
+  .workshop-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.4s, box-shadow 0.4s, background 0.4s, transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transform-style: preserve-3d;
+    will-change: transform, box-shadow;
+    opacity: 0; /* Start hidden for stagger reveal */
+  }
+
+  .card-glare {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.8), transparent 60%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s;
+    z-index: 10;
+    mix-blend-mode: overlay;
+  }
+
+  /* Top accent bar on cards */
+  .workshop-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 24px; right: 24px;
+    height: 3px;
+    border-radius: 0 0 3px 3px;
+    opacity: 0;
+    transition: opacity 0.35s, left 0.35s, right 0.35s;
+    z-index: 11;
+  }
+
+  .workshop-card:hover {
+    border-color: rgba(0,0,128,0.15);
+    box-shadow:
+      0 12px 32px rgba(0,0,128,0.08),
+      0 24px 60px rgba(0,0,128,0.05);
+    background: rgba(255,255,255,0.96);
+  }
+
+  .workshop-card:hover::before {
+    opacity: 1;
+    left: 0;
+    right: 0;
+  }
+
+  /* Category accent bar colors */
+  .card-skill::before  { background: linear-gradient(90deg, var(--gold), #ddb94f); }
+  .card-digital::before { background: linear-gradient(90deg, var(--navy), var(--navy-lt)); }
+  .card-comm::before   { background: linear-gradient(90deg, var(--crimson), #b22b2b); }
+  .card-tech::before   { background: linear-gradient(90deg, #6c5ce7, #8b7cf7); }
+  .card-ai::before     { background: linear-gradient(90deg, #00917c, #00b894); }
+  .card-creative::before { background: linear-gradient(90deg, #d4730e, #f39c12); }
+
+  .card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .card-icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    transition: transform 0.3s cubic-bezier(0.23,1,0.32,1);
+  }
+
+  .workshop-card:hover .card-icon {
+    transform: scale(1.08);
+  }
+
+  .icon-skill    { background: rgba(200,168,75,0.12); }
+  .icon-digital  { background: rgba(0,0,128,0.08); }
+  .icon-comm     { background: rgba(139,26,26,0.08); }
+  .icon-tech     { background: rgba(108,92,231,0.08); }
+  .icon-ai       { background: rgba(0,145,124,0.08); }
+  .icon-creative { background: rgba(212,115,14,0.08); }
+
+  .card-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-weight: 700;
+  }
+
+  .tag-skill   { background: rgba(200,168,75,0.10); color: var(--gold); border: 1px solid rgba(200,168,75,0.25); }
+  .tag-digital { background: rgba(0,0,128,0.06); color: var(--navy); border: 1px solid rgba(0,0,128,0.15); }
+  .tag-comm    { background: rgba(139,26,26,0.06); color: var(--crimson); border: 1px solid rgba(139,26,26,0.15); }
+  .tag-tech    { background: rgba(108,92,231,0.06); color: #6c5ce7; border: 1px solid rgba(108,92,231,0.15); }
+  .tag-ai      { background: rgba(0,145,124,0.06); color: #00917c; border: 1px solid rgba(0,145,124,0.15); }
+  .tag-creative { background: rgba(212,115,14,0.06); color: #d4730e; border: 1px solid rgba(212,115,14,0.15); }
+
+  .card-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+
+  .card-topic {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-bottom: 20px;
+  }
+
+  .card-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+
+  .skill-chip {
+    font-size: 0.7rem;
+    padding: 4px 12px;
+    border-radius: 100px;
+    background: var(--sky);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+
+  .workshop-card:hover .skill-chip {
+    border-color: rgba(0,0,128,0.12);
+  }
+
+  .card-expand-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: inherit;
+    transition: gap 0.2s, color 0.2s;
+  }
+
+  .card-skill   .card-expand-btn { color: var(--gold); }
+  .card-digital .card-expand-btn { color: var(--navy); }
+  .card-comm    .card-expand-btn { color: var(--crimson); }
+  .card-tech    .card-expand-btn { color: #6c5ce7; }
+  .card-ai      .card-expand-btn { color: #00917c; }
+  .card-creative .card-expand-btn { color: #d4730e; }
+
+  .card-expand-btn:hover { gap: 10px; }
+
+  .card-expanded {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .card-expanded.open { max-height: 400px; }
+
+  .card-expanded-inner {
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    margin-top: 20px;
+  }
+
+  .expand-section-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+    margin-top: 14px;
+  }
+
+  .expand-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .expand-list li {
+    font-size: 0.82rem;
+    color: var(--text);
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .expand-list li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--navy-lt);
+    font-weight: 700;
+  }
+
+  /* duration badge */
+  .duration-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.72rem;
+    color: var(--muted);
+    margin-top: 14px;
+  }
+
+  /* ──────────────── FOOTER ──────────────── */
+  footer {
+    padding: 60px 48px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    background: linear-gradient(180deg, var(--bg) 0%, var(--sky) 100%);
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--navy), var(--navy-lt));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+  }
+
+  .footer-sub {
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+
+  /* ──────────────── DIVIDER ──────────────── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border) 30%, var(--border) 70%, transparent);
+    margin: 0 48px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ──────────────── RESPONSIVE ──────────────── */
+  @media (max-width: 768px) {
+    nav { padding: 14px 24px; }
+    .nav-links { display: none; }
+    section { padding: 80px 24px; }
+    .hero { padding: 100px 24px 60px; }
+    .divider { margin: 0 24px; }
+    footer { padding: 48px 24px; }
+    .workshop-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ──────────────── SCROLL REVEAL ──────────────── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.23,1,0.32,1);
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ──────────────── STAGGER ANIMATION ──────────────── */
+  .workshop-card {
+    opacity: 0;
+    transform: translateY(24px);
+    animation: cardReveal 0.5s ease both;
+  }
+
+  .workshop-card:nth-child(1) { animation-delay: 0.05s; }
+  .workshop-card:nth-child(2) { animation-delay: 0.10s; }
+  .workshop-card:nth-child(3) { animation-delay: 0.15s; }
+  .workshop-card:nth-child(4) { animation-delay: 0.20s; }
+  .workshop-card:nth-child(5) { animation-delay: 0.25s; }
+  .workshop-card:nth-child(6) { animation-delay: 0.30s; }
+  .workshop-card:nth-child(7) { animation-delay: 0.35s; }
+  .workshop-card:nth-child(8) { animation-delay: 0.40s; }
+  .workshop-card:nth-child(9) { animation-delay: 0.45s; }
+  .workshop-card:nth-child(10) { animation-delay: 0.50s; }
+  .workshop-card:nth-child(11) { animation-delay: 0.55s; }
+  .workshop-card:nth-child(12) { animation-delay: 0.60s; }
+  .workshop-card:nth-child(13) { animation-delay: 0.65s; }
+  .workshop-card:nth-child(14) { animation-delay: 0.70s; }
+  .workshop-card:nth-child(15) { animation-delay: 0.75s; }
+  .workshop-card:nth-child(16) { animation-delay: 0.80s; }
+  .workshop-card:nth-child(17) { animation-delay: 0.85s; }
+
+  @keyframes cardReveal {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-logo">DYD Program</div>
+  <ul class="nav-links">
+    <li><a href="#workshops">Workshops</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-orb orb-1"></div>
+  <div class="hero-orb orb-2"></div>
+  <div class="hero-orb orb-3"></div>
+
+  <div class="hero-badge"><div class="badge-dot"></div>Skill Development · 2024–2026</div>
+
+  <h1>
+    <div class="line-gold">Dream.</div>
+    <div class="line-cyan">Develop.</div>
+    <div>Deliver.</div>
+  </h1>
+
+  <p class="hero-sub">A comprehensive skill-building platform empowering students to shape tomorrow through hands-on, industry-aligned workshops.</p>
+
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    Scroll to explore
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WORKSHOPS -->
+<section id="workshops">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Skill Development</div>
+      <h2 class="section-title">All Workshops</h2>
+      <p class="section-desc">Hands-on, industry-aligned workshops spanning digital skills, communication, AI, hardware, and creative arts.</p>
+    </div>
+
+    <div class="filter-bar reveal">
+      <button class="filter-btn active" data-filter="all">All Workshops</button>
+      <button class="filter-btn" data-filter="digital">💻 Digital & AI</button>
+      <button class="filter-btn" data-filter="comm">🗣️ Communication</button>
+      <button class="filter-btn" data-filter="tech">🔧 Technical</button>
+      <button class="filter-btn" data-filter="skill">📱 Media & Content</button>
+      <button class="filter-btn" data-filter="creative">🎨 Creative</button>
+    </div>
+
+    <div class="workshop-grid" id="workshopGrid">
+
+      <!-- CARD 1 -->
+      <div class="workshop-card card-skill" data-cat="skill">
+        <div class="card-top">
+          <div class="card-icon icon-skill">💻</div>
+          <span class="card-tag tag-skill">Media & Content</span>
+        </div>
+        <h3 class="card-title">Easy Office Skills & AI Help</h3>
+        <p class="card-topic">Master MS Word, Excel, and PowerPoint basics — accelerated by AI tools for faster, smarter output.</p>
+        <div class="card-skills">
+          <span class="skill-chip">MS Word</span>
+          <span class="skill-chip">Excel</span>
+          <span class="skill-chip">PowerPoint</span>
+          <span class="skill-chip">Generative AI</span>
+        </div>
+        <button class="card-expand-btn" onclick="toggleCard(this)">Learn more →</button>
+        <div class="card-expanded">
+          <div class="card-expanded-inner">
+            <div class="expand-section-title">What You'll Learn</div>
+            <ul class="expand-list">
+              <li>Simple steps to use Word, Excel, and PowerPoint effectively</li>
+              <li>How AI tools assist with writing, calculating, and designing</li>
+              <li>Smart data presentation and task automation techniques</li>
+              <li>AI-driven productivity for academic and professional use</li>
+            </ul>
+            <div class="duration-badge">⏱ 5-Day Hands-on Workshop</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="workshop-card card-skill" data-cat="skill">
+        <div class="card-top">
+          <div class="card-icon icon-skill">🎙️</div>
+          <span class="card-tag tag-skill">Media & Content</span>
+        </div>
+        <h3 class="card-title">Podcasting Fundamentals</h3>
+        <p class="card-topic">From concept to broadcast — learn the art of podcasting, scripting, and confident delivery.</p>
+        <div class="card-skills">
+          <span class="skill-chip">Scripting</span>
+          <span class="skill-chip">Audio Setup</span>
+          <span class="skill-chip">Public Speaking</span>
+          <span class="skill-chip">Content Strategy</span>
+        </div>
+        <button class="card-expand-btn" onclick="toggleCard(this)">Learn more →</button>
+        <div class="card-expanded">
+          <div class="card-expanded-inner">
+            <div class="expand-section-title">What You'll Learn</div>
+            <ul class="expand-list">
+              <li>Concept of podcasting and the full production process</li>
+              <li>Why a clear main idea or theme is essential for success</li>
+              <li>Importance of a good script and confident vocal delivery</li>
+              <li>Equipment required and step-by-step creation workflow</li>
+              <li>How to publish and share your podcast with an audience</li>
+            </ul>
+            <div class="duration-badge">⏱ Intensive Workshop Format</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="workshop-card card-skill" data-cat="skill">
+        <div class="card-top">
+          <div class="card-icon icon-skill">🎬</div>
+          <span class="card-tag tag-skill">Media & Content</span>
+        </div>
+        <h3 class="card-title">Vlogging Basics</h3>
+        <p class="card-topic">Create engaging video content that tells your story and connects with a real audience online.</p>
+        <div class="card-skills">
+          <span class="skill-chip">Video Production</span>
+          <span class="skill-chip">Storytelling</span>
+          <span class="skill-chip">Editing Basics</span>
+          <span class="skill-chip">Audience Growth</span>
+        </div>
+        <button class="card-expand-btn" onclick="toggleCard(this)">Learn more →</button>
+        <div class="card-expanded">
+          <div class="card-expanded-inner">
+            <div class="expand-section-title">What You'll Learn</div>
+            <ul class="expand-list">
+              <li>What vlogging means and why it's a powerful medium today</li>
+              <li>Key steps to planning and launching your own vlog channel</li>
+              <li>Tips to make vlogs interesting and emotionally engaging</li>
+              <li>How to build and connect with a growing viewer community</li>
+            </ul>
+            <div class="duration-badge">⏱ Hands-on Workshop</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="workshop-card card-digital" data-cat="digital">
+        <div class="card-top">
+          <div class="card-icon icon-digital">🐍</div>
+          <span class="card-tag tag-digital">Digital & AI</span>
+        </div>
+        <h3 class="card-title">Python Programming — Foundations</h3>
+        <p class="card-topic">Build logic, solve problems, and create programs from scratch with Python's beginner-friendly syntax.</p>
+        <div class="card-skills">
+          <span class="skill-chip">Variables & Loops</span>
+          <span class="skill-chip">Functions</span>
+          <span class="skill-chip">Problem Solving</span>
+          <span class="skill-chip">Code Creation</span>
+        </div>
+        <button class="card-expand-btn" onclick="toggleCard(this)">Learn more →</button>
+        <div class="card-expanded">
+          <div class="card-expanded-inner">
+            <div class="expand-section-title">Skills Developed</div>
+            <ul class="expand-list">
+              <li>Programming fundamentals and logic building</li>
+              <li>Problem-solving with algorithmic thinking</li>
+              <li>Writing and debugging real Python code</li>
+            </ul>
+            <div class="duration-badge">⏱ 7-Day Hands-on Workshop</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 5 -->
+      <div class="workshop-card card-digital" data-cat="digital">
+        <div class="card-top">
+          <div class="card-icon icon-digital">⚡</div>
+          <span class="card-tag tag-digital">Digital & AI</span>
+        </div>
+        <h3 class="card-title">Python Programming — Advanced</h3>
+        <p class="card-topic">Level up with structured problem-solving, application-based programming, and real-world automation.</p>
+        <div class="card-skills">
+          <span class="skill-chip">Automation</span>
+          <span class="skill-chip">Data Structures</span>
+          <span class="skill-chip">APIs</span>
+          <span class="skill-chip">Real-world Apps</span>
+        </div>
+        <button class="card-expand-btn" onclick="toggleCard(this)">Learn more →</button>
+        <div class="card-expanded">
+          <div class="card-expanded-inner">
+            <div class="expand-section-title">Skills Developed</div>
+            <ul class="expand-list">
+              <li>Structured, scalable problem-solving techniques</li>
+              <li>Application-based, project-driven programming</li>
+              <li>Real-world task automation and integration</li>
+            </ul>
+            <div class="duration-badge">⏱ 5-Day Advanced Workshop</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 6 -->
+      <div class="workshop-card card-digital" data-cat="digital">
+        <div class="card-top">
+          <div class="card-icon icon-digital">🧠</div>
+          <span class="card-tag tag-digital">Digital & AI</span>
+        </div>
+        <h3 class="card-title">Neurotech & AI Innovation</h3>
+        <p class="card-topic">Explore the intersection of neuroscience and artificial intelligence — the frontier of intelligent systems.</p>
+        <div class="card-skills">
+          <span class="skill-chip">Neuroscience</span>
+          <span class="skill-chip">AI Systems</span>
+          <span class="skill-chip">Brain-Computer Interface</span>
+          <span class="skill-chip">Future Tech</span>
+        </div>
+        <button class="card-expand-btn" onclick="toggleCard(this)">Learn more →</button>
+        <div class="card-expanded">
+          <div class="card-expanded-inner">
+            <div class="expand-section-title">Focus Areas</div>
+            <ul class="expand-list">
+              <li>Foundations of neuroscience and brain function</li>
+              <li>AI-brain integration and BCI technologies</li>
+              <li>Intelligent systems design and futuristic applications</li>
+            </ul>
+            <div class="duration-badge">⏱ 5-Day Specialized Workshop</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 7 -->
+      <div class="workshop-card card-comm" data-cat="comm">
+        <div class="card-top">
+          <div class="card-icon icon-comm">🎤</div>
+          <span class="card-tag tag-comm">Communication</span>
+        </div>
+        <h3 class="card-title">Communication Skills</h3>
+        <p class="card-topic">Build public speaking confidence, clarity, and the interpersonal power to lead any conversation.</p>
+        <div class="card-skills">
+          <span class="skill-chip">Public Speaking</span>
+          <span class="skill-chip">Articulation</span>
+          <span class="skill-chip">Clarity</span>
+          <span class="skill-chip">Interpersonal Skills</span>
+        </div>
+        <button class="card-expand-btn" onclick="toggleCard(this)">Learn more →</button>
+        <div class="card-expanded">
+          <div class="card-expanded-inner">
+            <div class="expand-section-title">Skills Developed</div>
+            <ul class="expand-list">
+              <li>Speaking with confidence in front of audiences</li>
+              <li>Clarity of thought and precise articulation</li>
+              <li>Interpersonal and professional communication</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 8 -->
+      <div class="workshop-card card-comm" data-cat="comm">
+        <div class="card-top">
+          <div class="card-icon icon-comm">📖</div>
+          <span class="card-tag tag-comm">Communication</span>
+        </div>
+        <h3 class="card-title">The Art of Storytelling</h3>
+        <p class="card-topic">Structure narratives that move people — master emotional engagement through impactful communication.</p>
+        <div class="card-skills">
+          <span class="skill-chip">Narrative Design</span>
+          <span class="skill-chip">Emotional Resonance</span>
+          <span class="skill-chip">Audience Engagement</span>
+        </div>
+        <button class="card-expand-btn" onclick="toggleCard(this)">Learn more →</button>
+        <div class="card-expanded">
+          <div class="card-expanded-inner">
+            <div class="expand-section-title">Skills Developed</div>
+            <ul class="expand-list">
+              <li>Building compelling narrative arcs and story structures</li>
+              <li>Communicating with emotional depth and impact</li>
+              <li>Engaging diverse audiences through stories</li>
+            </ul>
+            <div class="duration-badge">⏱ 5-Day Intensive Workshop</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 9 -->
+      <div class="workshop-card card-comm" data-cat="comm">
+        <div class="card-top">
+          <div class="card-icon icon-comm">🏨</div>
+          <span class="card-tag tag-comm">Communication</span>
+        </div>
+        <h3 class="card-title">Communication & Leadership — Residential</h3>
+        <p class="card-topic">An immersive 3-day residential experience at Vivanta by Taj — professional communication meets elite leadership.</p>
+        <div class="card-skills">
+          <span class="skill-chip">Elevator Pitching</span>
+          <span class="skill-chip">Digital Presence</span>
+          <span class="skill-chip">Leadership</span>
+          <span class="skill-chip">Teamwork</span>
+        </div>
+        <button class="card-expand-btn" onclick="toggleCard(this)">Learn more →</button>
+        <div class="card-expanded">
+          <div class="card-expanded-inner">
+            <div class="expand-section-title">Skills Developed</div>
+            <ul class="expand-list">
+              <li>Professional communication and pitch perfection</li>
+              <li>High Performance Equation framework</li>
+              <li>Digital presence and personal branding</li>
+              <li>Collaborative teamwork under pressure</li>
+            </ul>
+            <div class="duration-badge">⏱ 3-Day Residential Program · Vivanta by Taj</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 10 -->
+      <div class="workshop-card card-tech" data-cat="tech">
+        <div class="card-top">
+          <div class="card-icon icon-tech">🔧</div>
+          <span class="card-tag tag-tech">Technical</span>
+        </div>
+        <h3 class="card-title">Soldering, De-Soldering & CPU Components</h3>
+        <p class="card-topic">Get hands-on with real hardware — assemble circuits, identify CPU components, and understand device repair.</p>
+        <div class="card-skills">
+          <span class="skill-chip">Hardware Assembly</span>
+          <span class="skill-chip">Circuit Understanding</span>
+          <span class="skill-chip">Component ID</span>
+          <span class="skill-chip">Device Repair</span>
+        </div>
+        <button class="card-expand-btn" onclick="toggleCard(this)">Learn more →</button>
+        <div class="card-expanded">
+          <div class="card-expanded-inner">
+            <div class="expand-section-title">Skills Developed</div>
+            <ul class="expand-list">
+              <li>Safe and precise soldering and de-soldering techniques</li>
+              <li>CPU and motherboard component identification</li>
+              <li>Basic device repair and troubleshooting skills</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 11 -->
+      <div class="workshop-card card-tech" data-cat="tech">
+        <div class="card-top">
+          <div class="card-icon icon-tech">⚙️</div>
+          <span class="card-tag tag-tech">Technical</span>
+        </div>
+        <h3 class="card-title">Basic Electronics Familiarization</h3>
+        <p class="card-topic">A 2-day deep dive into circuits, components, and the building blocks of all electronic devices.</p>
+        <div class="card-skills">
+          <span class="skill-chip">Circuit Theory</span>
+          <span class="skill-chip">Component Identification</span>
+          <span class="skill-chip">Hands-on Hardware</span>
+        </div>
+        <button class="card-expand-btn" onclick="toggleCard(this)">Learn more →</button>
+        <div class="card-expanded">
+          <div class="card-expanded-inner">
+            <div class="expand-section-title">Skills Developed</div>
+            <ul class="expand-list">
+              <li>Understanding circuit design and flow</li>
+              <li>Identifying and testing electronic components</li>
+              <li>Hands-on interaction with real hardware setups</li>
+            </ul>
+            <div class="duration-badge">⏱ 2-Day Workshop</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 12 -->
+      <div class="workshop-card card-tech" data-cat="tech">
+        <div class="card-top">
+          <div class="card-icon icon-tech">🖨️</div>
+          <span class="card-tag tag-tech">Technical</span>
+        </div>
+        <h3 class="card-title">Additive Manufacturing & 3D Printing</h3>
+        <p class="card-topic">From digital model to physical prototype — explore the future of manufacturing with Mekuva Technologies.</p>
+        <div class="card-skills">
+          <span class="skill-chip">3D Printing</span>
+          <span class="skill-chip">Design Thinking</span>
+          <span class="skill-chip">Prototyping</span>
+          <span class="skill-chip">Industrial Apps</span>
+        </div>
+        <button class="card-expand-btn" onclick="toggleCard(this)">Learn more →</button>
+        <div class="card-expanded">
+          <div class="card-expanded-inner">
+            <div class="expand-section-title">Skills Developed</div>
+            <ul class="expand-list">
+              <li>Understanding of FDM and SLA printing processes</li>
+              <li>Industrial applications of additive manufacturing</li>
+              <li>High-precision rapid prototyping techniques</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 13 -->
+      <div class="workshop-card card-tech" data-cat="tech">
+        <div class="card-top">
+          <div class="card-icon icon-tech">🛡️</div>
+          <span class="card-tag tag-tech">Technical</span>
+        </div>
+        <h3 class="card-title">Cyber Crime Training & Prevention</h3>
+        <p class="card-topic">Identify digital threats, understand cyber laws, and master preventative security in the modern age.</p>
+        <div class="card-skills">
+          <span class="skill-chip">Cyber Laws</span>
+          <span class="skill-chip">Threat Detection</span>
+          <span class="skill-chip">Security Measures</span>
+          <span class="skill-chip">Digital Safety</span>
+        </div>
+        <button class="card-expand-btn" onclick="toggleCard(this)">Learn more →</button>
+        <div class="card-expanded">
+          <div class="card-expanded-inner">
+            <div class="expand-section-title">Skills Developed</div>
+            <ul class="expand-list">
+              <li>Identifying digital threats and social engineering tactics</li>
+              <li>Understanding the Indian cyber law framework</li>
+              <li>Implementing personal and organizational security measures</li>
+            </ul>
+            <div class="duration-badge">⏱ IIPA Certified Program</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 14 -->
+      <div class="workshop-card card-tech" data-cat="tech">
+        <div class="card-top">
+          <div class="card-icon icon-tech">💰</div>
+          <span class="card-tag tag-tech">Technical</span>
+        </div>
+        <h3 class="card-title">GST & Taxation for Business</h3>
+        <p class="card-topic">Navigate the financial and legal landscape — from GST mechanics to business accounting essentials.</p>
+        <div class="card-skills">
+          <span class="skill-chip">GST Mechanics</span>
+          <span class="skill-chip">Tax Compliance</span>
+          <span class="skill-chip">Business Accounting</span>
+        </div>
+        <button class="card-expand-btn" onclick="toggleCard(this)">Learn more →</button>
+        <div class="card-expanded">
+          <div class="card-expanded-inner">
+            <div class="expand-section-title">Skills Developed</div>
+            <ul class="expand-list">
+              <li>Understanding GST structure and filing procedures</li>
+              <li>Financial compliance for startups and businesses</li>
+              <li>Business accounting and taxation fundamentals</li>
+            </ul>
+            <div class="duration-badge">⏱ SIIEDC + Ayaan Edu Skills</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 15 -->
+      <div class="workshop-card card-creative" data-cat="creative">
+        <div class="card-top">
+          <div class="card-icon icon-creative">🌿</div>
+          <span class="card-tag tag-creative">Creative</span>
+        </div>
+        <h3 class="card-title">The Art of Living — YES+ Programme</h3>
+        <p class="card-topic">Unlock mental well-being, stress management, and inner strength for a high-performing life.</p>
+        <div class="card-skills">
+          <span class="skill-chip">Stress Management</span>
+          <span class="skill-chip">Self-Awareness</span>
+          <span class="skill-chip">Positivity</span>
+          <span class="skill-chip">Inner Strength</span>
+        </div>
+        <button class="card-expand-btn" onclick="toggleCard(this)">Learn more →</button>
+        <div class="card-expanded">
+          <div class="card-expanded-inner">
+            <div class="expand-section-title">Skills Developed</div>
+            <ul class="expand-list">
+              <li>Mental well-being and emotional regulation techniques</li>
+              <li>Stress and anxiety management in academic settings</li>
+              <li>Cultivating positivity and self-awareness</li>
+              <li>Building deep inner resilience and strength</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 16 -->
+      <div class="workshop-card card-creative" data-cat="creative">
+        <div class="card-top">
+          <div class="card-icon icon-creative">📷</div>
+          <span class="card-tag tag-creative">Creative</span>
+        </div>
+        <h3 class="card-title">Wildlife & Astro Photography</h3>
+        <p class="card-topic">Capture nature and the cosmos — a technical photography workshop with Canon India.</p>
+        <div class="card-skills">
+          <span class="skill-chip">Camera Techniques</span>
+          <span class="skill-chip">Wildlife Photography</span>
+          <span class="skill-chip">Astrophotography</span>
+          <span class="skill-chip">Natural Science</span>
+        </div>
+        <button class="card-expand-btn" onclick="toggleCard(this)">Learn more →</button>
+        <div class="card-expanded">
+          <div class="card-expanded-inner">
+            <div class="expand-section-title">Skills Developed</div>
+            <ul class="expand-list">
+              <li>Advanced Canon camera settings and techniques</li>
+              <li>Wildlife photography fieldwork and ethics</li>
+              <li>Astrophotography and night sky capture methods</li>
+            </ul>
+            <div class="duration-badge">⏱ Canon India — PROTSAAHAN Festival</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 17 -->
+      <div class="workshop-card card-digital" data-cat="digital">
+        <div class="card-top">
+          <div class="card-icon icon-digital">👁️</div>
+          <span class="card-tag tag-digital">Digital & AI</span>
+        </div>
+        <h3 class="card-title">Eye Tracking at IIT Jammu</h3>
+        <p class="card-topic">Explore human attention analysis, AI-UX applications, and cutting-edge research in cognitive science.</p>
+        <div class="card-skills">
+          <span class="skill-chip">Eye Tracking</span>
+          <span class="skill-chip">Attention Analysis</span>
+          <span class="skill-chip">AI-UX</span>
+          <span class="skill-chip">Cognitive Research</span>
+        </div>
+        <button class="card-expand-btn" onclick="toggleCard(this)">Learn more →</button>
+        <div class="card-expanded">
+          <div class="card-expanded-inner">
+            <div class="expand-section-title">Focus Areas</div>
+            <ul class="expand-list">
+              <li>Human attention patterns and gaze tracking technology</li>
+              <li>Applications in AI-driven UX and design research</li>
+              <li>Research-driven innovation at IIT Jammu labs</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end workshop-grid -->
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">DYD Program</div>
+  <p class="footer-sub">Dream. Develop. Deliver. &nbsp;·&nbsp; Empowering student innovators across Jammu & Kashmir</p>
+</footer>
+
+<script>
+  // ── NAV SCROLL EFFECT ──
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // ── 3D CARD INTERACTION ──
+  document.querySelectorAll('.workshop-card').forEach(card => {
+    const glare = document.createElement('div');
+    glare.classList.add('card-glare');
+    card.appendChild(glare);
+
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left; 
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      // Calculate rotation (inverted for natural tilt feel)
+      const rotateX = ((y - centerY) / centerY) * -4; 
+      const rotateY = ((x - centerX) / centerX) * 4;
+      
+      card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+      glare.style.opacity = '1';
+      glare.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.7), transparent 60%)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = `perspective(1200px) rotateX(0deg) rotateY(0deg) translateY(0px)`;
+      glare.style.opacity = '0';
+    });
+  });
+
+  // ── STAGGERED FILTER ──
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      
+      let delay = 0;
+      document.querySelectorAll('.workshop-card').forEach(card => {
+        // Reset transforms
+        card.style.transform = '';
+        
+        if (filter === 'all' || card.dataset.cat === filter) {
+          card.style.display = '';
+          // Reset animation trick
+          card.style.animation = 'none';
+          card.offsetHeight; // trigger reflow
+          card.style.animation = `fadeUp 0.6s cubic-bezier(0.23, 1, 0.32, 1) ${delay}s both`;
+          delay += 0.05; // Stagger effect
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // ── EXPAND / COLLAPSE ──
+  function toggleCard(btn) {
+    const expanded = btn.nextElementSibling;
+    const isOpen = expanded.classList.contains('open');
+    
+    // close all
+    document.querySelectorAll('.card-expanded').forEach(el => el.classList.remove('open'));
+    document.querySelectorAll('.card-expand-btn').forEach(b => b.textContent = 'Learn more →');
+    
+    if (!isOpen) {
+      expanded.classList.add('open');
+      btn.textContent = 'Show less ↑';
+    }
+    
+    // Lock tilt while interacting
+    const card = btn.closest('.workshop-card');
+    if(card) {
+      card.style.transform = `perspective(1200px) rotateX(0deg) rotateY(0deg) translateY(-8px)`;
+    }
+  }
+
+  // ── STAGGERED SCROLL REVEAL ──
+  const revealElements = document.querySelectorAll('.reveal, .workshop-card');
+  const revealObserver = new IntersectionObserver((entries) => {
+    let delay = 0;
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        if(!entry.target.classList.contains('visible') && !entry.target.style.animation) {
+           entry.target.style.animation = `fadeUp 0.8s cubic-bezier(0.23, 1, 0.32, 1) ${delay}s both`;
+           entry.target.classList.add('visible');
+           delay += 0.1;
+        }
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px -50px 0px' });
+
+  revealElements.forEach(el => revealObserver.observe(el));
+</script>
+</body>
+</html>

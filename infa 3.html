@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Infrastructure - University of Jammu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-sky: #0284c7;
+            --light-sky: #38bdf8;
+            --soft-cyan: #e0f2fe;
+            --card-glass: rgba(255, 255, 255, 0.75);
+            --card-border: rgba(56, 189, 248, 0.3);
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        /* --- MOVING SKY BLUE GRADIENT BACKGROUND --- */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            padding: 60px 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: linear-gradient(-45deg, #e0f2fe, #bae6fd, #f0f9ff, #7dd3fc);
+            background-size: 400% 400%;
+            animation: gradientMove 12s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- SECTION CONTAINER --- */
+        .infra-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 4%;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .section-header h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 3.5rem;
+            letter-spacing: -1px;
+            color: #0369a1;
+            text-shadow: 0 4px 15px rgba(56, 189, 248, 0.2);
+        }
+
+        /* --- GLOWING SKY BADGE --- */
+        .badge-wrapper {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .infra-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.85);
+            color: #0284c7;
+            border: 1px solid var(--card-border);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 8px 20px rgba(56, 189, 248, 0.25);
+            backdrop-filter: blur(10px);
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #0284c7;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #0284c7;
+            animation: pulse-sky 1.8s infinite;
+        }
+
+        @keyframes pulse-sky {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(2, 132, 199, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 12px rgba(2, 132, 199, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(2, 132, 199, 0); }
+        }
+
+        /* --- SPECS LIGHT GLASS CONTAINER --- */
+        .infra-specs {
+            background: var(--card-glass);
+            padding: 45px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(14, 165, 233, 0.12);
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(16px);
+            margin-bottom: 60px;
+        }
+
+        .infra-specs h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.8rem;
+            color: #0369a1;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .infra-specs h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 60px; height: 3px;
+            background: linear-gradient(90deg, #0284c7, #38bdf8);
+            border-radius: 2px;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            list-style: none;
+        }
+
+        .spec-tile {
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(186, 230, 253, 0.8);
+            padding: 20px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: var(--transition);
+        }
+
+        .spec-tile:hover {
+            background: #ffffff;
+            border-color: #38bdf8;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 25px rgba(56, 189, 248, 0.2);
+        }
+
+        .spec-icon {
+            width: 48px;
+            height: 48px;
+            background: #e0f2fe;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .spec-info label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .spec-info span {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        /* --- GALLERY CONTAINER --- */
+        .infra-gallery-container {
+            background: var(--card-glass);
+            padding: 45px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(14, 165, 233, 0.12);
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(16px);
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .gallery-header h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #0284c7;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .gallery-item {
+            background: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(186, 230, 253, 0.8);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover { 
+            transform: translateY(-8px);
+            border-color: #38bdf8;
+            box-shadow: 0 15px 30px rgba(56, 189, 248, 0.25);
+        }
+
+        .gallery-img-container { 
+            height: 320px; 
+            overflow: hidden; 
+            position: relative; 
+            cursor: pointer; 
+        }
+
+        .gallery-img-container img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: transform 0.8s ease; 
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(2, 132, 199, 0.7), rgba(224, 242, 254, 0.2));
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            backdrop-filter: blur(2px);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-img-container img { 
+            transform: scale(1.08); 
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-nav {
+            padding: 20px 25px;
+            background: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #f0f9ff;
+        }
+
+        .gallery-nav h5 { 
+            color: var(--text-main); 
+            font-size: 0.95rem; 
+            font-weight: 600;
+        }
+
+        .explore-btn {
+            color: #fff;
+            background: linear-gradient(135deg, #0284c7, #38bdf8);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 10px 22px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
+            transition: var(--transition);
+        }
+
+        .explore-btn:hover { 
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(2, 132, 199, 0.6);
+        }
+
+        /* --- LIGHTBOX MODAL --- */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 3000;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(10px);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .modal-content { 
+            max-width: 80%; 
+            max-height: 70vh; 
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            border: 2px solid #38bdf8;
+            object-fit: contain;
+        }
+
+        .modal-caption { 
+            color: #fff; 
+            margin-top: 20px; 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            font-size: 1.4rem; 
+            text-align: center; 
+        }
+
+        .close-modal { 
+            position: absolute; 
+            top: 25px; 
+            right: 35px; 
+            color: #fff; 
+            font-size: 2.5rem; 
+            cursor: pointer;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .close-modal:hover { opacity: 1; color: #38bdf8; }
+
+        .modal-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-nav-btn:hover {
+            background: #0284c7;
+            border-color: #38bdf8;
+        }
+
+        .prev-btn { left: 40px; }
+        .next-btn { right: 40px; }
+
+        /* --- ANIMATIONS --- */
+        .reveal { 
+            opacity: 0; 
+            transform: translateY(30px); 
+            transition: var(--transition); 
+        }
+
+        .reveal.active { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
+
+        @media (max-width: 992px) {
+            .gallery-grid { grid-template-columns: 1fr; }
+            .section-header h2 { font-size: 2.5rem; }
+            .modal-nav-btn { width: 40px; height: 40px; font-size: 1.1rem; }
+            .prev-btn { left: 10px; }
+            .next-btn { right: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LIGHTBOX MODAL WITH CAROUSEL -->
+    <div id="exploreModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <button class="modal-nav-btn prev-btn" onclick="changeImage(-1)">&#10094;</button>
+        <img class="modal-content" id="modalImg" alt="Construction Preview">
+        <button class="modal-nav-btn next-btn" onclick="changeImage(1)">&#10095;</button>
+        <div class="modal-caption" id="modalCaption"></div>
+    </div>
+
+    <!-- UPCOMING INFRASTRUCTURE SECTION -->
+    <section id="infrastructure" class="infra-section">
+        
+        <div class="section-header reveal">
+            <h2>Upcoming Infrastructure</h2>
+        </div>
+
+        <div class="badge-wrapper reveal">
+            <span class="infra-badge">
+                <span class="pulse-dot"></span>
+                Work in Progress
+            </span>
+        </div>
+
+        <!-- SPECS LIGHT GLASS CONTAINER -->
+        <div class="infra-specs reveal">
+            <h3>Building Specifications</h3>
+            <ul class="specs-grid">
+                <li class="spec-tile">
+                    <div class="spec-icon">🏢</div>
+                    <div class="spec-info">
+                        <label>Floors</label>
+                        <span>4 Floors Structure</span>
+                    </div>
+                </li>
+                <li class="spec-tile">
+                    <div class="spec-icon">🔬</div>
+                    <div class="spec-info">
+                        <label>Laboratories</label>
+                        <span>7 Labs + 1 Central Facility</span>
+                    </div>
+                </li>
+                <li class="spec-tile">
+                    <div class="spec-icon">📚</div>
+                    <div class="spec-info">
+                        <label>Classrooms</label>
+                        <span>8 Modern Classrooms</span>
+                    </div>
+                </li>
+                <li class="spec-tile">
+                    <div class="spec-icon">🎤</div>
+                    <div class="spec-info">
+                        <label>Conference</label>
+                        <span>1 Conference Facility</span>
+                    </div>
+                </li>
+                <li class="spec-tile">
+                    <div class="spec-icon">🎯</div>
+                    <div class="spec-info">
+                        <label>Skill Center</label>
+                        <span>Offices of Skills</span>
+                    </div>
+                </li>
+                <li class="spec-tile">
+                    <div class="spec-icon">🚀</div>
+                    <div class="spec-info">
+                        <label>Incubators</label>
+                        <span>Atal Incubation Centers</span>
+                    </div>
+                </li>
+                <li class="spec-tile">
+                    <div class="spec-icon">👨‍🏫</div>
+                    <div class="spec-info">
+                        <label>Faculty Space</label>
+                        <span>Faculty Offices & Rooms</span>
+                    </div>
+                </li>
+                <li class="spec-tile">
+                    <div class="spec-icon">📅</div>
+                    <div class="spec-info">
+                        <label>Target Completion</label>
+                        <span>April 2027</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- CONSTRUCTION GALLERY -->
+        <div class="infra-gallery-container reveal">
+            <div class="gallery-header">
+                <h4>Visual Updates of Progress</h4>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-img-container" onclick="openModal(0)">
+                        <img src="Construction Site View 1.jpeg" alt="Construction Site View 1">
+                        <div class="gallery-overlay">🔍 Expand View</div>
+                    </div>
+                    <div class="gallery-nav">
+                        <h5>Construction Site View 1</h5>
+                        <button class="explore-btn" onclick="openModal(0)">View</button>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-img-container" onclick="openModal(1)">
+                        <img src="Construction Site View 2.jpeg" alt="Construction Site View 2">
+                        <div class="gallery-overlay">🔍 Expand View</div>
+                    </div>
+                    <div class="gallery-nav">
+                        <h5>Construction Site View 2</h5>
+                        <button class="explore-btn" onclick="openModal(1)">View</button>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-img-container" onclick="openModal(2)">
+                        <img src="Construction Site View 3.jpeg" alt="Construction Site View 3">
+                        <div class="gallery-overlay">🔍 Expand View</div>
+                    </div>
+                    <div class="gallery-nav">
+                        <h5>Construction Site View 3</h5>
+                        <button class="explore-btn" onclick="openModal(2)">View</button>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-img-container" onclick="openModal(3)">
+                        <img src="Construction Site View 4.jpeg" alt="Construction Site View 4">
+                        <div class="gallery-overlay">🔍 Expand View</div>
+                    </div>
+                    <div class="gallery-nav">
+                        <h5>Construction Site View 4</h5>
+                        <button class="explore-btn" onclick="openModal(3)">View</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <script>
+        // Image Data Array for Modal Carousel
+        const galleryData = [
+            { src: "C:\\Users\\HP\\Downloads\\Dyd infa\\WhatsApp Image 2026-09-20 at 14.36.15.jpeg", caption: "Construction Site View 1" },
+            { src: "C:\\Users\\HP\\Downloads\\Dyd infa\\WhatsApp Image 2026-09-20 at 14.36.14.jpeg", caption: "Construction Site View 2" },
+            { src: "C:\\Users\\HP\\Downloads\\Dyd infa\\WhatsApp Image 2026-09-20 at 14.36.13.jpeg", caption: "Construction Site View 3" },
+            { src: "C:\\Users\\HP\\Downloads\\Dyd infa\\WhatsApp Image 2026-09-20 at 14.36.12.jpeg", caption: "Construction Site View 4" }
+        ];
+
+        let currentIndex = 0;
+        const modal = document.getElementById("exploreModal");
+        const modalImg = document.getElementById("modalImg");
+        const modalCaption = document.getElementById("modalCaption");
+
+        function openModal(index) {
+            currentIndex = index;
+            updateModalContent();
+            modal.style.display = "flex";
+            document.body.style.overflow = "hidden";
+        }
+
+        function updateModalContent() {
+            modalImg.src = galleryData[currentIndex].src;
+            modalCaption.innerText = galleryData[currentIndex].caption;
+        }
+
+        function changeImage(direction) {
+            currentIndex = (currentIndex + direction + galleryData.length) % galleryData.length;
+            updateModalContent();
+        }
+
+        document.querySelector(".close-modal").onclick = function() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        };
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        };
+
+        // Scroll Reveal Observer
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    </script>
+</body>
+</html>

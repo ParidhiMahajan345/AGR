@@ -1,0 +1,2300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Brochure Archive</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+
+  background: linear-gradient(
+    135deg,
+    #0f172a 0%,
+    #1e3a8a 50%,
+    #2563eb 100%
+  );
+
+  color: white;
+}
+
+
+/* =========================================================
+   MAIN ARCHIVE
+========================================================= */
+
+.main-box {
+  max-width: 1200px;
+
+  margin: 60px auto;
+
+  padding: 50px 36px;
+
+  border-radius: 28px;
+
+  background: rgba(255,255,255,0.05);
+
+  backdrop-filter: blur(20px);
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.5);
+
+  border:
+    1px solid
+    rgba(255,255,255,0.08);
+}
+
+
+.header {
+  text-align: center;
+
+  margin-bottom: 48px;
+
+  padding-bottom: 32px;
+
+  border-bottom:
+    1px solid
+    rgba(255,255,255,0.08);
+}
+
+
+.header h1 {
+  font-family: 'Playfair Display', serif;
+
+  font-size: 58px;
+
+  letter-spacing: 3px;
+
+  line-height: 1.1;
+
+  background: linear-gradient(
+    90deg,
+    #93c5fd,
+    #ffffff,
+    #60a5fa
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  background-clip: text;
+}
+
+
+.header-line {
+  width: 100%;
+
+  height: 2px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #60a5fa,
+    #93c5fd,
+    transparent
+  );
+
+  margin: 16px 0;
+}
+
+
+.tagline {
+  font-size: 15px;
+
+  color: #cbd5e1;
+
+  letter-spacing: 0.5px;
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 32px;
+}
+
+
+@media (max-width: 900px) {
+
+  .grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+
+@media (max-width: 580px) {
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+.card {
+  background:
+    rgba(255,255,255,0.07);
+
+  border:
+    1px solid
+    rgba(255,255,255,0.1);
+
+  border-radius: 22px;
+
+  padding:
+    36px 24px 28px;
+
+  text-align: center;
+
+  position: relative;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+
+  opacity: 0;
+
+  transform:
+    translateY(40px);
+
+  animation:
+    fadeUp 0.7s ease forwards;
+}
+
+
+.card:nth-child(1) {
+  animation-delay: 0.08s;
+}
+
+.card:nth-child(2) {
+  animation-delay: 0.16s;
+}
+
+.card:nth-child(3) {
+  animation-delay: 0.24s;
+}
+
+.card:nth-child(4) {
+  animation-delay: 0.32s;
+}
+
+.card:nth-child(5) {
+  animation-delay: 0.40s;
+}
+
+.card:nth-child(6) {
+  animation-delay: 0.48s;
+}
+
+
+.card:hover {
+
+  transform:
+    translateY(-10px)
+    scale(1.03);
+
+  box-shadow:
+    0 24px 60px
+    rgba(59,130,246,0.45);
+}
+
+
+.year-badge {
+
+  position: absolute;
+
+  top: -14px;
+
+  left: 22px;
+
+  background: linear-gradient(
+    90deg,
+    #3b82f6,
+    #60a5fa
+  );
+
+  padding:
+    6px 16px;
+
+  border-radius: 20px;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  box-shadow:
+    0 4px 14px
+    rgba(59,130,246,0.5);
+}
+
+
+.card-icon {
+
+  font-size: 44px;
+
+  margin-bottom: 10px;
+
+  display: block;
+}
+
+
+.card-title {
+
+  font-size: 17px;
+
+  color: #e2e8f0;
+
+  margin-bottom: 20px;
+
+  font-weight: 400;
+}
+
+
+.view-btn {
+
+  display: inline-block;
+
+  padding:
+    11px 28px;
+
+  border-radius: 12px;
+
+  background: white;
+
+  color: #1e3a8a;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  font-family: 'Poppins', sans-serif;
+
+  border: none;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+
+  box-shadow:
+    0 4px 14px
+    rgba(0,0,0,0.2);
+}
+
+
+.view-btn:hover {
+
+  transform:
+    scale(1.07);
+
+  box-shadow:
+    0 6px 20px
+    rgba(0,0,0,0.3);
+}
+
+
+.coming-btn {
+
+  display: inline-block;
+
+  padding:
+    11px 28px;
+
+  border-radius: 12px;
+
+  background:
+    rgba(255,255,255,0.08);
+
+  color:
+    rgba(255,255,255,0.35);
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  font-family: 'Poppins', sans-serif;
+
+  border:
+    1px solid
+    rgba(255,255,255,0.1);
+
+  cursor: default;
+}
+
+
+@keyframes fadeUp {
+
+  to {
+
+    opacity: 1;
+
+    transform:
+      translateY(0);
+
+  }
+
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal-overlay {
+
+  display: none;
+
+  position: fixed;
+
+  inset: 0;
+
+  background:
+    rgba(0,0,0,0.97);
+
+  z-index: 9999;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 20px;
+
+  gap: 18px;
+
+  overflow: hidden;
+}
+
+
+.modal-overlay.open {
+
+  display: flex;
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.close-btn {
+
+  position: fixed;
+
+  top: 14px;
+
+  right: 22px;
+
+  font-size: 30px;
+
+  color:
+    rgba(255,255,255,0.6);
+
+  cursor: pointer;
+
+  background: none;
+
+  border: none;
+
+  transition:
+    color 0.2s,
+    transform 0.2s;
+
+  z-index: 10001;
+}
+
+
+.close-btn:hover {
+
+  color: white;
+
+  transform:
+    scale(1.2)
+    rotate(90deg);
+}
+
+
+/* =========================================================
+   MODAL TITLE
+========================================================= */
+
+.modal-title {
+
+  color: #93c5fd;
+
+  font-size: 18px;
+
+  letter-spacing: 1px;
+
+  font-family: 'Poppins', sans-serif;
+
+  font-weight: 600;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   BOOK SCENE
+========================================================= */
+
+.book-scene {
+
+  perspective: 3000px;
+
+  flex-shrink: 0;
+
+  width: 100%;
+
+  display: flex;
+
+  justify-content: center;
+}
+
+
+/* =========================================================
+   LARGE BROCHURE BOOK
+
+   BIGGER THAN BEFORE
+
+   Desktop:
+   Up to 800px × 580px PER PAGE
+
+   Complete open brochure:
+   Up to 1600px × 580px
+========================================================= */
+
+.book {
+
+  --page-w:
+    min(800px, 48vw);
+
+  --page-h:
+    min(580px, 76vh);
+
+  width:
+    calc(var(--page-w) * 2);
+
+  height:
+    var(--page-h);
+
+  position: relative;
+
+  display: flex;
+
+  box-shadow:
+    0 35px 100px
+    rgba(0,0,0,0.95);
+
+  border-radius: 5px;
+}
+
+
+/* =========================================================
+   LEFT PAGE
+========================================================= */
+
+.page-left {
+
+  width:
+    var(--page-w);
+
+  height:
+    var(--page-h);
+
+  overflow: hidden;
+
+  border-radius:
+    5px 0 0 5px;
+
+  background:
+    #0a0a18;
+
+  position: relative;
+
+  box-shadow:
+    inset -8px 0 25px
+    rgba(0,0,0,0.55);
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   RIGHT PAGE
+========================================================= */
+
+.page-right {
+
+  width:
+    var(--page-w);
+
+  height:
+    var(--page-h);
+
+  overflow: hidden;
+
+  border-radius:
+    0 5px 5px 0;
+
+  background:
+    #0a0a18;
+
+  position: relative;
+
+  box-shadow:
+    inset 8px 0 25px
+    rgba(0,0,0,0.35);
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   BROCHURE IMAGES
+========================================================= */
+
+.page-left img,
+.page-right img {
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: fill;
+
+  display: block;
+
+  user-select: none;
+
+  -webkit-user-drag: none;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   BLANK PAGE
+========================================================= */
+
+.blank-page {
+
+  width: 100%;
+
+  height: 100%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eee8dc,
+      #ddd6c8
+    );
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: #999;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   SPINE
+========================================================= */
+
+.spine {
+
+  position: absolute;
+
+  left: 50%;
+
+  top: 0;
+
+  width: 12px;
+
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #000008,
+      #1a1a40,
+      #000008
+    );
+
+  transform:
+    translateX(-50%);
+
+  z-index: 10;
+
+  box-shadow:
+    4px 0 15px
+    rgba(0,0,0,0.75),
+
+    -4px 0 15px
+    rgba(0,0,0,0.75);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   PAGE NUMBERS
+========================================================= */
+
+.pnum {
+
+  position: absolute;
+
+  bottom: 8px;
+
+  font-size: 11px;
+
+  color:
+    rgba(255,255,255,0.3);
+
+  font-family:
+    'Poppins', sans-serif;
+
+  z-index: 5;
+
+  pointer-events: none;
+}
+
+
+.page-left .pnum {
+
+  left: 12px;
+}
+
+
+.page-right .pnum {
+
+  right: 12px;
+}
+
+
+/* =========================================================
+   FLIP LAYER
+========================================================= */
+
+.flip-layer {
+
+  position: absolute;
+
+  top: 0;
+
+  width:
+    var(--page-w);
+
+  height:
+    var(--page-h);
+
+  overflow: hidden;
+
+  z-index: 20;
+
+  pointer-events: none;
+
+  display: none;
+
+  backface-visibility: hidden;
+}
+
+
+.flip-layer img {
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: fill;
+
+  display: block;
+
+  user-select: none;
+
+  -webkit-user-drag: none;
+}
+
+
+/* =========================================================
+   NEXT PAGE FLIP
+========================================================= */
+
+.flip-layer.next {
+
+  right: 0;
+
+  transform-origin:
+    left center;
+
+  display: block;
+
+  animation:
+    flipToLeft
+    0.8s
+    cubic-bezier(
+      0.25,
+      0.46,
+      0.45,
+      0.94
+    )
+    forwards;
+
+  box-shadow:
+    -18px 0 50px
+    rgba(0,0,0,0.9);
+}
+
+
+/* =========================================================
+   PREVIOUS PAGE FLIP
+========================================================= */
+
+.flip-layer.prev {
+
+  left: 0;
+
+  transform-origin:
+    right center;
+
+  display: block;
+
+  animation:
+    flipToRight
+    0.8s
+    cubic-bezier(
+      0.25,
+      0.46,
+      0.45,
+      0.94
+    )
+    forwards;
+
+  box-shadow:
+    18px 0 50px
+    rgba(0,0,0,0.9);
+}
+
+
+/* =========================================================
+   FLIP ANIMATIONS
+========================================================= */
+
+@keyframes flipToLeft {
+
+  0% {
+
+    transform:
+      rotateY(0deg);
+
+    filter:
+      brightness(1);
+  }
+
+  35% {
+
+    transform:
+      rotateY(-60deg);
+
+    filter:
+      brightness(0.75);
+  }
+
+  100% {
+
+    transform:
+      rotateY(-180deg);
+
+    filter:
+      brightness(0.35);
+  }
+
+}
+
+
+@keyframes flipToRight {
+
+  0% {
+
+    transform:
+      rotateY(0deg);
+
+    filter:
+      brightness(1);
+  }
+
+  35% {
+
+    transform:
+      rotateY(60deg);
+
+    filter:
+      brightness(0.75);
+  }
+
+  100% {
+
+    transform:
+      rotateY(180deg);
+
+    filter:
+      brightness(0.35);
+  }
+
+}
+
+
+/* =========================================================
+   FLIP SHADOW
+========================================================= */
+
+.flip-layer.next::after {
+
+  content: '';
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to left,
+      rgba(0,0,0,0.5) 0%,
+      rgba(0,0,0,0.05) 70%,
+      transparent 100%
+    );
+
+  pointer-events: none;
+
+  animation:
+    shadowIn
+    0.8s ease forwards;
+}
+
+
+.flip-layer.prev::after {
+
+  content: '';
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to right,
+      rgba(0,0,0,0.5) 0%,
+      rgba(0,0,0,0.05) 70%,
+      transparent 100%
+    );
+
+  pointer-events: none;
+
+  animation:
+    shadowIn
+    0.8s ease forwards;
+}
+
+
+@keyframes shadowIn {
+
+  0% {
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.5;
+  }
+
+}
+
+
+/* =========================================================
+   CONTROLS
+========================================================= */
+
+.controls {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 25px;
+
+  flex-shrink: 0;
+}
+
+
+.nav-btn {
+
+  width: 52px;
+
+  height: 52px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,255,255,0.12);
+
+  border:
+    1.5px solid
+    rgba(255,255,255,0.22);
+
+  color: white;
+
+  font-size: 22px;
+
+  cursor: pointer;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+
+
+.nav-btn:hover:not(:disabled) {
+
+  background:
+    rgba(255,255,255,0.22);
+
+  transform:
+    scale(1.12);
+}
+
+
+.nav-btn:disabled {
+
+  opacity: 0.25;
+
+  cursor: default;
+
+  transform:
+    none !important;
+}
+
+
+.page-counter {
+
+  color: #93c5fd;
+
+  font-size: 14px;
+
+  min-width: 180px;
+
+  text-align: center;
+
+  font-family:
+    'Poppins', sans-serif;
+}
+
+
+.kbd-hint {
+
+  font-size: 11px;
+
+  color:
+    rgba(255,255,255,0.2);
+
+  font-family:
+    'Poppins', sans-serif;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   VERY LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1600px) {
+
+  .book {
+
+    --page-w:
+      min(800px, 48vw);
+
+    --page-h:
+      min(580px, 76vh);
+  }
+
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1400px)
+and (max-width: 1599px) {
+
+  .book {
+
+    --page-w:
+      min(720px, 47vw);
+
+    --page-h:
+      min(520px, 72vh);
+  }
+
+}
+
+
+/* =========================================================
+   MEDIUM DESKTOP
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .book {
+
+    --page-w:
+      min(580px, 46vw);
+
+    --page-h:
+      min(430px, 62vh);
+  }
+
+}
+
+
+/* =========================================================
+   TABLETS
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .book {
+
+    --page-w:
+      min(440px, 44vw);
+
+    --page-h:
+      min(330px, 52vh);
+  }
+
+
+  .modal-overlay {
+
+    padding-top: 45px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .modal-overlay {
+
+    padding:
+      50px 10px 15px;
+  }
+
+
+  .modal-title {
+
+    font-size: 14px;
+  }
+
+
+  .book {
+
+    --page-w: 46vw;
+
+    --page-h: 32vw;
+
+    max-width: 96vw;
+  }
+
+
+  .controls {
+
+    gap: 14px;
+  }
+
+
+  .nav-btn {
+
+    width: 44px;
+
+    height: 44px;
+
+    font-size: 18px;
+  }
+
+
+  .page-counter {
+
+    min-width: 130px;
+
+    font-size: 12px;
+  }
+
+
+  .kbd-hint {
+
+    display: none;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     ARCHIVE
+========================================================= -->
+
+<div class="main-box">
+
+  <div class="header">
+
+    <h1>
+      BROCHURE ARCHIVE
+    </h1>
+
+    <div class="header-line"></div>
+
+    <div class="tagline">
+
+      ✨ Discover innovation, explore excellence, experience the future ✨
+
+    </div>
+
+  </div>
+
+
+  <div
+    class="grid"
+    id="cardGrid">
+  </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     MODAL
+========================================================= -->
+
+<div
+  class="modal-overlay"
+  id="modal">
+
+
+  <!-- CLOSE -->
+
+  <button
+    class="close-btn"
+    onclick="closeModal()"
+    title="Close (Esc)"
+  >
+
+    ✖
+
+  </button>
+
+
+  <!-- TITLE -->
+
+  <div
+    class="modal-title"
+    id="modalTitle"
+  >
+
+    Annual Brochure
+
+  </div>
+
+
+
+  <!-- =====================================================
+       BOOK
+  ====================================================== -->
+
+  <div class="book-scene">
+
+    <div
+      class="book"
+      id="book">
+
+
+      <!-- LEFT PAGE -->
+
+      <div
+        class="page-left"
+        id="pageLeft"
+      >
+
+        <div
+          class="blank-page"
+          id="blankLeft"
+        >
+        </div>
+
+
+        <img
+          id="imgLeft"
+          src=""
+          style="display:none"
+          alt=""
+        />
+
+
+        <div
+          class="pnum"
+          id="numLeft"
+        >
+        </div>
+
+      </div>
+
+
+
+      <!-- SPINE -->
+
+      <div class="spine">
+      </div>
+
+
+
+      <!-- RIGHT PAGE -->
+
+      <div
+        class="page-right"
+        id="pageRight"
+      >
+
+        <img
+          id="imgRight"
+          src=""
+          style="display:none"
+          alt=""
+        />
+
+
+        <div
+          class="blank-page"
+          id="blankRight"
+          style="display:none"
+        >
+        </div>
+
+
+        <div
+          class="pnum"
+          id="numRight"
+        >
+        </div>
+
+      </div>
+
+
+
+      <!-- FLIP -->
+
+      <div
+        class="flip-layer"
+        id="flipLayer"
+      >
+
+        <img
+          id="flipImg"
+          src=""
+          alt=""
+        />
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       CONTROLS
+  ====================================================== -->
+
+  <div class="controls">
+
+    <button
+      class="nav-btn"
+      id="prevBtn"
+      onclick="goPage(-1)"
+    >
+
+      &#8592;
+
+    </button>
+
+
+    <div
+      class="page-counter"
+      id="counter"
+    >
+    </div>
+
+
+    <button
+      class="nav-btn"
+      id="nextBtn"
+      onclick="goPage(1)"
+    >
+
+      &#8594;
+
+    </button>
+
+  </div>
+
+
+  <div class="kbd-hint">
+
+    ← → arrow keys &nbsp;|&nbsp; Esc to close
+
+  </div>
+
+</div>
+
+
+
+<script>
+
+/* =========================================================
+   DATA
+========================================================= */
+
+const BROCHURES = [
+
+  {
+    year: 2023,
+    folder: '2023',
+    prefix: '2023_page-',
+    pages: 32,
+    available: true
+  },
+
+  {
+    year: 2024,
+    folder: '',
+    prefix: '',
+    pages: 0,
+    available: false
+  },
+
+  {
+    year: 2025,
+    folder: '2025',
+    prefix: '2025_page-',
+    pages: 32,
+    available: true
+  },
+
+  {
+    year: 2026,
+    folder: '',
+    prefix: '',
+    pages: 0,
+    available: false
+  },
+
+  {
+    year: 2027,
+    folder: '',
+    prefix: '',
+    pages: 0,
+    available: false
+  },
+
+  {
+    year: 2028,
+    folder: '',
+    prefix: '',
+    pages: 0,
+    available: false
+  }
+
+];
+
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+const grid =
+  document.getElementById(
+    'cardGrid'
+  );
+
+
+BROCHURES.forEach(b => {
+
+  const card =
+    document.createElement(
+      'div'
+    );
+
+
+  card.className =
+    'card';
+
+
+  card.innerHTML = `
+
+    <div class="year-badge">
+      ${b.year}
+    </div>
+
+    <span class="card-icon">
+      📘
+    </span>
+
+    <div class="card-title">
+      Annual Brochure
+    </div>
+
+    ${
+      b.available
+
+      ? `
+
+        <button
+          class="view-btn"
+          onclick='openModal(${JSON.stringify(b)})'
+        >
+          View
+        </button>
+
+      `
+
+      : `
+
+        <span class="coming-btn">
+          Coming Soon
+        </span>
+
+      `
+    }
+
+  `;
+
+
+  grid.appendChild(card);
+
+});
+
+
+
+/* =========================================================
+   STATE
+========================================================= */
+
+let brochure = null;
+
+let spread = 0;
+
+let totalSpreads = 0;
+
+let flipping = false;
+
+
+
+/* =========================================================
+   IMAGE PATH
+========================================================= */
+
+function imgPath(b, n) {
+
+  return (
+
+    b.folder +
+    '/' +
+    b.prefix +
+    String(n).padStart(4, '0') +
+    '.jpg'
+
+  );
+
+}
+
+
+
+/* =========================================================
+   SPREAD LOGIC
+========================================================= */
+
+function spreadPages(s) {
+
+  if (s === 0) {
+
+    return {
+
+      L: null,
+
+      R: 1
+
+    };
+
+  }
+
+
+  const L =
+    s * 2;
+
+
+  const R =
+    s * 2 + 1;
+
+
+  return {
+
+    L:
+      L <= brochure.pages
+        ? L
+        : null,
+
+    R:
+      R <= brochure.pages
+        ? R
+        : null
+
+  };
+
+}
+
+
+
+/* =========================================================
+   OPEN MODAL
+========================================================= */
+
+function openModal(b) {
+
+  brochure = b;
+
+  spread = 0;
+
+  totalSpreads =
+    Math.ceil(b.pages / 2) + 1;
+
+
+  document
+    .getElementById('modal')
+    .classList
+    .add('open');
+
+
+  document
+    .getElementById('modalTitle')
+    .textContent =
+    b.year +
+    ' Annual Brochure';
+
+
+  renderSpread(0);
+
+}
+
+
+
+/* =========================================================
+   RENDER SPREAD
+========================================================= */
+
+function renderSpread(s) {
+
+  const {
+    L,
+    R
+  } =
+    spreadPages(s);
+
+
+
+  /* LEFT */
+
+  const iL =
+    document.getElementById(
+      'imgLeft'
+    );
+
+
+  const bL =
+    document.getElementById(
+      'blankLeft'
+    );
+
+
+  const nL =
+    document.getElementById(
+      'numLeft'
+    );
+
+
+  if (L) {
+
+    iL.src =
+      imgPath(
+        brochure,
+        L
+      );
+
+
+    iL.style.display =
+      'block';
+
+
+    bL.style.display =
+      'none';
+
+
+    nL.textContent =
+      L;
+
+  }
+
+  else {
+
+    iL.style.display =
+      'none';
+
+
+    bL.style.display =
+      'flex';
+
+
+    nL.textContent =
+      '';
+
+  }
+
+
+
+  /* RIGHT */
+
+  const iR =
+    document.getElementById(
+      'imgRight'
+    );
+
+
+  const bR =
+    document.getElementById(
+      'blankRight'
+    );
+
+
+  const nR =
+    document.getElementById(
+      'numRight'
+    );
+
+
+  if (R) {
+
+    iR.src =
+      imgPath(
+        brochure,
+        R
+      );
+
+
+    iR.style.display =
+      'block';
+
+
+    bR.style.display =
+      'none';
+
+
+    nR.textContent =
+      R;
+
+  }
+
+  else {
+
+    iR.style.display =
+      'none';
+
+
+    bR.style.display =
+      'flex';
+
+
+    nR.textContent =
+      '';
+
+  }
+
+
+  spread = s;
+
+
+  updateControls();
+
+}
+
+
+
+/* =========================================================
+   PAGE FLIP SOUND
+========================================================= */
+
+const AudioCtx =
+  window.AudioContext ||
+  window.webkitAudioContext;
+
+
+let audioCtx = null;
+
+
+function playFlipSound() {
+
+  try {
+
+    if (!audioCtx) {
+
+      audioCtx =
+        new AudioCtx();
+
+    }
+
+
+    const ctx =
+      audioCtx;
+
+
+    const now =
+      ctx.currentTime;
+
+
+
+    /* PAPER RUSTLE */
+
+    const bufLen =
+      ctx.sampleRate * 0.18;
+
+
+    const buf =
+      ctx.createBuffer(
+        1,
+        bufLen,
+        ctx.sampleRate
+      );
+
+
+    const data =
+      buf.getChannelData(0);
+
+
+    for (
+      let i = 0;
+      i < bufLen;
+      i++
+    ) {
+
+      data[i] =
+        (Math.random() * 2 - 1) *
+        Math.pow(
+          1 - i / bufLen,
+          1.8
+        );
+
+    }
+
+
+    const noise =
+      ctx.createBufferSource();
+
+
+    noise.buffer =
+      buf;
+
+
+    const bp =
+      ctx.createBiquadFilter();
+
+
+    bp.type =
+      'bandpass';
+
+
+    bp.frequency.value =
+      1800;
+
+
+    bp.Q.value =
+      0.6;
+
+
+    const bp2 =
+      ctx.createBiquadFilter();
+
+
+    bp2.type =
+      'bandpass';
+
+
+    bp2.frequency.value =
+      600;
+
+
+    bp2.Q.value =
+      1.2;
+
+
+    const gain =
+      ctx.createGain();
+
+
+    gain.gain.setValueAtTime(
+      0,
+      now
+    );
+
+
+    gain.gain.linearRampToValueAtTime(
+      0.45,
+      now + 0.012
+    );
+
+
+    gain.gain.exponentialRampToValueAtTime(
+      0.001,
+      now + 0.18
+    );
+
+
+
+    /* SECOND SWOOSH */
+
+    const buf2 =
+      ctx.createBuffer(
+        1,
+        ctx.sampleRate * 0.08,
+        ctx.sampleRate
+      );
+
+
+    const data2 =
+      buf2.getChannelData(0);
+
+
+    for (
+      let i = 0;
+      i < data2.length;
+      i++
+    ) {
+
+      data2[i] =
+        (Math.random() * 2 - 1) *
+        Math.pow(
+          1 - i / data2.length,
+          2.5
+        );
+
+    }
+
+
+    const noise2 =
+      ctx.createBufferSource();
+
+
+    noise2.buffer =
+      buf2;
+
+
+    const gain2 =
+      ctx.createGain();
+
+
+    gain2.gain.setValueAtTime(
+      0,
+      now + 0.13
+    );
+
+
+    gain2.gain.linearRampToValueAtTime(
+      0.22,
+      now + 0.15
+    );
+
+
+    gain2.gain.exponentialRampToValueAtTime(
+      0.001,
+      now + 0.26
+    );
+
+
+    noise.connect(bp);
+
+    bp.connect(gain);
+
+    gain.connect(
+      ctx.destination
+    );
+
+
+    noise2.connect(bp2);
+
+    bp2.connect(gain2);
+
+    gain2.connect(
+      ctx.destination
+    );
+
+
+    noise.start(now);
+
+    noise2.start(
+      now + 0.13
+    );
+
+
+    noise.stop(
+      now + 0.2
+    );
+
+
+    noise2.stop(
+      now + 0.28
+    );
+
+
+  }
+
+  catch (e) {
+
+    /* Ignore audio errors */
+
+  }
+
+}
+
+
+
+/* =========================================================
+   GO PAGE
+========================================================= */
+
+function goPage(dir) {
+
+  if (flipping)
+    return;
+
+
+  const next =
+    spread + dir;
+
+
+  if (
+    next < 0 ||
+    next >= totalSpreads
+  ) {
+
+    return;
+
+  }
+
+
+  flipping = true;
+
+
+  playFlipSound();
+
+
+  const fl =
+    document.getElementById(
+      'flipLayer'
+    );
+
+
+  const fi =
+    document.getElementById(
+      'flipImg'
+    );
+
+
+
+  /* NEXT */
+
+  if (dir > 0) {
+
+    const { R } =
+      spreadPages(spread);
+
+
+    fi.src =
+      R
+        ? imgPath(
+            brochure,
+            R
+          )
+        : '';
+
+
+    fl.className =
+      'flip-layer next';
+
+  }
+
+
+
+  /* PREVIOUS */
+
+  else {
+
+    const { L } =
+      spreadPages(spread);
+
+
+    fi.src =
+      L
+        ? imgPath(
+            brochure,
+            L
+          )
+        : '';
+
+
+    fl.className =
+      'flip-layer prev';
+
+  }
+
+
+
+  /* MIDPOINT */
+
+  setTimeout(
+    () => {
+
+      renderSpread(next);
+
+    },
+    400
+  );
+
+
+
+  fl.addEventListener(
+    'animationend',
+    function h() {
+
+      fl.className =
+        'flip-layer';
+
+
+      fl.removeEventListener(
+        'animationend',
+        h
+      );
+
+
+      flipping = false;
+
+    }
+  );
+
+}
+
+
+
+/* =========================================================
+   CONTROLS
+========================================================= */
+
+function updateControls() {
+
+  document
+    .getElementById(
+      'prevBtn'
+    )
+    .disabled =
+    spread <= 0;
+
+
+  document
+    .getElementById(
+      'nextBtn'
+    )
+    .disabled =
+    spread >=
+    totalSpreads - 1;
+
+
+  const {
+    L,
+    R
+  } =
+    spreadPages(spread);
+
+
+  const lo =
+    L || '—';
+
+
+  const hi =
+    R || '—';
+
+
+  document
+    .getElementById(
+      'counter'
+    )
+    .textContent =
+
+    'Pages ' +
+    lo +
+    ' – ' +
+    hi +
+    '  /  ' +
+    brochure.pages;
+
+}
+
+
+
+/* =========================================================
+   CLOSE MODAL
+========================================================= */
+
+function closeModal() {
+
+  document
+    .getElementById(
+      'modal'
+    )
+    .classList
+    .remove('open');
+
+
+  document
+    .getElementById(
+      'imgLeft'
+    )
+    .src = '';
+
+
+  document
+    .getElementById(
+      'imgRight'
+    )
+    .src = '';
+
+
+  brochure = null;
+
+}
+
+
+
+/* =========================================================
+   KEYBOARD
+========================================================= */
+
+document.addEventListener(
+  'keydown',
+  e => {
+
+    if (
+      !document
+        .getElementById('modal')
+        .classList
+        .contains('open')
+    ) {
+
+      return;
+
+    }
+
+
+    if (
+      e.key === 'ArrowRight'
+    ) {
+
+      goPage(1);
+
+    }
+
+
+    if (
+      e.key === 'ArrowLeft'
+    ) {
+
+      goPage(-1);
+
+    }
+
+
+    if (
+      e.key === 'Escape'
+    ) {
+
+      closeModal();
+
+    }
+
+  }
+);
+
+</script>
+
+</body>
+</html>

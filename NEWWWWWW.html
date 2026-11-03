@@ -1,0 +1,2213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Design Your Degree – University of Jammu</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --navy:#000080;--navy-mid:#0a0a9a;--navy-lt:#1a1ab5;
+  --sky:#e8f0ff;--bg:#F3FDFE;--gold:#c8a84b;
+  --crimson:#8b1a1a;
+  --white:#ffffff;--text:#1a1a2e;--muted:#5a6480;--border:#c5d5f0;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);}
+
+.top-bar{background:var(--navy);padding:7px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.1);}
+.top-bar-links{display:flex;align-items:center;}
+.top-bar-links a{color:#fff;font-size:12px;font-weight:500;text-decoration:underline;text-underline-offset:2px;padding:0 16px;border-right:1px solid rgba(255,255,255,0.2);letter-spacing:0.3px;transition:color 0.2s;}
+.top-bar-links a:first-child{padding-left:0;}
+.top-bar-links a:last-child{border-right:none;}
+.top-bar-links a:hover{color:#aacfff;}
+
+.header{background:var(--white);padding:18px 40px;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--border);box-shadow:0 2px 20px rgba(0,0,128,0.07);}
+.header-left{display:flex;align-items:center;gap:18px;}
+.logo-img-wrap{flex-shrink:0;width:115px;height:115px;display:flex;align-items:center;justify-content:center;}.logo-img-wrap img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 2px 6px rgba(0,0,128,0.18));}
+.logo-text{display:flex;flex-direction:column;gap:2px;}
+.logo-brand{font-family:'DM Serif Display',serif;font-size:24px;color:var(--navy);line-height:1.1;}
+.logo-univ-detail{font-size:10.5px;font-weight:500;color:var(--muted);letter-spacing:0.2px;margin-top:4px;line-height:1.4;max-width:320px;}.logo-univ-row{display:flex;align-items:center;gap:8px;margin-top:3px;}
+.naac-inline-badge{display:inline-flex;align-items:center;gap:5px;background:linear-gradient(90deg,#000080,#1a1ab5);border-radius:20px;padding:2px 9px;font-size:10px;font-weight:700;color:#fff;letter-spacing:0.8px;white-space:nowrap;}
+.naac-inline-star{color:#ffd700;font-size:11px;}
+.naac-inline-grade{color:#ffd700;font-weight:800;font-size:12px;font-family:'Playfair Display',serif;}
+.logo-divider{width:36px;height:2px;background:linear-gradient(90deg,var(--navy),transparent);margin-top:5px;border-radius:2px;}
+.header-center{flex:1;display:flex;align-items:center;justify-content:center;padding:0 24px;}
+.tagline-wrap{display:flex;flex-direction:column;align-items:center;gap:4px;}
+.tagline-main{font-family:'Playfair Display',serif;font-size:38px;font-style:italic;color:var(--navy);letter-spacing:0.5px;animation:glowPulse 3s ease-in-out infinite;text-align:center;line-height:1.15;}align:center;line-height:1.3;}
+.tagline-sub{display:block;font-size:11px;font-weight:500;color:#4466bb;letter-spacing:1.8px;text-transform:none;text-align:center;}
+@keyframes glowPulse{0%,100%{text-shadow:0 0 8px rgba(0,0,128,0.25);}50%{text-shadow:0 0 24px rgba(0,50,220,0.55),0 0 50px rgba(30,100,255,0.3);}}
+.search-wrap{position:relative;width:300px;flex-shrink:0;}
+.search-pane{display:flex;align-items:stretch;width:100%;box-sizing:border-box;border:1.5px solid var(--navy);border-radius:8px;overflow:hidden;box-shadow:0 3px 12px rgba(0,0,128,0.12);}.search-pane:focus-within{box-shadow:0 4px 20px rgba(0,0,200,0.25);}
+.search-pane input{border:none;outline:none;padding:10px 15px;font-size:13px;background:#eef2ff;color:var(--text);width:0;flex:1 1 auto;min-width:0;box-sizing:border-box;font-family:'DM Sans',sans-serif;}.search-pane input::placeholder{color:#8898b8;}
+.search-pane button{background:var(--navy);color:#fff;border:none;padding:10px 18px;font-size:13px;font-weight:600;cursor:pointer;letter-spacing:0.5px;transition:background 0.2s;display:flex;align-items:center;gap:5px;flex:0 0 auto;white-space:nowrap;}
+.search-pane button:hover{background:var(--navy-lt);}
+.search-results{position:absolute;top:calc(100% + 8px);right:0;width:340px;max-height:400px;overflow-y:auto;background:#fff;border:1px solid var(--border);border-top:3px solid var(--navy);border-radius:8px;box-shadow:0 12px 32px rgba(0,0,128,0.18);z-index:1200;display:none;}
+.search-results.show{display:block;}
+.search-results-empty{padding:16px;font-size:13px;color:var(--muted);text-align:center;}
+.sr-group-label{padding:8px 14px 4px;font-size:10px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;color:var(--navy);background:#f4f7ff;}
+.sr-item{display:block;padding:10px 14px;text-decoration:none;border-bottom:1px solid #eef2ff;transition:background 0.15s;}
+.sr-item:last-child{border-bottom:none;}
+.sr-item:hover,.sr-item.active{background:var(--sky);}
+.sr-item-title{font-size:13px;font-weight:600;color:var(--text);}
+.sr-item-title mark{background:#ffe9a8;color:inherit;border-radius:2px;}
+.sr-item-desc{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.4;}
+.sr-item-tag{display:inline-block;font-size:9px;font-weight:700;letter-spacing:0.4px;text-transform:uppercase;color:var(--navy);background:#e8f0ff;border-radius:4px;padding:1px 6px;margin-top:4px;}
+
+.navbar{background:var(--white);border-bottom:3px solid var(--navy);box-shadow:0 2px 10px rgba(0,0,128,0.07);}
+.nav-inner{max-width:1300px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:center;}
+.nav-list{list-style:none;display:flex;align-items:center;}
+.nav-list>li{position:relative;}
+.nav-list>li>a{display:flex;align-items:center;gap:5px;padding:16px 20px;font-size:14px;font-weight:600;color:var(--text);text-decoration:none;white-space:nowrap;border-bottom:3px solid transparent;margin-bottom:-3px;letter-spacing:0.2px;transition:color 0.2s,border-color 0.2s,background 0.2s;}
+.nav-list>li>a:hover,.nav-list>li:hover>a{color:var(--navy);border-bottom-color:var(--navy);background:var(--sky);}
+.chevron{font-size:10px;color:#999;transition:transform 0.2s;}
+.nav-list>li:hover .chevron{transform:rotate(180deg);color:var(--navy);}
+.dropdown{position:absolute;top:100%;left:0;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--navy);min-width:220px;box-shadow:0 8px 28px rgba(0,0,128,0.11);z-index:999;display:none;border-radius:0 0 8px 8px;}
+.nav-list>li:hover .dropdown{display:block;}
+.dropdown a{display:block;padding:11px 18px;font-size:13px;color:#333;text-decoration:none;border-bottom:1px solid #eef2ff;transition:background 0.15s,color 0.15s,padding-left 0.15s;}
+.dropdown a:last-child{border-bottom:none;}
+.dropdown a:hover{background:var(--sky);color:var(--navy);padding-left:24px;}
+
+.announcements{display:flex;align-items:stretch;background:#fff;border-bottom:1px solid var(--border);}
+.ann-label{background:var(--navy);color:#fff;font-size:11px;font-weight:700;padding:11px 20px;white-space:nowrap;display:flex;align-items:center;gap:8px;letter-spacing:1px;text-transform:uppercase;}
+.ann-dot{width:7px;height:7px;border-radius:50%;background:#ff4444;animation:blink 1.2s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.2;}}
+.ann-ticker{flex:1;overflow:hidden;display:flex;align-items:center;}
+.ann-track{display:flex;animation:ticker 38s linear infinite;white-space:nowrap;}
+.ann-track:hover{animation-play-state:paused;}
+@keyframes ticker{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+.ann-item{display:inline-flex;align-items:center;gap:8px;padding:11px 28px;font-size:12.5px;font-weight:500;color:#1a2550;text-decoration:none;border-right:1px solid var(--border);transition:color 0.2s;}
+.ann-item:hover{color:var(--navy);}
+.ann-item .tag{font-size:9.5px;font-weight:700;text-transform:uppercase;padding:2px 8px;border-radius:20px;letter-spacing:0.5px;}
+.tag-new{background:#fff0f0;color:#cc0000;}
+.tag-open{background:#e8fff0;color:#007a30;}
+.tag-soon{background:#fffbe8;color:#997700;}
+/* HOT NEW tag — solid red, pulsing glow */
+.tag-hot{
+  background:linear-gradient(135deg,#e60000,#ff3b3b);
+  color:#fff;
+  box-shadow:0 0 0 0 rgba(230,0,0,.6);
+  animation:hotPulse 1.4s ease-out infinite;
+}
+@keyframes hotPulse{
+  0%{box-shadow:0 0 0 0 rgba(230,0,0,.6);}
+  70%{box-shadow:0 0 0 8px rgba(230,0,0,0);}
+  100%{box-shadow:0 0 0 0 rgba(230,0,0,0);}
+}
+.ann-item.ann-hot{font-weight:700;color:#8b0000;}
+.ann-item.ann-hot:hover{color:#e60000;}
+.ann-dropdown{
+  position:absolute;top:calc(100% + 6px);left:0;
+  width:420px;max-width:90vw;background:#fff;border:1px solid var(--border);
+  border-top:3px solid var(--navy);border-radius:8px;
+  box-shadow:0 12px 32px rgba(0,0,128,0.18);
+  z-index:1200;display:none;
+  max-height:340px;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;
+  text-transform:none;letter-spacing:0;font-weight:500;cursor:default;
+  scrollbar-width:thin;scrollbar-color:var(--navy) #e8f0ff;
+}
+.ann-dropdown::-webkit-scrollbar{width:6px;}
+.ann-dropdown::-webkit-scrollbar-track{background:#e8f0ff;}
+.ann-dropdown::-webkit-scrollbar-thumb{background:var(--navy);border-radius:3px;}/* clickable Announcements label + dropdown anchor */
+.ann-label{position:relative;cursor:pointer;user-select:none;}
+.ann-chevron{font-size:9px;margin-left:2px;transition:transform 0.2s;display:inline-block;}
+.ann-label.open .ann-chevron{transform:rotate(180deg);}
+.ann-dropdown.show{display:block;}
+.ann-dropdown a{
+  display:flex;align-items:center;gap:8px;
+  padding:12px 16px;font-size:13px;font-weight:500;
+  color:#1a2550;text-decoration:none;
+  border-bottom:1px solid #eef2ff;
+  line-height:1.4;
+  white-space:normal;
+  transition:background 0.15s,color 0.15s,padding-left 0.15s;
+}
+.ann-dropdown a:last-child{border-bottom:none;}
+.ann-dropdown a:hover{background:var(--sky);color:var(--navy);padding-left:22px;}
+.hero {
+  position: relative;
+  overflow: hidden;
+  height: 600px;
+  width: 100%;
+  background: #000040;
+}
+
+.slides {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: relative;
+  min-width: 100%;
+  width: 100%;
+  height: 100%;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+  flex: 0 0 100%;
+}.slide-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,40,0.1) 0%,rgba(0,0,40,0.08) 40%,rgba(0,0,40,0.65) 80%,rgba(0,0,60,0.8) 100%);}
+.slide-caption{position:absolute;bottom:0;left:0;right:0;padding:40px 56px 44px;display:flex;flex-direction:column;align-items:flex-start;gap:10px;z-index:2;}
+.slide-tagline{font-family:'DM Serif Display',serif;font-size:42px;font-weight:400;color:#fff;line-height:1.15;text-shadow:0 2px 24px rgba(0,0,60,0.6);opacity:0;transform:translateY(20px);transition:opacity 0.6s ease 0.2s,transform 0.6s ease 0.2s;}
+.slide-tagline em{font-style:italic;color:#aaccff;}
+.slide-tagline-sub{font-size:15px;font-weight:300;color:rgba(255,255,255,0.7);opacity:0;transform:translateY(12px);transition:opacity 0.5s ease 0.4s,transform 0.5s ease 0.4s;}
+.slide.active .slide-tagline,.slide.active .slide-tagline-sub{opacity:1;transform:translateY(0);}
+.hero-progress{position:absolute;bottom:0;left:0;right:0;height:3px;background:rgba(255,255,255,0.12);z-index:5;}
+.hero-progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#5588ff,#fff);transition:width 0.1s linear;}
+.hero-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,80,0.35);border:1px solid rgba(255,255,255,0.18);color:#fff;font-size:26px;width:48px;height:68px;cursor:pointer;z-index:10;display:flex;align-items:center;justify-content:center;transition:background 0.2s;backdrop-filter:blur(4px);}
+.hero-btn:hover{background:rgba(0,0,160,0.6);}
+.hero-btn.prev{left:0;border-radius:0 4px 4px 0;}
+.hero-btn.next{right:0;border-radius:4px 0 0 4px;}
+.hero-dots{position:absolute;bottom:14px;right:24px;display:flex;gap:6px;z-index:10;}
+.hero-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.32);cursor:pointer;border:none;transition:background 0.25s,width 0.3s,border-radius 0.3s;}
+.hero-dot.active{background:#fff;width:22px;border-radius:4px;}
+.hero-counter{position:absolute;top:18px;right:24px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.6);z-index:10;letter-spacing:1px;background:rgba(0,0,80,0.28);padding:4px 12px;border-radius:20px;backdrop-filter:blur(4px);}
+
+.leader-section{background:#fff;padding:60px 0 72px;border-bottom:1px solid #dde4f4;}
+.leader-inner{max-width:1180px;margin:0 auto;padding:0 44px;}
+.section-heading-row{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px;}
+.section-heading-left{display:flex;flex-direction:column;gap:6px;}
+.section-eyebrow{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--crimson);}
+.section-title{font-family:'DM Serif Display',serif;font-size:32px;color:var(--navy);}
+.section-rule{width:56px;height:3px;background:linear-gradient(90deg,var(--navy),#6688ee);border-radius:2px;margin-top:6px;}
+.leader-cards-row{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;}
+.ldr-card{border:1.5px solid #dde4f4;border-radius:14px;overflow:hidden;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease,border-color .25s;background:#fff;display:flex;flex-direction:column;}
+.ldr-card:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(0,0,128,.13);border-color:#aabcee;}
+.ldr-card.active{border-color:var(--navy);border-width:2px;transform:translateY(-6px);box-shadow:0 20px 48px rgba(0,0,128,.18);}
+.ldr-photo{width:100%;aspect-ratio:4/5;background:linear-gradient(145deg,#dce8ff,#b8ccf4);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.ldr-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;position:relative;z-index:2;}
+.ldr-photo-fallback{font-family:'DM Serif Display',serif;font-size:48px;color:rgba(0,0,128,.22);position:absolute;inset:0;display:none;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(220,232,255,0.8),rgba(184,204,244,0.8));z-index:1;}
+.ldr-designation-ribbon{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,80,.82),transparent);padding:16px 12px 10px;text-align:center;}
+.ldr-designation-ribbon span{font-size:9px;font-weight:700;letter-spacing:1.2px;color:rgba(255,255,255,.9);text-transform:uppercase;}
+.ldr-meta{padding:14px 16px 18px;border-top:1px solid #eef2ff;background:#fcfdff;}
+.ldr-name{font-size:13px;font-weight:600;color:var(--navy);line-height:1.35;margin-bottom:3px;}
+.ldr-role-tag{display:inline-block;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:20px;margin-top:4px;background:#eef2ff;color:var(--navy);}
+.ldr-card.active .ldr-role-tag{background:var(--navy);color:#fff;}
+
+.explore-section{background:#f5f6fa;padding:60px 0 72px;border-bottom:1px solid #dde4f4;}
+.explore-inner{max-width:1180px;margin:0 auto;padding:0 44px;}
+.explore-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.exp-card{background:#fff;border:1px solid #dde4f4;border-radius:14px;overflow:hidden;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease,border-color .25s;display:flex;flex-direction:column;}
+.exp-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,0,128,.11);border-color:#aabcee;}
+.exp-card.featured{grid-row:span 2;}
+.exp-img{width:100%;height:160px;background:linear-gradient(135deg,#d0dcf4,#b0c4ec);position:relative;overflow:hidden;flex-shrink:0;}
+.exp-card.featured .exp-img{height:100%;min-height:260px;flex:1;}
+.exp-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;}
+.exp-card:hover .exp-img img{transform:scale(1.06);}
+.exp-img-bg{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:48px;opacity:.35;}
+.exp-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,50,.6) 0%,transparent 55%);}
+.exp-cat-pill{position:absolute;top:12px;left:12px;background:var(--crimson);color:#fff;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 11px;border-radius:20px;}
+.exp-body{padding:16px 18px 20px;}
+.exp-title{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:6px;line-height:1.4;}
+.exp-desc{font-size:12px;color:var(--muted);line-height:1.7;}
+.exp-card-strip{height:3px;background:linear-gradient(90deg,var(--navy),#6688ee);}
+
+/* ===== PROGRAMMES — SPLIT SELECTOR ===== */
+.prog-section{background:#f7f9ff;padding:64px 0 80px;position:relative;overflow:hidden;}
+.prog-section::before{content:'';position:absolute;top:-120px;right:-120px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(0,0,128,0.05),transparent 70%);}
+.prog-section-inner{max-width:1180px;margin:0 auto;padding:0 44px;position:relative;z-index:2;}
+
+.prog-head{text-align:center;margin-bottom:44px;}
+.prog-eyebrow{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--crimson);margin-bottom:10px;}
+.prog-head-title{font-family:'DM Serif Display',serif;font-size:38px;color:var(--navy);margin-bottom:10px;}
+.prog-head-rule{width:56px;height:3px;background:linear-gradient(90deg,var(--navy),#6688ee);border-radius:2px;margin:0 auto 16px;}
+.prog-head-sub{font-size:14px;color:var(--muted);max-width:560px;margin:0 auto;line-height:1.7;}
+
+/* Split layout */
+.prog-split{display:grid;grid-template-columns:320px 1fr;gap:0;background:#fff;border-radius:24px;border:1px solid var(--border);box-shadow:0 24px 60px rgba(0,0,128,.10);overflow:hidden;min-height:440px;}
+
+/* LEFT — tab list */
+.prog-tabs{background:linear-gradient(165deg,#050b3c,#0d1a7a);padding:16px;display:flex;flex-direction:column;gap:6px;}
+.prog-tab{display:flex;align-items:center;gap:14px;padding:16px 16px;border-radius:14px;cursor:pointer;transition:background .25s ease,transform .2s ease;position:relative;}
+.prog-tab:hover{background:rgba(255,255,255,0.06);}
+.prog-tab.active{background:rgba(255,255,255,0.12);}
+.prog-tab.active::before{content:'';position:absolute;left:0;top:14px;bottom:14px;width:3px;background:var(--gold);border-radius:3px;}
+.prog-tab-ico{width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0;transition:background .25s;}
+.prog-tab.active .prog-tab-ico{background:var(--gold);}
+.prog-tab-text{display:flex;flex-direction:column;gap:2px;}
+.prog-tab-name{font-size:14.5px;font-weight:700;color:#fff;}
+.prog-tab-sub{font-size:10.5px;font-weight:500;color:rgba(255,255,255,0.5);letter-spacing:.3px;}
+.prog-tab-chev{margin-left:auto;font-size:13px;color:rgba(255,255,255,0.35);transition:transform .25s,color .25s;}
+.prog-tab.active .prog-tab-chev{color:var(--gold);transform:translateX(3px);}
+
+/* RIGHT — preview panel */
+.prog-preview{padding:44px 48px;position:relative;display:flex;flex-direction:column;}
+.prog-panel{display:none;animation:progFadeIn .4s ease;}
+.prog-panel.active{display:flex;flex-direction:column;flex:1;}
+@keyframes progFadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
+.prog-panel-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:18px;}
+.prog-panel-badge{display:inline-flex;align-items:center;gap:6px;background:var(--sky);color:var(--navy);font-size:11px;font-weight:700;letter-spacing:.5px;padding:6px 14px;border-radius:20px;}
+.prog-panel-sem{background:#fff4de;color:#996600;font-size:11.5px;font-weight:700;padding:6px 14px;border-radius:20px;}
+.prog-panel-title{font-family:'DM Serif Display',serif;font-size:34px;color:var(--navy);margin-bottom:12px;}
+.prog-panel-desc{font-size:14.5px;line-height:1.85;color:var(--muted);max-width:560px;margin-bottom:26px;}
+
+.prog-highlights{display:flex;gap:14px;margin-bottom:30px;flex-wrap:wrap;}
+.prog-highlight-chip{display:flex;align-items:center;gap:8px;background:#f4f6ff;border:1px solid var(--border);padding:9px 16px;border-radius:12px;font-size:12px;font-weight:600;color:var(--text);}
+.prog-highlight-chip span.ico{font-size:15px;}
+
+.prog-panel-cta{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(90deg,var(--navy),var(--navy-lt));color:#fff;font-size:14px;font-weight:700;padding:14px 30px;border-radius:12px;text-decoration:none;width:fit-content;transition:box-shadow .2s,transform .2s;}
+.prog-panel-cta:hover{box-shadow:0 10px 28px rgba(0,0,128,.3);transform:translateY(-2px);}
+.prog-panel-cta span{transition:transform .2s;}
+.prog-panel-cta:hover span{transform:translateX(4px);}
+
+/* B.A special panel — stream picker */
+.ba-streams-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:10px;}
+.ba-stream-tile{border:1.5px solid var(--border);border-radius:16px;padding:20px 18px;cursor:pointer;transition:transform .2s,box-shadow .2s,border-color .2s;position:relative;}
+.ba-stream-tile:hover{transform:translateY(-5px);box-shadow:0 14px 34px rgba(0,0,128,.12);border-color:#aabcee;}
+.ba-stream-tile.selected{border-color:var(--navy);background:linear-gradient(165deg,#eef2ff,#fff);}
+.ba-stream-tile.selected::after{content:'✓';position:absolute;top:12px;right:12px;width:20px;height:20px;background:var(--navy);color:#fff;border-radius:50%;font-size:11px;display:flex;align-items:center;justify-content:center;font-weight:700;}
+.ba-stream-ico2{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:19px;margin-bottom:10px;}
+.ba-stream-tile:nth-child(1) .ba-stream-ico2{background:#f0eaff;}
+.ba-stream-tile:nth-child(2) .ba-stream-ico2{background:#e6f8ee;}
+.ba-stream-tile:nth-child(3) .ba-stream-ico2{background:#e2f4fb;}
+.ba-stream-tile-name{font-size:14px;font-weight:700;color:var(--text);margin-bottom:5px;}
+.ba-stream-tile-desc{font-size:11.5px;color:var(--muted);line-height:1.6;}
+.ba-hint{font-size:12px;color:var(--muted);font-style:italic;margin-bottom:16px;}
+
+@media(max-width:900px){
+  .prog-split{grid-template-columns:1fr;}
+  .prog-tabs{flex-direction:row;overflow-x:auto;}
+  .prog-tab{min-width:150px;}
+  .prog-preview{padding:30px 24px;}
+  .ba-streams-wrap{grid-template-columns:1fr;}
+}
+
+.ach-section{background:var(--bg);padding:52px 44px 60px;border-top:1px solid var(--border);}
+.ach-header{display:flex;align-items:flex-end;justify-content:space-between;padding-bottom:20px;border-bottom:3px solid var(--navy);margin-bottom:28px;}
+.ach-title-wrap{display:flex;flex-direction:column;gap:4px;}
+.ach-eyebrow{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--muted);}
+.ach-title{font-family:'DM Serif Display',serif;font-size:30px;color:var(--navy);}
+.ach-underline{width:52px;height:3px;background:linear-gradient(90deg,var(--navy),#6699ff);border-radius:2px;margin-top:4px;}
+.ach-view-more{display:inline-flex;align-items:center;gap:7px;background:var(--navy);color:#fff;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:10px 22px;border-radius:6px;text-decoration:none;transition:background 0.2s;}
+.ach-view-more:hover{background:var(--navy-lt);}
+.ach-scroll-container{display:flex;justify-content:center;margin-bottom:20px;}
+.ach-scroll-track{display:flex;gap:22px;overflow-x:auto;scroll-behavior:smooth;padding:10px 0;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--navy) #dce8f8;max-width:100%;}
+.ach-scroll-track::-webkit-scrollbar{height:5px;}
+.ach-scroll-track::-webkit-scrollbar-thumb{background:var(--navy);border-radius:3px;}
+.ach-card{min-width:280px;max-width:280px;background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;flex-shrink:0;transition:transform 0.2s,box-shadow 0.2s;}
+.ach-card:hover{transform:translateY(-5px);box-shadow:0 12px 32px rgba(0,0,128,.12);}
+.ach-card-top{height:4px;background:linear-gradient(90deg,var(--navy),#6699ff);}
+.ach-img-wrap{width:100%;height:165px;overflow:hidden;position:relative;background:#d0daf5;}
+.ach-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s;}
+.ach-card:hover .ach-img-wrap img{transform:scale(1.05);}
+.ach-badge{position:absolute;top:10px;left:10px;background:var(--navy);color:#fff;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:20px;}
+.ach-body{padding:16px 18px 20px;flex:1;display:flex;flex-direction:column;gap:6px;}
+.ach-venue{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold);}
+.ach-headline{font-family:'DM Serif Display',serif;font-size:15px;color:var(--navy);line-height:1.35;}
+.ach-desc{font-size:12px;color:var(--muted);line-height:1.65;flex:1;}
+.ach-award{display:inline-flex;align-items:center;gap:6px;background:#e8f0ff;color:var(--navy);font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;margin-top:4px;align-self:flex-start;}
+.ach-arrows-container{display:flex;justify-content:center;gap:8px;}
+.ach-arrow{background:var(--navy);color:#fff;border:none;width:36px;height:36px;border-radius:6px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;line-height:1;}
+.ach-arrow:hover{background:var(--navy-lt);}
+
+.dyd-intro-section{background:linear-gradient(135deg,#f0f4ff 0%,#e8f0ff 50%,#f5f8ff 100%);padding:72px 0 64px;border-bottom:1px solid #dde4f4;position:relative;overflow:hidden;}
+.dyd-intro-section::before{content:'';position:absolute;top:-80px;right:-80px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(0,0,128,0.06) 0%,transparent 70%);pointer-events:none;}
+.dyd-intro-section::after{content:'';position:absolute;bottom:-60px;left:-60px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(0,0,128,0.05) 0%,transparent 70%);pointer-events:none;}
+.dyd-intro-inner{max-width:1180px;margin:0 auto;padding:0 44px;}
+.dyd-heading-wrap{text-align:center;margin-bottom:48px;}
+.dyd-main-heading{font-family:'Lucida Calligraphy','Palatino Linotype',cursive;font-size:52px;font-weight:normal;color:#000080;letter-spacing:2px;line-height:1.2;animation:dydGlow 3s ease-in-out infinite;margin-bottom:16px;}
+@keyframes dydGlow{0%,100%{text-shadow:0 0 10px rgba(0,0,180,0.3),0 0 30px rgba(0,0,180,0.15),0 2px 4px rgba(0,0,80,0.2);}50%{text-shadow:0 0 20px rgba(0,0,220,0.6),0 0 60px rgba(0,0,200,0.35),0 0 100px rgba(30,30,255,0.2),0 2px 4px rgba(0,0,80,0.2);}}
+.dyd-heading-rule{width:80px;height:3px;background:linear-gradient(90deg,transparent,#000080,transparent);margin:0 auto 28px;border-radius:2px;}
+.dyd-intro-text{font-family:'Times New Roman',Times,serif;font-size:16px;line-height:1.95;color:#1a1a2e;max-width:860px;margin:0 auto;text-align:justify;letter-spacing:0.2px;font-weight:600;}
+.dyd-strip-wrap{overflow:hidden;width:100%;margin:0 -44px;width:calc(100% + 88px);position:relative;}
+.dyd-strip-wrap::before,.dyd-strip-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;}
+.dyd-strip-wrap::before{left:0;background:linear-gradient(to right,#edf1ff,transparent);}
+.dyd-strip-wrap::after{right:0;background:linear-gradient(to left,#edf1ff,transparent);}
+.dyd-strip-track{display:flex;gap:14px;animation:dydScroll 30s linear infinite;width:max-content;padding:8px 0;}
+.dyd-strip-track:hover{animation-play-state:paused;}
+.dyd-strip-track img{height:200px;width:280px;object-fit:cover;border-radius:12px;box-shadow:0 6px 24px rgba(0,0,128,0.13);flex-shrink:0;transition:transform 0.3s ease,box-shadow 0.3s ease;}
+.dyd-strip-track img:hover{transform:scale(1.04) translateY(-4px);box-shadow:0 14px 36px rgba(0,0,128,0.22);}
+@keyframes dydScroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+.dyd-btn-wrap{text-align:center;margin-top:44px;}
+.dyd-explore-btn{display:inline-block;font-family:'Times New Roman',Times,serif;font-size:15px;font-style:italic;letter-spacing:0.5px;color:#fff;background:linear-gradient(135deg,#000080,#1a1ab5);padding:14px 40px;border-radius:40px;text-decoration:none;box-shadow:0 6px 24px rgba(0,0,128,0.30);transition:transform 0.25s ease,box-shadow 0.25s ease,background 0.25s;border:1px solid rgba(255,255,255,0.15);}
+.dyd-explore-btn:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,0,180,0.40);background:linear-gradient(135deg,#0000aa,#2222cc);}
+.leader-quote{font-family:'Times New Roman',Times,serif;font-size:19px;font-style:italic;color:var(--muted);margin-top:8px;letter-spacing:0.3px;}
+
+.footer{background:#00003a;color:#8899bb;border-top:3px solid #0000aa;}
+.footer-inner{max-width:1180px;margin:0 auto;padding:60px 44px 40px;display:grid;grid-template-columns:1.4fr 1fr 1fr 0.9fr;gap:48px;}
+.footer-col{display:flex;flex-direction:column;gap:10px;}
+.footer-logo{width:64px;height:64px;object-fit:contain;margin-bottom:6px;}
+.footer-brand-name{font-family:'DM Serif Display',serif;font-size:20px;color:#fff;}
+.footer-brand-sub{font-size:12px;color:#aabbd4;letter-spacing:0.4px;}
+.footer-naac{display:inline-block;background:linear-gradient(90deg,#7a0000,#a80000);color:#ffd700;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:1px;width:fit-content;margin-top:2px;}
+.footer-socials{margin-top:8px;}
+.footer-social-btn{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);color:#fff;font-size:12px;font-weight:600;padding:8px 18px;border-radius:24px;text-decoration:none;letter-spacing:0.3px;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 4px 16px rgba(200,50,50,0.3);}
+.footer-social-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,50,50,0.45);}
+.footer-col-heading{font-family:'DM Serif Display',serif;font-size:15px;color:#fff;letter-spacing:0.5px;}
+.footer-divider{width:36px;height:2px;background:linear-gradient(90deg,#0000cc,#4466ff);border-radius:2px;margin-bottom:4px;}
+.footer-address{font-size:13px;line-height:1.85;color:#9aaac8;}
+.footer-contact-link{font-size:12px;color:#8899bb;text-decoration:none;transition:color 0.2s;}
+.footer-contact-link:hover{color:#aaccff;}
+.footer-link{font-size:13px;color:#8899bb;text-decoration:none;transition:color 0.2s,padding-left 0.2s;padding-left:0;}
+.footer-link:hover{color:#fff;padding-left:6px;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding:16px 44px;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#556688;}
+.footer-bottom a{color:#6677aa;text-decoration:none;}
+.footer-bottom a:hover{color:#aabbdd;}
+
+/* ===== CONTACT PANEL (premium) ===== */
+.contact-modal-overlay{display:none;position:fixed;inset:0;background:rgba(4,6,40,.66);backdrop-filter:blur(5px);z-index:3000;align-items:center;justify-content:center;padding:16px;}
+.contact-modal-overlay.show{display:flex;}
+.contact-modal{background:#fff;width:100%;max-width:460px;max-height:88vh;display:flex;flex-direction:column;border-radius:20px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,60,.10),0 30px 80px rgba(0,0,60,.45);animation:contactPop .32s cubic-bezier(.2,.8,.2,1);}
+@keyframes contactPop{from{opacity:0;transform:translateY(22px) scale(.97);}to{opacity:1;transform:none;}}
+
+/* Header */
+.contact-modal-head{position:relative;flex:none;overflow:hidden;padding:30px 30px 26px;color:#fff;background:radial-gradient(circle at 95% 0%,rgba(120,140,255,.45),transparent 55%),linear-gradient(135deg,#000070 0%,#000080 40%,#1a1ab5 100%);}
+.contact-modal-head::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.16) 1px,transparent 1.5px);background-size:16px 16px;-webkit-mask-image:linear-gradient(to left,#000,transparent 60%);mask-image:linear-gradient(to left,#000,transparent 60%);}
+.contact-modal-head::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:linear-gradient(90deg,transparent,#c8a84b 30%,#f1dc95 50%,#c8a84b 70%,transparent);}
+.contact-modal-head>*{position:relative;z-index:1;}
+.contact-modal-eyebrow{font-size:12px;font-weight:600;letter-spacing:1.2px;color:#f1dc95;margin-bottom:8px;}
+.contact-modal-head h3{font-family:'DM Serif Display',serif;font-size:30px;font-weight:400;line-height:1.1;margin:0;}
+.contact-modal-head p{margin:8px 0 0;font-size:13px;line-height:1.55;color:rgba(255,255,255,.75);}
+.contact-modal-head .contact-modal-close{position:absolute;top:20px;right:20px;z-index:2;width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);color:#fff;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .25s;}
+.contact-modal-head .contact-modal-close:hover{background:rgba(255,255,255,.25);transform:rotate(90deg);}
+
+/* Body */
+.contact-modal-body{padding:6px 28px 14px;overflow-y:auto;flex:1;scrollbar-width:thin;}
+.contact-avatar{display:none !important;}
+.contact-person{display:block;padding:22px 0;border-bottom:1px solid #edf0fa;}
+.contact-person:last-child{border-bottom:none;}
+.contact-info{display:block;}
+.contact-person-name{font-family:'DM Serif Display',serif;font-size:20px;line-height:1.2;color:var(--navy,#000080);}
+.contact-person-role{font-size:12.5px;line-height:1.6;color:var(--muted,#5a6480);margin-top:4px;}
+.contact-role-title{display:block;font-size:13px;font-weight:600;color:var(--navy,#000080);margin-bottom:1px;}
+.contact-person-links{margin-top:14px;display:grid;gap:8px;}
+
+.contact-link-row{position:relative;display:flex;align-items:center;gap:13px;padding:10px 14px 10px 10px;border-radius:14px;background:#f6f8ff;border:1px solid #e8edfb;transition:background .2s,border-color .2s,box-shadow .2s,transform .2s;}
+.contact-link-row:hover{background:#fff;border-color:#d9c27a;box-shadow:0 6px 18px rgba(0,0,100,.08);transform:translateY(-1px);}
+.contact-link-icon{flex:none;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#000080,#1a1ab5);color:#f1dc95;box-shadow:0 3px 8px rgba(0,0,128,.25);}
+.contact-link-icon svg{width:16px;height:16px;}
+.contact-link-text{display:flex;flex-direction:column;gap:1px;min-width:0;}
+.contact-link-label{font-size:11px;font-weight:500;letter-spacing:.3px;color:#7a84a3;}
+.contact-link-value{font-size:14px;font-weight:600;letter-spacing:.15px;color:var(--navy,#000080);text-decoration:none;overflow-wrap:anywhere;}
+.contact-link-value::after{content:"";position:absolute;inset:0;border-radius:14px;}
+.contact-link-value:focus-visible::after{outline:2px solid #6b7bff;outline-offset:2px;}
+
+@media (max-width:480px){
+  .contact-modal-head{padding:24px 22px 22px;}
+  .contact-modal-head h3{font-size:26px;}
+  .contact-modal-body{padding:4px 18px 10px;}
+}
+@media (prefers-reduced-motion:reduce){
+  .contact-modal{animation:none;}
+  .contact-link-row,.contact-modal-close{transition:none;}
+}/* ===== 360° BADGE — small octagon above search ===== */
+.explore360-btn{
+  display:block;
+  width:fit-content;
+  margin:0 auto 10px;
+  text-decoration:none;
+  filter:drop-shadow(0 4px 10px rgba(0,0,128,.35));
+  transition:transform .2s, filter .2s;
+}
+.explore360-btn:hover{
+  transform:translateY(-2px);
+  filter:drop-shadow(0 8px 16px rgba(200,168,75,.55));
+}
+/* outer octagon = golden border */
+.e360-shape{
+  display:block;
+  padding:2px;
+  background:linear-gradient(135deg,#fff2b0,#c8a84b 45%,#f1dc95 70%,#a8862f);
+  clip-path:polygon(14px 0,calc(100% - 14px) 0,100% 14px,100% calc(100% - 14px),calc(100% - 14px) 100%,14px 100%,0 calc(100% - 14px),0 14px);
+}
+/* inner octagon = navy face */
+.e360-face{
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:2px;
+  padding:9px 22px 10px;
+  text-align:center;
+  white-space:nowrap;
+  background:linear-gradient(135deg,#000070,#000080 50%,#1a1ab5);
+  clip-path:polygon(12px 0,calc(100% - 12px) 0,100% 12px,100% calc(100% - 12px),calc(100% - 12px) 100%,12px 100%,0 calc(100% - 12px),0 12px);
+}
+.e360-face::after{
+  content:'';
+  position:absolute;top:0;left:-150%;width:55%;height:100%;
+  background:linear-gradient(120deg,transparent,rgba(255,235,150,.45),transparent);
+  animation:shineSweep 2.8s ease-in-out infinite;
+}
+/* small golden bold lines */
+.e360-line{
+  font-family:'DM Sans',sans-serif;
+  font-size:9.5px;
+  font-weight:800;
+  letter-spacing:.6px;
+  color:#f1c94a;
+}
+/* BIGGER golden bold line */
+.e360-dyd{
+  font-family:'Playfair Display',serif;
+  font-size:15.5px;
+  font-weight:700;
+  line-height:1.15;
+  color:#ffd54a;
+  text-shadow:0 0 10px rgba(255,200,60,.45);
+}
+/* ===== HEADER LAYOUT FIX + FLOATING BADGE ===== */
+.header-left{flex:0 0 auto;}
+.header-center{flex:1 1 auto;min-width:0;}
+
+/* badge upar, search pane neeche */
+.search-wrap{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+  width:300px;
+  flex:0 0 300px;
+}
+.search-pane{width:100%;}
+
+/* badge search pane ke upar hover (float) karta rahega */
+.explore360-btn{
+  margin:0;
+  animation:e360Float 3s ease-in-out infinite;
+}
+.explore360-btn:hover{animation-play-state:paused;}
+@keyframes e360Float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-5px);}
+}
+@media (prefers-reduced-motion:reduce){
+  .explore360-btn{animation:none;}
+}
+/* ===== TOP BAR — RIGHT SIDE LINKS ===== */
+.top-bar-right a.tb-campus{
+  font-family:'Lucida Calligraphy','Palatino Linotype',cursive;
+  font-style:italic;
+  font-size:13.5px;
+  font-weight:700;
+  letter-spacing:.4px;
+  text-decoration:none;
+  /* golden shiny text */
+  background:linear-gradient(100deg,#b8860b 0%,#ffd700 25%,#fff6bf 50%,#ffd700 75%,#b8860b 100%);
+  background-size:250% 100%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  color:transparent;
+  animation:tbGoldShine 3.5s linear infinite;
+}
+@keyframes tbGoldShine{
+  0%{background-position:0% 50%;}
+  100%{background-position:250% 50%;}
+}
+@media(max-width:700px){
+  .top-bar{flex-wrap:wrap;gap:6px;padding:7px 16px;}
+}
+@media (prefers-reduced-motion:reduce){
+  .top-bar-right a.tb-campus{animation:none;}
+}
+/* ===== NAVBAR — GOLDEN SHINY ACHIEVEMENTS PILL ===== */
+.nav-list>li.nav-achv{padding:0 8px;}
+
+.nav-list>li.nav-achv>a{
+  position:relative;
+  overflow:hidden;
+  padding:8px 24px;
+  margin:0;
+  border:1.5px solid #c8a84b;
+  border-radius:30px;
+  background:linear-gradient(135deg,#000070 0%,#000080 50%,#1a1ab5 100%);
+  box-shadow:0 3px 12px rgba(0,0,128,.30),inset 0 0 0 1px rgba(255,230,140,.15);
+  transition:transform .2s,box-shadow .2s,border-color .2s;
+}
+.nav-list>li.nav-achv>a:hover,
+.nav-list>li.nav-achv:hover>a{
+  background:linear-gradient(135deg,#000070 0%,#000080 50%,#1a1ab5 100%);
+  border-color:#ffd700;
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(0,0,128,.38),0 0 14px rgba(255,200,60,.45);
+}
+
+/* golden shiny calligraphy text */
+.achv-text{
+  position:relative;
+  z-index:1;
+  font-family:'Lucida Calligraphy','Palatino Linotype',cursive;
+  font-style:italic;
+  font-size:13.5px;
+  font-weight:700;
+  letter-spacing:.5px;
+  background:linear-gradient(100deg,#b8860b 0%,#ffd700 25%,#fff6bf 50%,#ffd700 75%,#b8860b 100%);
+  background-size:250% 100%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  color:transparent;
+  animation:achvGoldShine 3.5s linear infinite;
+}
+@keyframes achvGoldShine{
+  0%{background-position:0% 50%;}
+  100%{background-position:250% 50%;}
+}
+
+/* pill ke upar se guzarti chamak */
+.nav-list>li.nav-achv>a::after{
+  content:'';
+  position:absolute;top:0;left:-150%;width:50%;height:100%;
+  background:linear-gradient(120deg,transparent,rgba(255,235,150,.35),transparent);
+  animation:shineSweep 3s ease-in-out infinite;
+}
+@media (prefers-reduced-motion:reduce){
+  .achv-text,.nav-list>li.nav-achv>a::after{animation:none;}
+}
+.nav-list>li>a.nav-wip-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  background:#e8f4ff;
+  color:#0a63c9;
+  font-size:12.5px;
+  font-weight:800;
+  letter-spacing:0.3px;
+  text-transform:none;
+  padding:6px 15px;
+  border-radius:30px;
+  text-decoration:none;
+  white-space:nowrap;
+  transition:background .2s,transform .2s;
+  border-bottom:none;
+  margin-bottom:0;
+}
+.nav-list>li>a.nav-wip-btn:hover{
+  background:#d8ecff;
+  color:#0a63c9;
+  border-bottom:none;
+  transform:translateY(-1px);
+}
+.nav-wip-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:#0a63c9;
+  animation:navWipBlink 1.2s ease-in-out infinite;
+}
+@keyframes navWipBlink{0%,100%{opacity:1;}50%{opacity:0.25;}}
+/* DISHA WIDGET */
+.disha-wrap{position:fixed;bottom:26px;right:26px;z-index:2500;display:flex;flex-direction:column;align-items:center;gap:6px;}
+.disha-label{background:linear-gradient(135deg,#000070,#1a1ab5);color:#fff;font-size:10px;font-weight:800;letter-spacing:1px;padding:4px 12px;border-radius:20px;box-shadow:0 4px 14px rgba(0,0,128,.35);white-space:nowrap;}
+.disha-btn{position:relative;width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#000070,#1a1ab5);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 10px 28px rgba(0,0,128,.4);transition:transform .2s;}
+.disha-btn:hover{transform:scale(1.08);}
+.disha-btn-ring{position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(200,168,75,.6);animation:dishaPulse 2.2s ease-out infinite;}
+@keyframes dishaPulse{0%{transform:scale(.9);opacity:.9;}100%{transform:scale(1.35);opacity:0;}}
+.disha-btn-face{font-size:28px;z-index:1;}
+.disha-mic-dot{position:absolute;bottom:4px;right:4px;width:14px;height:14px;border-radius:50%;background:#ff4444;border:2px solid #fff;display:none;}
+.disha-mic-dot.live{display:block;animation:blink 1s ease-in-out infinite;}
+
+.disha-panel{position:fixed;bottom:104px;right:26px;width:340px;max-height:460px;background:#fff;border-radius:18px;box-shadow:0 20px 60px rgba(0,0,60,.35);display:none;flex-direction:column;overflow:hidden;z-index:2500;border:1px solid #dde4f4;}
+.disha-panel.show{display:flex;}
+.disha-head{display:flex;align-items:center;gap:10px;padding:14px 16px;background:linear-gradient(135deg,#000070,#1a1ab5);color:#fff;}
+.disha-avatar{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0;}
+.disha-head-text{flex:1;}
+.disha-name{font-family:'DM Serif Display',serif;font-size:16px;}
+.disha-sub{font-size:10.5px;color:rgba(255,255,255,.7);}
+.disha-close{background:none;border:none;color:#fff;font-size:14px;cursor:pointer;opacity:.8;}
+.disha-chat{flex:1;padding:14px 16px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;background:#f7f9ff;}
+.disha-msg{max-width:85%;font-size:13px;line-height:1.5;padding:9px 13px;border-radius:14px;}
+.disha-msg.bot{background:#fff;border:1px solid #e0e6f7;color:#1a1a2e;align-self:flex-start;border-bottom-left-radius:4px;}
+.disha-msg.user{background:linear-gradient(135deg,#000080,#1a1ab5);color:#fff;align-self:flex-end;border-bottom-right-radius:4px;}
+.disha-input-row{display:flex;align-items:center;gap:6px;padding:10px;border-top:1px solid #eef2ff;background:#fff;}
+.disha-input-row input{flex:1;border:1px solid #dde4f4;border-radius:20px;padding:9px 14px;font-size:13px;outline:none;}
+.disha-mic-btn,.disha-send-btn{width:36px;height:36px;border-radius:50%;border:none;background:#eef2ff;color:var(--navy,#000080);font-size:15px;cursor:pointer;flex-shrink:0;transition:background .2s;}
+.disha-mic-btn.live{background:#ff4444;color:#fff;}
+.disha-send-btn{background:var(--navy,#000080);color:#fff;}
+@media(max-width:480px){.disha-panel{width:calc(100vw - 32px);right:16px;bottom:96px;}}
+.dropdown-submenu{position:relative;}
+.dropdown-submenu>.submenu-trigger{display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.sub-chevron{font-size:10px;color:#999;}
+.dropdown-sub{position:absolute;top:0;left:100%;margin-left:1px;background:#fff;border:1px solid var(--border);border-top:3px solid var(--navy);min-width:210px;box-shadow:0 8px 28px rgba(0,0,128,.11);border-radius:0 8px 8px 8px;display:none;z-index:1100;overflow:hidden;}
+.dropdown-submenu:hover .dropdown-sub{display:block;}
+.dropdown-sub a{display:flex;align-items:center;gap:10px;padding:11px 16px;font-size:13px;color:#333;text-decoration:none;border-bottom:1px solid #eef2ff;transition:background .15s,color .15s,padding-left .15s;}
+.dropdown-sub a:last-child{border-bottom:none;}
+.dropdown-sub a:hover{background:var(--sky);color:var(--navy);padding-left:20px;}
+.dropdown-sub svg{width:17px;height:17px;flex-shrink:0;}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <nav class="top-bar-links">
+    <a href="mentors.html">Faculty &amp; Staff</a>
+    <a href="https://dyd-web.vercel.app/" target="_blank">Students</a>
+    <a href="#">Alumni</a>
+    <a href="#" onclick="openContactModal();return false;">Contact</a>
+  </nav>
+
+  <!-- EXTREME RIGHT -->
+  <nav class="top-bar-links top-bar-right">
+    <a href="DYD_2.html" class="tb-campus">About Jammu University Campus</a>
+    <a href="https://www.jammuuniversity.ac.in/node/4219" target="_blank">Clubs at Jammu University</a>
+  </nav>
+</div>
+<!-- HEADER -->
+<header class="header">
+
+  <!-- LEFT: logo + university name -->
+  <div class="header-left">
+    <a href="https://jammuuniversity.ac.in/" target="_blank" class="logo-img-wrap">
+      <img src="university.png" alt="University of Jammu Logo" onerror="this.style.display='none'"/>
+    </a>
+    <div class="logo-text">
+      <div class="logo-brand">University of Jammu</div>
+      <div class="logo-univ-row">
+        <span class="naac-inline-badge">
+          <span class="naac-inline-star">★</span>
+          NAAC Accredited
+          <span class="naac-inline-grade">A++</span>
+        </span>
+      </div>
+      <div class="logo-univ-detail">
+        (CGPA: 3.72) &nbsp;•&nbsp; NIRF Ranking 2025: 51st Rank (University Category), 21st Rank (State Public University)
+      </div>
+      <div class="logo-divider"></div>
+    </div>
+  </div>
+
+  <!-- CENTER: tagline -->
+  <div class="header-center">
+    <div class="tagline-wrap">
+      <div class="tagline-main">WelcomeTo<br/>Design Your Degree Programme</div>
+      <span class="tagline-sub">✦ A unique initiative by University of Jammu ✦</span>
+    </div>
+  </div>
+
+  <!-- RIGHT: badge (top) + search pane (below) -->
+  <div class="search-wrap" id="searchWrap">
+    <a href="https://university-360-tour-2g2j.vercel.app?_vercel_share=vRXeivhZ3qDT50rLFNKAl2jb7gj5HfCj/" target="_blank" class="explore360-btn">
+      <span class="e360-shape"><span class="e360-face">
+        <span class="e360-line">✦ Explore Jammu University Campus &amp;</span>
+        <span class="e360-dyd">Design Your Degree Labs</span>
+        <span class="e360-line">in 360° View ✦</span>
+      </span></span>
+    </a>
+    <div class="search-pane">
+      <input type="text" placeholder="Search programs, faculty…" id="searchInput" autocomplete="off"/>
+      <button onclick="doSearch()">🔍 Search</button>
+    </div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+
+</header>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+   <ul class="nav-list">
+<li>
+  <a href="#">Design Your Degree<span class="chevron">▾</span></a>
+  <div class="dropdown">
+    <a href="about_design_your_degree.html">About</a>
+    <a href="brochure.html">Course Guide</a>
+
+    <div class="dropdown-submenu">
+      <a href="#" class="submenu-trigger">Social Media Handles <span class="sub-chevron">›</span></a>
+      <div class="dropdown-sub">
+
+        <a href="https://www.instagram.com/designyourdegreeofficial?stkn=dHR6ZGtqaW9kOHVt" target="_blank">
+          <svg viewBox="0 0 24 24" width="18" height="18">
+            <defs>
+              <radialGradient id="igGrad" cx="30%" cy="107%" r="150%">
+                <stop offset="0%" stop-color="#fdf497"/>
+                <stop offset="5%" stop-color="#fdf497"/>
+                <stop offset="45%" stop-color="#fd5949"/>
+                <stop offset="60%" stop-color="#d6249f"/>
+                <stop offset="90%" stop-color="#285AEB"/>
+              </radialGradient>
+            </defs>
+            <rect x="2" y="2" width="20" height="20" rx="6" fill="url(#igGrad)"/>
+            <rect x="6.2" y="6.2" width="11.6" height="11.6" rx="3.5" fill="none" stroke="#fff" stroke-width="1.6"/>
+            <circle cx="12" cy="12" r="3.2" fill="none" stroke="#fff" stroke-width="1.6"/>
+            <circle cx="17" cy="6.9" r="1.05" fill="#fff"/>
+          </svg>
+          Instagram
+        </a>
+
+        <a href="https://www.linkedin.com/in/design-your-degree-siiedc-875b153b1?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank">
+          <svg viewBox="0 0 24 24" width="18" height="18">
+            <rect x="2" y="2" width="20" height="20" rx="4" fill="#0A66C2"/>
+            <path fill="#fff" d="M8.34 9.5H5.67v9h2.67v-9zM7 8.4a1.55 1.55 0 1 0 0-3.1 1.55 1.55 0 0 0 0 3.1zM18.5 18.5v-4.94c0-2.65-1.42-3.88-3.3-3.88-1.53 0-2.21.84-2.59 1.43v-1.23H9.94c.03.75 0 9.62 0 9.62h2.67v-5.37c0-.29.02-.57.11-.78.23-.57.76-1.17 1.65-1.17 1.16 0 1.63.89 1.63 2.19v5.13h2.5z"/>
+          </svg>
+          LinkedIn
+        </a>
+
+        <a href="https://youtube.com/@designyourdegreeju?si=bxXAdlNzOBd3WIoQ" target="_blank">
+          <svg viewBox="0 0 24 24" width="18" height="18">
+            <path fill="#FF0000" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.8z"/>
+            <path fill="#fff" d="M9.6 15.6V8.4L15.8 12l-6.2 3.6z"/>
+          </svg>
+          YouTube
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+</li>
+  <li>
+    <a href="#">Leadership Notes <span class="chevron">▾</span></a>
+    <div class="dropdown">
+      <a href="LG.html">Message from Honourable Chancellor</a>
+      <a href="pro-vice-chancellor.html">Message from Pro Chancellor</a>
+      <a href="vice-chairman.html">Message from Vice Chairman HEC UT OF J&K</a>
+      <a href="vice-chancellor.html">Message from Esteemed Vice Chancellor</a>
+      <a href="director.html">Message from the Director SIIEDC</a>
+    </div>
+ 
+  <!-- ✨ ACHIEVEMENTS (golden pill) -->
+  <li class="nav-achv">
+    <a href="achievers.html"><span class="achv-text">Achievements</span></a>
+  </li>
+  <!-- Events (simple button) -->
+  <li><a href="DYD_WORKSHOPS (2).html">Events</a></li>
+
+  <!-- PROJECTS (simple button) -->
+  <li><a href="projects.html">Projects</a></li>
+
+  <li>
+    <a href="#">Academics <span class="chevron">▾</span></a>
+    <div class="dropdown">
+      <a href="#programmes">Programmes Offered</a>
+      <a href="#">Academic Calendar</a>
+    </div>
+  </li>
+<li>
+    <a href="#">Industry Engagements <span class="chevron">▾</span></a>
+    <div class="dropdown">
+      <a href="internships.html">Internships</a>
+      <a href="industry-partnerships.html">Industry Partnerships</a>
+    </div>
+  </li>
+  <li>
+    <a href="#">Admissions <span class="chevron">▾</span></a>
+    <div class="dropdown">
+      <a href="eli.html">Check Eligibility</a>
+      <a href="https://dyd-admission-portal.vercel.app/" target="_blank">Apply Now</a>
+    </div>
+  </li>
+  <li><a href="photo-gallery.html">Photo Gallery</a></li>
+<li>
+  <a href="infa 3.html" class="nav-wip-btn">
+    <span class="nav-wip-dot"></span>DYD Infrastructure
+  </a>
+</li>
+</ul>
+</div>
+</nav>
+
+<!-- ANNOUNCEMENTS -->
+<div class="announcements">
+  <div class="ann-label" id="annLabelBtn">
+    <span class="ann-dot"></span>Announcements <span class="ann-chevron">▾</span>
+
+    <div class="ann-dropdown" id="annDropdown">
+<a href="Make-a-Thon_26-02-10-2026-14꞉13.pdf" target="_blank">MAKE-A-THON'26 (Energy Hackathon 2026) — IIT Jammu</a>
+<a href="Skill_Development_Notice-02-10-2026-14꞉15.pdf" target="_blank">New Refresher Course on Communication — 9 Oct 2026</a>
+      <a href="sem_V_batch24_timetable.pdf" target="_blank">B.Tech Semester 5 Time Table</a>
+      <a href="btech_semVII_.pdf" target="_blank">B.Tech Semester 7 Time Table</a>
+      <a href="BBA_Semester_5_TT-18-09-2026-02꞉03.pdf" target="_blank">B.B.A Semester 5 Time Table</a>
+      <a href="B.BBA time table sem 7.pdf" target="_blank">B.B.A Semester 7 Time Table</a>
+      <a href="JSC Hackathon_Concept_Note.pdf" target="_blank">Jammu Smart City Hackathon — Detailed Brochure</a>
+      <a href="AI_FILM_ADVISORY.jpeg" target="_blank">Advisory for AI Short Film Making Competition 2026</a>
+      <a href="AI_FILM_CIRCULLAR.jpeg" target="_blank">Circular for AI Short Film Making Competition (Dates, Venue &amp; Classes)</a>
+      <a href="display your talent 2026-27- jammu zone.pdf" target="_blank">Display Your Talent 2026–27 — Jammu Zone</a>
+    </div>
+  </div>
+
+  <div class="ann-ticker">
+    <div class="ann-track" id="ticker">
+<a href="Make-a-Thon_26-02-10-2026-14꞉13.pdf" target="_blank" class="ann-item ann-hot">
+  <span class="tag tag-hot">New</span>
+  MAKE-A-THON'26 (Energy Hackathon 2026) — IIT Jammu
+</a>
+
+<a href=Skill_Development_Notice-02-10-2026-14꞉15.pdf" target="_blank" class="ann-item ann-hot">
+  <span class="tag tag-hot">New</span>
+  New Refresher Course on Communication for 5th and 7th Semester— 9 Oct 2026
+
+</a>
+      <a href="btech_semVII_.pdf" class="ann-item">
+        <span class="tag tag-new">New</span>
+        Time Table for B.Tech Semester 7
+      </a>
+
+      <a href="B.BBA time table sem 7.pdf" class="ann-item">
+        <span class="tag tag-new">New</span>
+        Time Table for B.B.A Semester 7
+      </a>
+
+      <a href="BBA_Semester_5_TT-18-09-2026-02꞉03.pdf" class="ann-item">
+        <span class="tag tag-new">New</span>
+        Time Table for B.B.A Semester 5
+      </a>
+
+      <a href="sem_V_batch24_timetable.pdf" class="ann-item">
+        <span class="tag tag-new">New</span>
+        Time Table for B.Tech Semester 5
+      </a>
+
+      <!-- Scrolls to Programmes section -->
+      <a href="#programmes" class="ann-item">
+        <span class="tag tag-new">New</span>
+        Introducing BA Programmes
+      </a>
+
+      <!-- Repeat for continuous ticker -->
+      <a href="Make-a-Thon_26-02-10-2026-14꞉13.pdf" target="_blank" class="ann-item ann-hot">
+  <span class="tag tag-hot">New</span>
+  MAKE-A-THON'26 (Energy Hackathon 2026) — IIT Jammu
+</a>
+
+<a href="Skill_Development_Notice-02-10-2026-14꞉15.pdf" target="_blank" class="ann-item ann-hot">
+  <span class="tag tag-hot">New</span>
+  New Refresher Course on Communication for 5th and 7th Semester— 9 Oct 2026
+</a><a href="btech_semVII_.pdf" class="ann-item">
+        <span class="tag tag-new">New</span>
+        Time Table for B.Tech Semester 7
+      </a>
+
+      <a href="B.BBA time table sem 7.pdf" class="ann-item">
+        <span class="tag tag-new">New</span>
+        Time Table for B.B.A Semester 7
+      </a>
+
+      <a href="BBA_Semester_5_TT-18-09-2026-02꞉03.pdf" class="ann-item">
+        <span class="tag tag-new">New</span>
+        Time Table for B.B.A Semester 5
+      </a>
+
+      <a href="sem_V_batch24_timetable.pdf" class="ann-item">
+        <span class="tag tag-new">New</span>
+        Time Table for B.Tech Semester 5
+      </a>
+
+      <a href="#programmes" class="ann-item">
+        <span class="tag tag-new">New</span>
+        Introducing BA Programmes
+      </a>
+
+    </div>
+  </div>
+</div>
+<!-- HERO SLIDER -->
+<div class="hero" id="hero">
+
+  <div class="hero-progress">
+    <div class="hero-progress-fill" id="progressFill"></div>
+  </div>
+
+  <div id="heroCounter" class="hero-counter">1 / 12</div>
+
+  <div class="slides" id="slides">
+
+    <!-- IMAGE 1 -->
+    <div class="slide active" style="background-image:url('p1.jpeg')">
+      <div class="slide-overlay"></div>
+      <div class="slide-caption">
+        <h2 class="slide-tagline">
+           Design Your Degree students secure <br/><em>Third Prize at AI Craft 3.1 at Amity University</em>
+        </h2>
+        <p class="slide-tagline-sub">
+          A proud achievement at Amity University, showcasing the creativity, innovation, and problem-solving skills of our students.
+        </p>
+      </div>
+    </div>
+
+    <!-- IMAGE 2 -->
+    <div class="slide" style="background-image:url('p2.jpeg')">
+      <div class="slide-overlay"></div>
+      <div class="slide-caption">
+        <h2 class="slide-tagline">
+          Dream.<br/><em>Build. Win.</em>
+        </h2>
+        <p class="slide-tagline-sub">
+          Your ambition, our platform — together we achieve greatness
+        </p>
+      </div>
+    </div>
+
+    <!-- IMAGE 3 -->
+    <div class="slide" style="background-image:url('p3.jpeg')">
+      <div class="slide-overlay"></div>
+      <div class="slide-caption">
+        <h2 class="slide-tagline">
+  Students of Design Your Degree <br/>
+  <em>Win First Runner-Up in Smart Solution Exhibition 2.0, Ekatva 2026 at Shri Mata Vaishno Devi Univeristy</em>
+</h2>
+
+<p class="slide-tagline-sub">
+  A proud achievement showcasing the creativity and innovation of our students.
+</p>
+      </div>
+    </div>
+
+    <!-- IMAGE 4 -->
+    <div class="slide" style="background-image:url('p4.jpeg')">
+      <div class="slide-overlay"></div>
+      <div class="slide-caption">
+        <h2 class="slide-tagline">
+  Students and Mentors <br/><em>Representing the Design Your Degree Stall in Goonj 2026 at the University of Jammu</em>
+</h2>
+<p class="slide-tagline-sub">
+Celebrating creativity, collaboration, and innovation
+</p>
+      </div>
+    </div>
+
+    <!-- IMAGE 5 -->
+    <div class="slide" style="background-image:url('p5.jpeg')">
+      <div class="slide-overlay"></div>
+      <div class="slide-caption">
+      <h2 class="slide-tagline">
+  A Week-Long Workshop on <br/><em>Neurofusion</em>
+</h2>
+<p class="slide-tagline-sub">
+  Attended by Students of Design Your Degree
+</p>
+      </div>
+    </div>
+
+    <!-- IMAGE 6 -->
+    <div class="slide" style="background-image:url('p6.jpeg')">
+      <div class="slide-overlay"></div>
+      <div class="slide-caption">
+        <h2 class="slide-tagline">
+          Students of Design Your Degree <br/><em>at the International Police Expo 2025 at Pragati Maidaan </em>
+        </h2>
+        <p class="slide-tagline-sub">
+          Launching their Two cyber forensic based tools: CDR_Intel and Mobile_Intel
+        </p>
+      </div>
+    </div>
+
+    <!-- IMAGE 7 -->
+    <div class="slide" style="background-image:url('p7.jpeg')">
+      <div class="slide-overlay"></div>
+      <div class="slide-caption">
+        <h2 class="slide-tagline">
+          Learning<br/><em>beyond classrooms International Police Expo 2025</em>
+        </h2>
+        <p class="slide-tagline-sub">
+          Real-world skills forged through experience and exploration
+        </p>
+      </div>
+    </div>
+
+    <!-- IMAGE 8 -->
+    <div class="slide" style="background-image:url('p8.jpeg')">
+      <div class="slide-overlay"></div>
+      <div class="slide-caption">
+        <h2 class="slide-tagline">
+          Students of Design Your Degree<br/><em>at IIT Bombay</em>
+        </h2>
+        <p class="slide-tagline-sub">
+         Inculcating and fostering innovation, creativity, and a spirit of learning
+        </p>
+      </div>
+    </div>
+
+    <!-- IMAGE 9 -->
+    <div class="slide" style="background-image:url('p9.jpeg'); background-size:100% 100%;">
+      <div class="slide-overlay"></div>
+      <div class="slide-caption">
+        <h2 class="slide-tagline">
+          Students of Design Your Degree<br/><em>Secure Runner-Up Position at IUST'S State Level Hackathon</em>
+        </h2>
+        <p class="slide-tagline-sub">
+          Dedication, discipline and determination define our students
+        </p>
+      </div>
+    </div>
+
+    <!-- IMAGE 10 -->
+    <div class="slide" style="background-image:url('p10.jpeg'); background-size:100% 100%;">
+      <div class="slide-overlay"></div>
+      <div class="slide-caption">
+        <h2 class="slide-tagline">
+          Team Dupahar won First Prize at Innovothon<br/><em>National Level Hackathon 2026</em>
+        </h2>
+        <p class="slide-tagline-sub">
+          Every dream here is backed by a system built to succeed
+        </p>
+      </div>
+    </div>
+
+    <!-- IMAGE 11 -->
+    <div class="slide" style="background-image:url('p11.jpeg'); background-size:100% 100%;">
+      <div class="slide-overlay"></div>
+      <div class="slide-caption">
+        <h2 class="slide-tagline">
+          Team AnubhavX won Second Prize at Innovothon,<br/><em>National Level Hackathon 2026</em>
+       
+        </h2>
+        <p class="slide-tagline-sub">
+          Setting benchmarks. Raising the bar. Every single day.
+        </p>
+      </div>
+    </div>
+
+    <!-- IMAGE 12 - CLEAR PIC -->
+    <div class="slide" style="background-image:url('clear pic.jpeg'); background-size:100% 100%;">
+      <div class="slide-overlay"></div>
+      <div class="slide-caption">
+        <h2 class="slide-tagline">
+  Students of Design Your Degree<br/>
+  <em>Interact with the Hon’ble Lieutenant Governor of Jammu & Kashmir</em>
+</h2>
+<p class="slide-tagline-sub">
+  At Raj Bhavan, Jammu & Kashmir
+</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PREVIOUS BUTTON -->
+  <button class="hero-btn prev" id="prevBtn">&#8249;</button>
+
+  <!-- NEXT BUTTON -->
+  <button class="hero-btn next" id="nextBtn">&#8250;</button>
+
+  <!-- DOTS -->
+  <div class="hero-dots" id="heroDots"></div>
+
+</div>
+<!-- DYD INTRO SECTION -->
+<section class="dyd-intro-section">
+  <div class="dyd-intro-inner">
+    <div class="dyd-heading-wrap">
+      <h2 class="dyd-main-heading">Design Your Degree</h2>
+      <div class="dyd-heading-rule"></div>
+      <p class="dyd-intro-text">
+        Design Your Degree is a pioneering interdisciplinary programme at the University of Jammu,
+        conceived to empower students with the freedom to craft their own academic journey.
+        Breaking the boundaries of conventional education, DYD allows students to seamlessly
+        blend domains from Technology and Economics to Psychology and Environmental Sciences
+        creating a degree that is truly their own. Guided by distinguished faculty and enriched
+        through hands-on experiences, industry exposure, and innovation challenges, the programme
+        nurtures thinkers, creators, and leaders who are prepared not just for careers, but for
+        life. At DYD, your curiosity is the curriculum.
+      </p>
+    </div>
+    <div class="dyd-strip-wrap">
+      <div class="dyd-strip-track" id="dydStrip">
+        <img src="jr1.jpeg" alt="DYD Moment"/>
+        <img src="jr2.jpeg" alt="DYD Moment"/>
+        <img src="jr3.jpeg" alt="DYD Moment"/>
+        <img src="WhatsApp Image 2026-09-16 at 8.58.08 PM.jpeg" alt="DYD Moment"/>
+        <img src="jr5.jpeg" alt="DYD Moment"/>
+        <img src="jr6.jpeg" alt="DYD Moment"/>
+        <img src="jr8.jpeg" alt="DYD Moment"/>
+        <img src="jr9.jpeg" alt="DYD Moment"/>
+        <img src="jr10.jpeg" alt="DYD Moment"/>
+        <img src="jr1.jpeg" alt="DYD Moment"/>
+        <img src="jr2.jpeg" alt="DYD Moment"/>
+        <img src="jr3.jpeg" alt="DYD Moment"/>
+        <img src="jr4.jpeg" alt="DYD Moment"/>
+        <img src="jr5.jpeg" alt="DYD Moment"/>
+        <img src="jr6.jpeg" alt="DYD Moment"/>
+        <img src="jr8.jpeg" alt="DYD Moment"/>
+        <img src="jr9.jpeg" alt="DYD Moment"/>
+        <img src="jr10.jpeg" alt="DYD Moment"/>
+      </div>
+    </div>
+    <div class="dyd-btn-wrap">
+      <a href="about_design_your_degree.html" class="dyd-explore-btn">
+        Explore More About Design Your Degree &nbsp;›
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP NOTES -->
+<section class="leader-section">
+  <div class="leader-inner">
+    <div class="section-heading-row">
+      <div class="section-heading-left">
+        <div class="section-eyebrow">From the Desk Of</div>
+        <div class="section-title">Leadership Notes</div>
+        <div class="section-rule"></div>
+        <div class="section-rule"></div>
+        <p class="leader-quote"><b>Words of wisdom from the visionaries who shaped Design Your Degree</b></p>
+      </div>
+    </div>
+    <div class="leader-cards-row" id="leaderCardsRow">
+      <div class="ldr-card" onclick="setLeader(0)">
+        <div class="ldr-photo">
+          <div class="ldr-photo-fallback" id="fb0">M</div>
+          <img src="lg.png" alt="Sh. Manoj Sinha" onerror="this.style.display='none';document.getElementById('fb0').style.display='flex'"/>
+          <div class="ldr-designation-ribbon"><span>Chancellor</span></div>
+        </div>
+        <div class="ldr-meta">
+          <div class="ldr-name">Sh. Manoj Sinha</div>
+          <div class="ldr-role-tag">LG / Chancellor</div>
+        </div>
+      </div>
+      <div class="ldr-card" onclick="setLeader(1)">
+        <div class="ldr-photo" style="background:linear-gradient(145deg,#cce8f4,#a8cce4);">
+          <div class="ldr-photo-fallback" id="fb1">O</div>
+          <img src="omar.png" alt="Jnb Omar Abdullah" onerror="this.style.display='none';document.getElementById('fb1').style.display='flex'"/>
+          <div class="ldr-designation-ribbon"><span>Pro Chancellor</span></div>
+        </div>
+        <div class="ldr-meta">
+          <div class="ldr-name">Jnb Omar Abdullah</div>
+          <div class="ldr-role-tag">Pro Chancellor</div>
+        </div>
+      </div>
+      <div class="ldr-card" onclick="setLeader(2)">
+        <div class="ldr-photo" style="background:linear-gradient(145deg,#cce4cc,#a8cca8);">
+          <div class="ldr-photo-fallback" id="fb2">D</div>
+          <img src="vice-chairman.jpg" alt="Prof. Dinesh Singh" onerror="this.style.display='none';document.getElementById('fb2').style.display='flex'"/>
+          <div class="ldr-designation-ribbon"><span>Vice Chairman</span></div>
+        </div>
+        <div class="ldr-meta">
+          <div class="ldr-name">Prof. Dinesh Singh</div>
+          <div class="ldr-role-tag">Vice Chairman</div>
+        </div>
+      </div>
+  <div class="ldr-card" onclick="setLeader(3)">
+  <div class="ldr-photo" style="background:linear-gradient(145deg,#e0d8f4,#c4b8ec);">
+    <div class="ldr-photo-fallback" id="fb3">U</div>
+    <img src="vice-chancellor.jpg" alt="Prof. Umesh Rai" style="object-fit:fill;object-position:center;" onerror="this.style.display='none';document.getElementById('fb3').style.display='flex'"/>
+    <div class="ldr-designation-ribbon"><span>Vice Chancellor</span></div>
+  </div>
+  <div class="ldr-meta">
+    <div class="ldr-name">Prof. Umesh Rai</div>
+    <div class="ldr-role-tag">Vice Chancellor</div>
+  </div>
+</div>
+<div class="ldr-card" onclick="setLeader(4)">
+        <div class="ldr-photo" style="background:linear-gradient(145deg,#f0e4cc,#e0c8a0);">
+          <div class="ldr-photo-fallback" id="fb4">A</div>
+          <img src="director-alka.jpg" alt="Prof. Alka Sharma" onerror="this.style.display='none';document.getElementById('fb4').style.display='flex'"/>
+          <div class="ldr-designation-ribbon"><span>Director</span></div>
+        </div>
+        <div class="ldr-meta">
+          <div class="ldr-name">Prof. Alka Sharma</div>
+          <div class="ldr-role-tag">Director, SIIEDC</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPLORE @ DYD -->
+<section class="explore-section">
+  <div class="explore-inner">
+    <div class="section-heading-row">
+      <div class="section-heading-left">
+        <div class="section-title">Explore @ DYD</div>
+        <div class="section-rule"></div>
+      </div>
+    </div>
+    <div class="explore-grid">
+      <div class="exp-card featured">
+        <div class="exp-card-strip"></div>
+        <div class="exp-img">
+          <img src="img1.jpeg" alt="Collaborative Learning" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="exp-img-bg" style="display:none;">🤝</div>
+          <div class="exp-overlay"></div>
+          <div class="exp-cat-pill">Student Life</div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-title">Collaborative Learning Culture</div>
+          <div class="exp-desc">Students and mentors learning together in an open, inclusive environment. DYD fosters a culture where every voice matters and every idea finds a platform.</div>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-strip" style="background:linear-gradient(90deg,#006633,#44aa66);"></div>
+        <div class="exp-img" style="background:linear-gradient(135deg,#cce8cc,#aad4aa);">
+          <img src="PIK2.jpeg" alt="Faculty Interaction" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="exp-img-bg" style="display:none;">🎓</div>
+          <div class="exp-overlay"></div>
+          <div class="exp-cat-pill" style="background:#006633;">Mentorship</div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-title">Direct Faculty Interaction</div>
+          <div class="exp-desc">Dedicated mentors guiding multidisciplinary cohorts at every step.</div>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-strip" style="background:linear-gradient(90deg,#c87800,#ffaa44);"></div>
+        <div class="exp-img" style="background:linear-gradient(135deg,#f0ddc0,#e4c898);">
+          <img src="PIK3.jpeg" alt="Industry Lab" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="exp-img-bg" style="display:none;">🔬</div>
+          <div class="exp-overlay"></div>
+          <div class="exp-cat-pill" style="background:#c87800;">Industry</div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-title">Hands-On Lab &amp; Tech Visits</div>
+          <div class="exp-desc">Experiencing cutting-edge research labs and industry setups first-hand.</div>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-strip" style="background:linear-gradient(90deg,#5500bb,#8844ee);"></div>
+        <div class="exp-img" style="background:linear-gradient(135deg,#d8ccf0,#bca8e4);">
+          <img src="pk11.jpeg" alt="Computer Lab" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="exp-img-bg" style="display:none;">💻</div>
+          <div class="exp-overlay"></div>
+          <div class="exp-cat-pill" style="background:#5500bb;">Infrastructure</div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-title">State-of-the-Art Computer Labs</div>
+          <div class="exp-desc">Well-equipped labs fostering digital skills and technical excellence.</div>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-strip" style="background:linear-gradient(90deg,#006688,#22aacc);"></div>
+        <div class="exp-img" style="background:linear-gradient(135deg,#c8e4ec,#a0c8d8);">
+          <img src="PIK5.jpeg" alt="Workshops" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="exp-img-bg" style="display:none;">⚡</div>
+          <div class="exp-overlay"></div>
+          <div class="exp-cat-pill" style="background:#006688;">Workshops</div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-title">Expert-Led Skill Sessions</div>
+          <div class="exp-desc">Interactive workshops by industry leaders building real-world competencies.</div>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-strip" style="background:linear-gradient(90deg,#990044,#cc4488);"></div>
+        <div class="exp-img" style="background:linear-gradient(135deg,#f0cce0,#e0a8c8);">
+          <img src="PK6.jpeg" alt="Innovation Lab" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="exp-img-bg" style="display:none;">🚀</div>
+          <div class="exp-overlay"></div>
+          <div class="exp-cat-pill" style="background:#990044;">Innovation</div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-title">DYD Innovation Lab</div>
+          <div class="exp-desc">Prototyping and building startups inside the SIIEDC Innovation Lab, UoJ.</div>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-strip" style="background:linear-gradient(90deg,#664400,#cc8800);"></div>
+        <div class="exp-img" style="background:linear-gradient(135deg,#f0e4c0,#e4cc88);">
+          <img src="PK8.jpeg" alt="Exhibitions" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="exp-img-bg" style="display:none;">🏆</div>
+          <div class="exp-overlay"></div>
+          <div class="exp-cat-pill" style="background:#664400;">Exhibitions</div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-title">Showcasing Student Ideas</div>
+          <div class="exp-desc">From astronomy posters to tech demos — DYD students present boldly.</div>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-strip" style="background:linear-gradient(90deg,#004488,#2266cc);"></div>
+        <div class="exp-img" style="background:linear-gradient(135deg,#c8d8f0,#a0bce4);">
+          <img src="PIK7.jpeg" alt="National Fairs" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="exp-img-bg" style="display:none;">🌐</div>
+          <div class="exp-overlay"></div>
+          <div class="exp-cat-pill" style="background:#004488;">Outreach</div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-title">DYD at National Fairs</div>
+          <div class="exp-desc">Representing interdisciplinary learning at national education expos.</div>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-strip" style="background:linear-gradient(90deg,#660022,#cc2244);"></div>
+        <div class="exp-img" style="background:linear-gradient(135deg,#f0c8cc,#e4a0a8);">
+          <img src="p6.jpeg" alt="Cyber Intelligence" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="exp-img-bg" style="display:none;">🔐</div>
+          <div class="exp-overlay"></div>
+          <div class="exp-cat-pill" style="background:#660022;">Cyber</div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-title">Cyber Intelligence &amp; Forensics</div>
+          <div class="exp-desc">Students exploring cutting-edge digital forensics tools at professional expos.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMMES OFFERED — SPLIT SELECTOR -->
+<section class="prog-section" id="programmes">
+  <div class="prog-section-inner">
+
+    <div class="prog-head">
+      <div class="prog-eyebrow">Your Future. Our Focus.</div>
+      <h2 class="prog-head-title">Programmes Offered</h2>
+      <div class="prog-head-rule"></div>
+      <p class="prog-head-sub">Design Your Degree is built on a flexible foundation that lets every student chart their own academic path — click a programme to explore.</p>
+    </div>
+
+    <div class="prog-split">
+
+      <!-- LEFT TABS -->
+      <div class="prog-tabs" id="progTabs">
+        <div class="prog-tab active" data-target="foundation" onclick="selectProg('foundation')">
+          <div class="prog-tab-ico">📘</div>
+          <div class="prog-tab-text">
+            <span class="prog-tab-name">Foundation Programme</span>
+            <span class="prog-tab-sub">Build Your Basics</span>
+          </div>
+          <span class="prog-tab-chev">›</span>
+        </div>
+        <div class="prog-tab" data-target="btech" onclick="selectProg('btech')">
+          <div class="prog-tab-ico">⚙️</div>
+          <div class="prog-tab-text">
+            <span class="prog-tab-name">B.Tech</span>
+            <span class="prog-tab-sub">Engineering For Tomorrow</span>
+          </div>
+          <span class="prog-tab-chev">›</span>
+        </div>
+        <div class="prog-tab" data-target="bba" onclick="selectProg('bba')">
+          <div class="prog-tab-ico">💼</div>
+          <div class="prog-tab-text">
+            <span class="prog-tab-name">BBA</span>
+            <span class="prog-tab-sub">Lead · Manage · Grow</span>
+          </div>
+          <span class="prog-tab-chev">›</span>
+        </div>
+        <div class="prog-tab" data-target="ba" onclick="selectProg('ba')">
+          <div class="prog-tab-ico">🎓</div>
+          <div class="prog-tab-text">
+            <span class="prog-tab-name">B.A</span>
+            <span class="prog-tab-sub">Explore · Analyse · Impact</span>
+          </div>
+          <span class="prog-tab-chev">›</span>
+        </div>
+      </div>
+
+      <!-- RIGHT PREVIEW -->
+      <div class="prog-preview">
+
+        <!-- FOUNDATION -->
+        <div class="prog-panel active" id="panel-foundation">
+          <div class="prog-panel-top">
+            <span class="prog-panel-badge">📘 Foundation Programme</span>
+            <span class="prog-panel-sem">Semesters 1–4</span>
+          </div>
+          <h3 class="prog-panel-title">DYD Foundation</h3>
+          <p class="prog-panel-desc">Degree in Values &amp; Development — a comprehensive interdisciplinary foundation spanning 4 semesters, blending Technology, Economics, Psychology, Environmental Sciences and more before you specialise.</p>
+          <div class="prog-highlights">
+            <div class="prog-highlight-chip"><span class="ico">🧩</span>Interdisciplinary Core</div>
+            <div class="prog-highlight-chip"><span class="ico">🧭</span>Career Exploration</div>
+            <div class="prog-highlight-chip"><span class="ico">🤝</span>Mentor-Guided</div>
+          </div>
+          <a href="index%20(5).html" class="prog-panel-cta">View Curriculum <span>→</span></a>
+        </div>
+
+        <!-- B.TECH -->
+        <div class="prog-panel" id="panel-btech">
+          <div class="prog-panel-top">
+            <span class="prog-panel-badge">⚙️ Engineering Programme</span>
+            <span class="prog-panel-sem">Semesters 5–8</span>
+          </div>
+          <h3 class="prog-panel-title">B.Tech</h3>
+          <p class="prog-panel-desc">Bachelor of Technology — an advanced engineering curriculum with specialised technical subjects across 4 semesters, built for hands-on innovation and industry readiness.</p>
+          <div class="prog-highlights">
+            <div class="prog-highlight-chip"><span class="ico">💻</span>Applied Labs</div>
+            <div class="prog-highlight-chip"><span class="ico">🏭</span>Industry Visits</div>
+            <div class="prog-highlight-chip"><span class="ico">🚀</span>Innovation Projects</div>
+          </div>
+          <a href="index%20(5).html" class="prog-panel-cta">View Curriculum <span>→</span></a>
+        </div>
+
+        <!-- BBA -->
+        <div class="prog-panel" id="panel-bba">
+          <div class="prog-panel-top">
+            <span class="prog-panel-badge">💼 Management Programme</span>
+            <span class="prog-panel-sem">Semesters 5–6</span>
+          </div>
+          <h3 class="prog-panel-title">BBA</h3>
+          <p class="prog-panel-desc">Bachelor of Business Administration — a professional management curriculum focused on leadership, strategy and business excellence over 2 semesters.</p>
+          <div class="prog-highlights">
+            <div class="prog-highlight-chip"><span class="ico">📊</span>Case Studies</div>
+            <div class="prog-highlight-chip"><span class="ico">🎤</span>Leadership Labs</div>
+            <div class="prog-highlight-chip"><span class="ico">🌐</span>Startup Exposure</div>
+          </div>
+          <a href="index%20(5).html" class="prog-panel-cta">View Curriculum <span>→</span></a>
+        </div>
+
+        <!-- B.A — WITH STREAM PICKER -->
+        <div class="prog-panel" id="panel-ba">
+          <div class="prog-panel-top">
+            <span class="prog-panel-badge">🎓 Humanities Programme</span>
+            <span class="prog-panel-sem">Semesters 5–6</span>
+          </div>
+          <h3 class="prog-panel-title">B.A</h3>
+          <p class="ba-hint">Select a stream below, then view its curriculum →</p>
+
+          <div class="ba-streams-wrap" id="baStreamsWrap">
+            <div class="ba-stream-tile selected" data-stream="psychology" onclick="selectStream('psychology')">
+              <div class="ba-stream-ico2">🧠</div>
+              <div class="ba-stream-tile-name">Psychology</div>
+              <div class="ba-stream-tile-desc">Understand human behaviour, mind and society.</div>
+            </div>
+            <div class="ba-stream-tile" data-stream="sociology" onclick="selectStream('sociology')">
+              <div class="ba-stream-ico2">👥</div>
+              <div class="ba-stream-tile-name">Sociology</div>
+              <div class="ba-stream-tile-desc">Explore communities, cultures and social change.</div>
+            </div>
+            <div class="ba-stream-tile" data-stream="geography" onclick="selectStream('geography')">
+              <div class="ba-stream-ico2">🌍</div>
+              <div class="ba-stream-tile-name">Geography</div>
+              <div class="ba-stream-tile-desc">Study our planet, people and places.</div>
+            </div>
+          </div>
+
+          <a href="index%20(5).html" class="prog-panel-cta" id="baStreamCta">View Psychology Curriculum <span>→</span></a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS SECTION -->
+<section class="ach-section">
+  <div class="ach-header">
+  <div class="ach-title-wrap">
+    <span class="ach-eyebrow">Our Students</span>
+    <div class="ach-title">Achievements</div>
+    <div class="ach-underline"></div>
+  </div>
+  <a href="achievers.html" class="ach-view-more">View More →</a>
+</div>
+  <div class="ach-scroll-container">
+    <div class="ach-scroll-track" id="achTrack">
+      <div class="ach-card">
+        <div class="ach-card-top"></div>
+        <div class="ach-img-wrap">
+          <img src="pic12.png" alt="Team Dupahar" onerror="this.style.display='none'"/>
+          <span class="ach-badge">Top 15</span>
+        </div>
+        <div class="ach-body">
+          <div class="ach-venue">India Innovates 2026 · Bharat Mandapam, New Delhi</div>
+          <div class="ach-headline">Team Dupahar Reaches National Finale from 1.26 Crore Applicants</div>
+          <div class="ach-desc">Adil Mahajan, Tavishi Amla, Narayan Choudhary &amp; Gourav Sharma cleared 28,000 teams in Round 2 to reach the national offline finale.</div>
+          <div class="ach-award">🏆 Top 15 — National Finale</div>
+        </div>
+      </div>
+
+      <!-- ANUBHAV-X — MOVED BEFORE AICRAFT -->
+      <div class="ach-card">
+        <div class="ach-card-top"></div>
+        <div class="ach-img-wrap">
+          <img src="p3.jpeg" alt="Anubhav-X" onerror="this.style.display='none'"/>
+          <span class="ach-badge">2nd Prize</span>
+        </div>
+        <div class="ach-body">
+          <div class="ach-venue">Smart Solution Exhibition 2.0 · SMVDU, Ekatva 2026</div>
+          <div class="ach-headline">Anubhav-X Wins First Runner-Up Among 70+ Teams</div>
+          <div class="ach-desc">Diya Rani, Kashvi Vaid, Paridhi Mahajan &amp; Vidhita Arora secured First Runner-Up, receiving ₹3,000 cash award.</div>
+          <div class="ach-award">🏆 First Runner-Up — ₹3,000</div>
+        </div>
+      </div>
+
+      <div class="ach-card">
+        <div class="ach-card-top"></div>
+        <div class="ach-img-wrap">
+          <img src="p1.jpeg" alt="AICraft" onerror="this.style.display='none'"/>
+          <span class="ach-badge">3rd Prize</span>
+        </div>
+        <div class="ach-body">
+          <div class="ach-venue">AICraft 3.1 · Amity University, Noida</div>
+          <div class="ach-headline">3rd Prize at National-Level AI Competition — 3,000+ Applicants</div>
+          <div class="ach-desc">DYD students secured 3rd Prize and a cash award of ₹10,000 at this prestigious national-level project and poster competition.</div>
+          <div class="ach-award">🏆 3rd Prize — ₹10,000 Cash Award</div>
+        </div>
+      </div>
+
+      <div class="ach-card">
+        <div class="ach-card-top"></div>
+        <div class="ach-img-wrap">
+          <img src="p10.jpeg" alt="Sustainable Development" onerror="this.style.display='none'"/>
+          <span class="ach-badge">1st Prize</span>
+        </div>
+        <div class="ach-body">
+          <div class="ach-venue">Sustainable Development Theme</div>
+          <div class="ach-headline">First Prize — Sustainable Development</div>
+          <div class="ach-desc">DYD students clinched First Prize under the Sustainable Development theme at a competitive inter-university level.</div>
+          <div class="ach-award">🏆 First Prize</div>
+        </div>
+      </div>
+
+      <div class="ach-card">
+        <div class="ach-card-top"></div>
+        <div class="ach-img-wrap">
+          <img src="p11.jpeg" alt="Tech Tourism" onerror="this.style.display='none'"/>
+          <span class="ach-badge">2nd Prize</span>
+        </div>
+        <div class="ach-body">
+          <div class="ach-venue">Tech-Enabled Tourism</div>
+          <div class="ach-headline">2nd Prize — Tech-Enabled Tourism</div>
+          <div class="ach-desc">The team showcased a forward-thinking technology solution for the tourism sector, earning the Runner-Up position.</div>
+          <div class="ach-award">🏆 2nd PRIZE</div>
+        </div>
+      </div>
+
+      <div class="ach-card">
+        <div class="ach-card-top"></div>
+        <div class="ach-img-wrap">
+          <img src="p9.jpeg" alt="IUST Hackathon" onerror="this.style.display='none'"/>
+          <span class="ach-badge">Runner-Up</span>
+        </div>
+        <div class="ach-body">
+          <div class="ach-venue">State-Level Hackathon · IUST, Nov 2025</div>
+          <div class="ach-headline">B.Tech (IT) Students Secure Runner-Up at State Hackathon</div>
+          <div class="ach-desc">Students of B.Tech (IT) from the University of Jammu secured the Runner-Up position at IUST's state-level hackathon.</div>
+          <div class="ach-award">🏆 Runner-Up — State Level</div>
+        </div>
+      </div>
+
+      <!-- AGRI-VIMAAN — SAMADHAN 2025 -->
+      <div class="ach-card">
+        <div class="ach-card-top"></div>
+        <div class="ach-img-wrap">
+          <img src="agrivimaan.jpeg" alt="Agri-Vimaan Team" onerror="this.style.display='none'"/>
+          <span class="ach-badge">1st Prize</span>
+        </div>
+        <div class="ach-body">
+          <div class="ach-venue">Spark Tank – Entrepreneurship Club, SAMADHAN 2025</div>
+          <div class="ach-headline">DYD Team Clinches National Top Spot with Agri-Vimaan</div>
+          <div class="ach-desc">Narayan Choudhary, Divya Verma, Sarnish Kour &amp; Radhey Sharma won First Prize at the National Level Business Plan Competition with their cutting-edge Agri-Tech idea, outshining premier institutions.</div>
+          <div class="ach-award">🏆 First Prize — ₹11,000 Cash Award</div>
+        </div>
+      </div>
+
+      <!-- RASHMIRATHI — BEST DRAMA, BHARAT RANG MAHOTSAV -->
+      <div class="ach-card">
+        <div class="ach-card-top"></div>
+        <div class="ach-img-wrap">
+          <img src="rashmirathi.jpeg" alt="Rashmirathi Cast" onerror="this.style.display='none'"/>
+          <span class="ach-badge">Best Drama</span>
+        </div>
+        <div class="ach-body">
+          <div class="ach-venue">25th Bharat Rang Mahotsav International Theatre Festival 2026 · NSD</div>
+          <div class="ach-headline">DYD Stages Dinkar's "Rashmirathi" at the World's Largest Theatre Festival</div>
+          <div class="ach-desc">Presented under the NSD banner with support from Prof. Umesh Rai (VC), NSD Director Sh. Chitranjan Tripathi, J&amp;K Academy of Art, Culture &amp; Languages, and singers from IMFA under Sh. Suraj Singh Ji.</div>
+          <div class="ach-award">🏆 Best Drama — International Theatre Festival</div>
+        </div>
+      </div>
+
+      <!-- SUMMER INTERNSHIP — SP SOUTH OFFICE JAMMU -->
+      <div class="ach-card">
+        <div class="ach-card-top"></div>
+        <div class="ach-img-wrap">
+          <img src="sp-south-internship.jpeg" alt="Summer Internship at SP South Office Jammu" onerror="this.style.display='none'"/>
+          <span class="ach-badge">45-Day Internship</span>
+        </div>
+        <div class="ach-body">
+          <div class="ach-venue">Office of SP South Jammu · Jammu Police – South Zone</div>
+          <div class="ach-headline">DYD Students Complete Summer Internship at SP South Office Jammu</div>
+          <div class="ach-desc">Three Senior Batch 2023 students built four applications — Absconder's Watch, Trace &amp; Track, SP Vault &amp; Tenant Verify — plus interactive Excel dashboards, applying their interdisciplinary DYD skills to real police administration under the guidance of SP South Jammu.</div>
+          <div class="ach-award">🏆 4 Applications Built for Police Administration</div>
+        </div>
+      </div>
+
+      <!-- CDR INTEL & MOBILE INTEL — INTERNATIONAL POLICE EXPO 2025 -->
+      <div class="ach-card">
+        <div class="ach-card-top"></div>
+        <div class="ach-img-wrap">
+          <img src="police-expo.jpeg" alt="CDR Intel and Mobile Intel Team" onerror="this.style.display='none'"/>
+          <span class="ach-badge">Showcased</span>
+        </div>
+        <div class="ach-body">
+          <div class="ach-venue">International Police Expo 2025</div>
+          <div class="ach-headline">DYD Students Present CDR Intel &amp; Mobile Intel</div>
+          <div class="ach-desc">Design Your Degree students showcased their two self-built applications, CDR Intel and Mobile Intel, at the International Police Expo 2025, drawing attention for their digital forensics capability.</div>
+          <div class="ach-award">🏆 Featured — International Police Expo</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="ach-arrows-container">
+    <button class="ach-arrow" id="achLeft">&#8249;</button>
+    <button class="ach-arrow" id="achRight">&#8250;</button>
+  </div>
+</section>
+<footer class="footer" id="contact-footer">
+  <div class="footer-inner"><div class="footer-col footer-brand-col">
+  <img src="university.png" alt="UoJ Logo" class="footer-logo" onerror="this.style.display='none'"/>
+  <div class="footer-brand-name">Design Your Degree</div>
+  <div class="footer-brand-sub">University of Jammu</div>
+  <div class="footer-naac">★ NAAC A++</div>
+  <div class="footer-socials" style="display:flex;flex-wrap:wrap;gap:8px;">
+
+    <a href="https://www.instagram.com/designyourdegreeofficial?stkn=dHR6ZGtqaW9kOHVt" target="_blank" class="footer-social-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+      </svg>
+      Instagram
+    </a>
+
+    <a href="https://www.linkedin.com/in/design-your-degree-siiedc-875b153b1?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="footer-social-btn" style="background:linear-gradient(135deg,#0A66C2,#0a4fa0);box-shadow:0 4px 16px rgba(10,102,194,0.35);">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45z"/>
+      </svg>
+      LinkedIn
+    </a>
+
+    <a href="https://youtube.com/@designyourdegreeju?si=bxXAdlNzOBd3WIoQ" target="_blank" class="footer-social-btn" style="background:linear-gradient(135deg,#FF0000,#cc0000);box-shadow:0 4px 16px rgba(255,0,0,0.35);">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/>
+      </svg>
+      YouTube
+    </a>
+
+  </div>
+
+  <a href="mailto:siiedc@jammuuniversity.ac.in" class="footer-contact-link" style="margin-top:10px;display:inline-block;">✉️ siiedc@jammuuniversity.ac.in</a>
+</div>
+    <div class="footer-col">
+      <div class="footer-col-heading">University of Jammu</div>
+      <div class="footer-divider"></div>
+      <p class="footer-address">
+        University of Jammu<br/>
+        Baba Saheb Ambedkar Road,<br/>
+        Jammu — 180006<br/>
+        Jammu &amp; Kashmir, India
+      </p>
+      <a href="tel:01912435248" class="footer-contact-link">📞 0191-2435248, 2435259</a>
+      <a href="tel:01912453544" class="footer-contact-link">📞 0191-2453544, 2453588</a>
+      <a href="mailto:helpdesk@jammuuniversity.ac.in" class="footer-contact-link">✉️ helpdesk@jammuuniversity.ac.in</a>
+      <a href="https://www.uojammu.ac.in" target="_blank" class="footer-contact-link">🌐 www.uojammu.ac.in</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-heading">DYD Academic Block</div>
+      <div class="footer-divider"></div>
+      <p class="footer-address">
+        Design Your Degree — Academic Block<br/>
+        Opposite Cactus Garden,<br/>
+        University of Jammu Campus,<br/>
+        Jammu — 180006<br/>
+        Jammu &amp; Kashmir, India
+      </p>
+    </div>
+    </div>
+<!-- DISHA — Floating Voice Assistant -->
+<div class="disha-wrap" id="dishaWrap">
+  <div class="disha-label" id="dishaLabel">DISHA BOT</div>
+  <div class="disha-btn" id="dishaBtn" title="Ask DISHA">
+    <div class="disha-btn-ring"></div>
+    <div class="disha-btn-face">🤖</div>
+    <div class="disha-mic-dot" id="dishaMicDot"></div>
+  </div>
+</div>
+<div class="disha-panel" id="dishaPanel">
+  <div class="disha-head">
+    <div class="disha-avatar">🤖</div>
+    <div class="disha-head-text">
+      <div class="disha-name">DISHA</div>
+      <div class="disha-sub">Your DYD Guide · say or type anything</div>
+    </div>
+    <button class="disha-close" onclick="dishaToggle(false)">✕</button>
+  </div>
+  <div class="disha-chat" id="dishaChat">
+    <div class="disha-msg bot">Hii! I'm DISHA 👋 Ask me about admissions, programmes, faculty, achievements — I'll take you straight there.</div>
+  </div>
+  <div class="disha-input-row">
+    <button class="disha-mic-btn" id="dishaMicBtn" title="Speak">🎤</button>
+    <input type="text" id="dishaInput" placeholder="Ask DISHA anything…" autocomplete="off"/>
+    <button class="disha-send-btn" id="dishaSendBtn">➤</button>
+  </div>
+</div>
+  <div class="footer-bottom">
+    <span>© 2026 Design Your Degree — University of Jammu. All rights reserved.</span>
+    <span class="footer-bottom-links">
+      <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Sitemap</a>
+<div class="contact-modal-overlay" id="contactModalOverlay" onclick="if(event.target===this)closeContactModal()">
+  <div class="contact-modal">
+    <div class="contact-modal-head">
+      <div class="contact-modal-eyebrow">Get In Touch</div>
+      <h3>Contact Us</h3>
+      <p>Reach the SIIEDC leadership &amp; office team</p>
+      <button class="contact-modal-close" onclick="closeContactModal()">✕</button>
+    </div>
+    <div class="contact-modal-body">
+
+      <div class="contact-person">
+        
+        <div class="contact-info">
+          <div class="contact-person-name">Prof. Alka Sharma</div>
+          <div class="contact-person-role">
+  <span class="contact-role-title">Director</span>
+  Skill Incubation Innovation Entrepreneurship Development Centre (SIIEDC)
+</div>
+          <div class="contact-person-links">
+            <div class="contact-link-row">
+              <span class="contact-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.902.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.908.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+              <div class="contact-link-text">
+                <span class="contact-link-label">Contact Number</span>
+                <a href="tel:+919419140828" class="contact-link-value">+91 94191 40828</a>
+              </div>
+            </div>
+            <div class="contact-link-row">
+              <span class="contact-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg></span>
+              <div class="contact-link-text">
+                <span class="contact-link-label">Email ID</span>
+                <a href="mailto:alkasharma@jammuuniversity.ac.in" class="contact-link-value">alkasharma@jammuuniversity.ac.in</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-person">
+        
+        <div class="contact-info">
+          <div class="contact-person-name">Prof. Jatinder Manhas</div>
+          <div class="contact-person-role">
+  <span class="contact-role-title">Associate Director</span>
+  Skill Incubation Innovation Entrepreneurship Development Centre (SIIEDC)
+</div>
+          <div class="contact-person-links">
+            <div class="contact-link-row">
+              <span class="contact-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.902.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.908.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+              <div class="contact-link-text">
+                <span class="contact-link-label">Contact Number</span>
+                <a href="tel:+919419173793" class="contact-link-value">+91 94191 73793</a>
+              </div>
+            </div>
+            <div class="contact-link-row">
+              <span class="contact-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.902.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.908.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+              <div class="contact-link-text">
+                <span class="contact-link-label">Alternate Number</span>
+                <a href="tel:+918082770939" class="contact-link-value">+91 80827 70939</a>
+              </div>
+            </div>
+            <div class="contact-link-row">
+              <span class="contact-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg></span>
+              <div class="contact-link-text">
+                <span class="contact-link-label">Email ID</span>
+                <a href="mailto:jatindermanhas@jammuuniversity.ac.in" class="contact-link-value">jatindermanhas@jammuuniversity.ac.in</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-person">
+        
+        <div class="contact-info">
+          <div class="contact-person-name">SIIEDC Office</div>
+          <div class="contact-person-role">Top Floor, The Business School (TBS)</div>
+          <div class="contact-person-links">
+            <div class="contact-link-row">
+              <span class="contact-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.902.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.908.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+              <div class="contact-link-text">
+                <span class="contact-link-label">Contact Number</span>
+                <a href="tel:+917006640822" class="contact-link-value">+91 70066 40822</a>
+              </div>
+            </div>
+            <div class="contact-link-row">
+              <span class="contact-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg></span>
+              <div class="contact-link-text">
+                <span class="contact-link-label">Email ID</span>
+                <a href="mailto:siiedc@jammuuniversity.ac.in" class="contact-link-value">siiedc@jammuuniversity.ac.in</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+    </span>
+  </div>
+</footer>
+
+<script>
+/* HERO SLIDER */
+const TOTAL=12,INTERVAL=5500;
+let current=0,autoTimer=null;
+const track=document.getElementById('slides');
+const allSlides=track.querySelectorAll('.slide');
+const dotsWrap=document.getElementById('heroDots');
+const counterEl=document.getElementById('heroCounter');
+const fill=document.getElementById('progressFill');
+for(let i=0;i<TOTAL;i++){
+  const d=document.createElement('button');
+  d.className='hero-dot'+(i===0?' active':'');
+  d.addEventListener('click',()=>goTo(i,true));
+  dotsWrap.appendChild(d);
+}
+const dots=dotsWrap.querySelectorAll('.hero-dot');
+function goTo(n,reset=true){
+  allSlides[current].classList.remove('active');
+  dots[current].classList.remove('active');
+  current=(n+TOTAL)%TOTAL;
+  allSlides[current].classList.add('active');
+  dots[current].classList.add('active');
+  track.style.transform=`translateX(-${current*100}%)`;
+  counterEl.textContent=`${current+1} / ${TOTAL}`;
+  if(reset){resetProgress();restartAuto();}
+}
+function resetProgress(){
+  fill.style.transition='none';fill.style.width='0%';
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    fill.style.transition=`width ${INTERVAL}ms linear`;fill.style.width='100%';
+  }));
+}
+function restartAuto(){
+  clearInterval(autoTimer);
+  autoTimer=setInterval(()=>goTo(current+1),INTERVAL);
+}
+document.getElementById('prevBtn').addEventListener('click',()=>goTo(current-1,true));
+document.getElementById('nextBtn').addEventListener('click',()=>goTo(current+1,true));
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight')goTo(current+1,true);
+  if(e.key==='ArrowLeft')goTo(current-1,true);
+});
+let touchX=null;
+track.addEventListener('touchstart',e=>{touchX=e.touches[0].clientX;});
+track.addEventListener('touchend',e=>{
+  if(touchX===null)return;
+  const dx=e.changedTouches[0].clientX-touchX;
+  if(Math.abs(dx)>50){goTo(dx<0?current+1:current-1,true);}
+  touchX=null;
+});
+document.getElementById('hero').addEventListener('mouseenter',()=>{clearInterval(autoTimer);fill.style.transition='none';});
+document.getElementById('hero').addEventListener('mouseleave',()=>{resetProgress();restartAuto();});
+resetProgress();restartAuto();
+
+/* ACHIEVEMENT ARROWS */
+const achTrack=document.getElementById('achTrack');
+document.getElementById('achLeft').addEventListener('click',()=>achTrack.scrollBy({left:-310,behavior:'smooth'}));
+document.getElementById('achRight').addEventListener('click',()=>achTrack.scrollBy({left:310,behavior:'smooth'}));
+
+/* SEARCH — real site search over DYD data (pages, domains, faculty, admissions, events) */
+const SEARCH_DATA=[
+  {title:"About Design Your Degree",desc:"What the Design Your Degree programme is and how it works.",url:"about_design_your_degree.html",tag:"Page",keywords:"design your degree about programme overview dyd"},
+  {title:"Course Guide / Brochure",desc:"Download the DYD brochure and course guide.",url:"brochure.html",tag:"Page",keywords:"brochure course guide download pdf prospectus"},
+  {title:"Message from Hon'ble LG Sir",desc:"Chancellor's message.",url:"LG.html",tag:"Leadership",keywords:"lg chancellor message lt governor"},
+  {title:"Message from Pro Vice Chancellor",desc:"Pro Vice Chancellor's message.",url:"pro-vice-chancellor.html",tag:"Leadership",keywords:"pro vice chancellor message"},
+  {title:"Message from the Vice Chairman",desc:"Vice Chairman's message.",url:"vice-chairman.html",tag:"Leadership",keywords:"vice chairman message"},
+  {title:"Message from the Vice Chancellor",desc:"Vice Chancellor's message.",url:"vice-chancellor.html",tag:"Leadership",keywords:"vice chancellor message vc"},
+  {title:"Message from the Director",desc:"Director's message.",url:"director.html",tag:"Leadership",keywords:"director message"},
+  {title:"Syllabi / Academic Framework",desc:"Semester-wise syllabus for BBA, B.Tech and DYD courses.",url:"syllabus/syllabus/index2.html",tag:"Academics",keywords:"syllabus syllabi academic framework semester sem1 sem2 sem3 sem4 btech bba curriculum"},
+  {title:"Events / Workshops",desc:"DYD workshops, expos and campus events.",url:"DYD_WORKSHOPS (2).html",tag:"Happenings",keywords:"events workshops happenings expo"},
+  {title:"Achievements & Recognition",desc:"Student and programme achievements at DYD.",url:"achievers.html",tag:"Happenings",keywords:"achievers achievements recognition awards"},
+  {title:"Check Eligibility",desc:"Admission procedure and eligibility criteria for DYD.",url:"eli.html",tag:"Admissions",keywords:"eligibility admission procedure criteria apply eligible"},
+  {title:"About The Campus",desc:"University of Jammu campus and DYD facilities.",url:"DYD.HTML",tag:"Institute",keywords:"campus institute university of jammu excellence enshrined about"},
+  {title:"Mentors",desc:"Meet the DYD faculty mentors.",url:"mentors.html",tag:"Faculty",keywords:"mentors faculty staff teachers professors"},
+  {title:"Technology",desc:"AI, machine learning, cybersecurity & digital innovation at scale.",url:"index_updated.html#domains-section",tag:"Domain",keywords:"technology ai machine learning cybersecurity ml domain"},
+  {title:"Economics",desc:"Markets, policy, trade & financial systems shaping the world.",url:"index_updated.html#domains-section",tag:"Domain",keywords:"economics markets policy trade finance domain"},
+  {title:"Management & Startups",desc:"Leadership, entrepreneurship & venture building for tomorrow.",url:"index_updated.html#domains-section",tag:"Domain",keywords:"management startups entrepreneurship leadership business domain"},
+  {title:"Communication",desc:"Media, rhetoric, journalism & digital storytelling mastery.",url:"index_updated.html#domains-section",tag:"Domain",keywords:"communication media journalism storytelling domain"},
+  {title:"Psychology",desc:"Behaviour, cognition, mental health & therapeutic practice.",url:"index_updated.html#domains-section",tag:"Domain",keywords:"psychology behaviour cognition mental health domain"},
+  {title:"Statistics",desc:"Data analysis, probability & inferential methods driving decisions.",url:"index_updated.html#domains-section",tag:"Domain",keywords:"statistics data analysis probability domain"},
+  {title:"Environmental Sciences",desc:"Ecology, climate, sustainability & earth systems research.",url:"index_updated.html#domains-section",tag:"Domain",keywords:"environmental sciences ecology climate sustainability domain"},
+  {title:"Mathematics",desc:"Calculus, algebra, number theory & rigorous proofs.",url:"index_updated.html#domains-section",tag:"Domain",keywords:"mathematics calculus algebra number theory domain"},
+  {title:"Prof. Alka Sharma",desc:"DYD Mentor",url:"mentors.html",tag:"Faculty",keywords:"alka sharma mentor faculty"},
+  {title:"Prof. K.S. Charak",desc:"DYD Mentor",url:"mentors.html",tag:"Faculty",keywords:"k.s. charak mentor faculty"},
+  {title:"Prof. Sadaf Shah",desc:"DYD Mentor",url:"mentors.html",tag:"Faculty",keywords:"sadaf shah mentor faculty"},
+  {title:"Prof. Anil Gupta",desc:"DYD Mentor",url:"mentors.html",tag:"Faculty",keywords:"anil gupta mentor faculty"},
+  {title:"Prof. Jatinder Manhas",desc:"DYD Mentor",url:"mentors.html",tag:"Faculty",keywords:"jatinder manhas mentor faculty"},
+  {title:"Prof. Shallu Sehgal",desc:"DYD Mentor",url:"mentors.html",tag:"Faculty",keywords:"shallu sehgal mentor faculty"},
+  {title:"Dr. Sandeep Arya",desc:"DYD Mentor",url:"mentors.html",tag:"Faculty",keywords:"sandeep arya mentor faculty"},
+  {title:"Dr. Sarika Verma",desc:"DYD Mentor",url:"mentors.html",tag:"Faculty",keywords:"sarika verma mentor faculty"},
+  {title:"Dr. Pallavi Sachdeva",desc:"DYD Mentor",url:"mentors.html",tag:"Faculty",keywords:"pallavi sachdeva mentor faculty"},
+  {title:"Dr. Sandeep Singh",desc:"DYD Mentor",url:"mentors.html",tag:"Faculty",keywords:"sandeep singh mentor faculty"},
+  {title:"Dr. Harish Chander",desc:"DYD Mentor",url:"mentors.html",tag:"Faculty",keywords:"harish chander mentor faculty"},
+  {title:"Dr. Sunil Bhougal",desc:"DYD Mentor",url:"mentors.html",tag:"Faculty",keywords:"sunil bhougal mentor faculty"},
+  {title:"Dr. Chinmmoye Maharana",desc:"DYD Mentor",url:"mentors.html",tag:"Faculty",keywords:"chinmmoye maharana mentor faculty"},
+  {title:"Dr. Ripu Daman",desc:"DYD Mentor",url:"mentors.html",tag:"Faculty",keywords:"ripu daman mentor faculty"},
+  {title:"Dr. Manish Kumar",desc:"DYD Mentor",url:"mentors.html",tag:"Faculty",keywords:"manish kumar mentor faculty"},
+  {title:"Apply Now",desc:"DYD online admission portal.",url:"https://dyd-admission-backend.onrender.com/",tag:"Admissions",keywords:"apply admission form portal batch 2026"},
+  {title:"Student Portal (DYD Web)",desc:"DYD student portal.",url:"https://dyd-web.vercel.app/",tag:"Students",keywords:"student portal dyd web login"}
+];
+
+const searchInput=document.getElementById('searchInput');
+const searchResults=document.getElementById('searchResults');
+const searchWrap=document.getElementById('searchWrap');
+let srActiveIndex=-1,srCurrentMatches=[];
+
+function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function highlight(text,q){
+  if(!q)return escapeHtml(text);
+  const idx=text.toLowerCase().indexOf(q.toLowerCase());
+  if(idx===-1)return escapeHtml(text);
+  return escapeHtml(text.slice(0,idx))+'<mark>'+escapeHtml(text.slice(idx,idx+q.length))+'</mark>'+escapeHtml(text.slice(idx+q.length));
+}
+function runSearch(q){
+  const query=q.trim().toLowerCase();
+  if(!query)return[];
+  return SEARCH_DATA
+    .map(item=>{
+      const hay=(item.title+' '+item.desc+' '+item.keywords).toLowerCase();
+      let score=-1;
+      if(item.title.toLowerCase().startsWith(query))score=100;
+      else if(item.title.toLowerCase().includes(query))score=70;
+      else if(item.keywords.toLowerCase().split(/\s+/).some(w=>w.startsWith(query)))score=50;
+      else if(hay.includes(query))score=20;
+      return{item,score};
+    })
+    .filter(r=>r.score>0)
+    .sort((a,b)=>b.score-a.score)
+    .map(r=>r.item);
+}
+function renderResults(matches,query){
+  srCurrentMatches=matches;srActiveIndex=-1;
+  if(!query.trim()){searchResults.classList.remove('show');searchResults.innerHTML='';return;}
+  if(matches.length===0){
+    searchResults.innerHTML='<div class="search-results-empty">No results for “'+escapeHtml(query)+'”</div>';
+    searchResults.classList.add('show');
+    return;
+  }
+  searchResults.innerHTML=matches.map((item,i)=>
+    '<a href="'+item.url+'" class="sr-item" data-idx="'+i+'"'+(item.url.startsWith('http')?' target="_blank"':'')+'>'+
+      '<div class="sr-item-title">'+highlight(item.title,query)+'</div>'+
+      '<div class="sr-item-desc">'+escapeHtml(item.desc)+'</div>'+
+      '<span class="sr-item-tag">'+escapeHtml(item.tag)+'</span>'+
+    '</a>'
+  ).join('');
+  searchResults.classList.add('show');
+}
+function doSearch(){
+  const v=searchInput.value.trim();
+  const matches=runSearch(v);
+  renderResults(matches,v);
+  if(matches.length){
+    window.location.href=matches[0].url;
+  }
+}
+searchInput.addEventListener('input',()=>{renderResults(runSearch(searchInput.value),searchInput.value);});
+searchInput.addEventListener('focus',()=>{if(searchInput.value.trim())renderResults(runSearch(searchInput.value),searchInput.value);});
+searchInput.addEventListener('keydown',e=>{
+  const items=searchResults.querySelectorAll('.sr-item');
+  if(e.key==='Enter'){
+    e.preventDefault();
+    if(srActiveIndex>=0&&srCurrentMatches[srActiveIndex]){
+      window.location.href=srCurrentMatches[srActiveIndex].url;
+    }else{
+      doSearch();
+    }
+  }else if(e.key==='ArrowDown'){
+    e.preventDefault();
+    if(!items.length)return;
+    srActiveIndex=(srActiveIndex+1)%items.length;
+    items.forEach(it=>it.classList.remove('active'));
+    items[srActiveIndex].classList.add('active');
+    items[srActiveIndex].scrollIntoView({block:'nearest'});
+  }else if(e.key==='ArrowUp'){
+    e.preventDefault();
+    if(!items.length)return;
+    srActiveIndex=(srActiveIndex-1+items.length)%items.length;
+    items.forEach(it=>it.classList.remove('active'));
+    items[srActiveIndex].classList.add('active');
+    items[srActiveIndex].scrollIntoView({block:'nearest'});
+  }else if(e.key==='Escape'){
+    searchResults.classList.remove('show');
+  }
+});
+document.addEventListener('click',e=>{
+  if(!searchWrap.contains(e.target)){searchResults.classList.remove('show');}
+});
+/* DISHA — complete voice assistant setup (all pieces defined here, in order) */
+const dishaBtn=document.getElementById('dishaBtn'),dishaPanel=document.getElementById('dishaPanel'),
+      dishaChat=document.getElementById('dishaChat'),dishaInput=document.getElementById('dishaInput'),
+      dishaMicBtn=document.getElementById('dishaMicBtn'),dishaMicDot=document.getElementById('dishaMicDot');
+
+function dishaToggle(open){dishaPanel.classList.toggle('show',open);if(open)dishaInput.focus();}
+
+function dishaAddMsg(text,who){
+  const el=document.createElement('div');
+  el.className='disha-msg '+who;
+  el.textContent=text;
+  dishaChat.appendChild(el);
+  dishaChat.scrollTop=dishaChat.scrollHeight;
+}
+
+/* ---- TEXT-TO-SPEECH ---- */
+function dishaSpeak(text, onDone){
+  if(!('speechSynthesis' in window)){ if(onDone) onDone(); return; }
+  window.speechSynthesis.cancel();
+  const utter = new SpeechSynthesisUtterance(text);
+  utter.lang='en-IN'; utter.rate=1; utter.pitch=1;
+  utter.onend=()=>{ if(onDone) onDone(); };
+  utter.onerror=()=>{ if(onDone) onDone(); };
+  window.speechSynthesis.speak(utter);
+}
+
+/* ---- UNIVERSAL SMART MATCHER — understands any full sentence ---- */
+const DISHA_STOPWORDS = new Set(['hii','hi','hello','hey','disha','can','u','you','please','pls',
+  'take','me','to','the','a','an','of','for','is','are','my','i','want','wanna','show','go',
+  'give','tell','about','plz','kindly','would','could','like','need','know','info','information',
+  'help','how','may','will','what','and']);
+
+function dishaSmartSearch(query){
+  const words = query.toLowerCase()
+    .replace(/[^\w\s]/g,'')
+    .split(/\s+/)
+    .filter(w => w && !DISHA_STOPWORDS.has(w));
+  if(!words.length) return [];
+  return SEARCH_DATA
+    .map(item=>{
+      const titleWords = item.title.toLowerCase();
+      const keywordWords = item.keywords.toLowerCase().split(/\s+/);
+      const hay = (item.title+' '+item.desc+' '+item.keywords).toLowerCase();
+      let score=0;
+      words.forEach(w=>{
+        if(keywordWords.includes(w)) score += 5;
+        else if(titleWords.includes(w)) score += 3;
+        else if(hay.includes(w)) score += 1;
+      });
+      return {item,score};
+    })
+    .filter(r=>r.score>0)
+    .sort((a,b)=>b.score-a.score)
+    .map(r=>r.item);
+}
+
+function dishaHandle(query){
+  dishaAddMsg(query,'user');
+  console.log('DISHA heard:', JSON.stringify(query));
+  const matches=dishaSmartSearch(query.trim());
+  console.log('DISHA matches:', matches.map(m=>m.title));
+  if(matches.length){
+    const top=matches[0];
+    const msg=`Sure, taking you to ${top.title}.`;
+    dishaAddMsg(msg+' 🚀','bot');
+    dishaSpeak(msg, ()=>{
+      setTimeout(()=>{ window.location.href=top.url; }, 300);
+    });
+  }else{
+    const msg="Sorry, I couldn't find that. Could you please rephrase?";
+    dishaAddMsg(msg,'bot');
+    dishaSpeak(msg, ()=>{ dishaStartListening(); });
+  }
+}
+dishaInput.addEventListener('keydown',e=>{
+  if(e.key==='Enter' && dishaInput.value.trim()){
+    dishaHandle(dishaInput.value.trim());
+    dishaInput.value='';
+  }
+});
+document.getElementById('dishaSendBtn').addEventListener('click',()=>{
+  if(dishaInput.value.trim()){dishaHandle(dishaInput.value.trim());dishaInput.value='';}
+});
+
+/* ---- VOICE ENGINE (simplified, robust — no echo/overlap issues) ---- */
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+let recognition=null;
+let retryCount=0;
+
+function dishaInitRecognition(){
+  recognition = new SR();
+  recognition.lang='en-IN';
+  recognition.continuous=false;
+  recognition.interimResults=false;
+  recognition.maxAlternatives=1;
+
+  recognition.onstart=()=>{ dishaMicDot.classList.add('live'); };
+
+  recognition.onresult=(e)=>{
+    const said=e.results[0][0].transcript;
+    dishaMicDot.classList.remove('live');
+    retryCount=0;
+    dishaHandle(said);
+  };
+
+  recognition.onerror=(e)=>{
+    dishaMicDot.classList.remove('live');
+    if(e.error==='no-speech' && retryCount<2){
+      retryCount++;
+      dishaSpeak("I'm listening, please go ahead.", ()=>{
+        setTimeout(()=>{ dishaStartListening(); }, 400);
+      });
+    } else {
+      retryCount=0;
+    }
+  };
+
+  recognition.onend=()=>{ dishaMicDot.classList.remove('live'); };
+}
+
+function dishaStartListening(){
+  if(!recognition){ dishaInitRecognition(); }
+  try{
+    recognition.start();
+  }catch(err){
+    try{ recognition.stop(); }catch(e){}
+    setTimeout(()=>{ try{ recognition.start(); }catch(e){} }, 300);
+  }
+}
+
+if(SR){
+  dishaInitRecognition();
+
+  dishaBtn.addEventListener('click',()=>{
+    retryCount=0;
+    const greet="Hii, how may I help you?";
+    dishaAddMsg(greet,'bot');
+    dishaSpeak(greet, ()=>{
+      setTimeout(()=>{ dishaStartListening(); }, 500);
+    });
+  });
+
+  dishaMicBtn.addEventListener('click',()=>{ dishaStartListening(); });
+
+}else{
+  dishaBtn.addEventListener('click',()=>{
+    dishaToggle(true);
+    dishaAddMsg("Voice isn't supported in this browser. Please type your question instead 🙂",'bot');
+  });
+}
+
+/* === NEW: ANNOUNCEMENTS DROPDOWN === */
+const annLabelBtn = document.getElementById('annLabelBtn');
+const annDropdown = document.getElementById('annDropdown');
+
+annLabelBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  annLabelBtn.classList.toggle('open');
+  annDropdown.classList.toggle('show');
+});
+
+document.addEventListener('click', (e) => {
+  if (!annLabelBtn.contains(e.target)) {
+    annLabelBtn.classList.remove('open');
+    annDropdown.classList.remove('show');
+  }
+});
+
+/* LEADERSHIP CARDS */
+function setLeader(i){
+  document.querySelectorAll('.ldr-card').forEach((c,idx)=>c.classList.toggle('active',idx===i));
+  const pages=['LG.html','pro-vice-chancellor.html','vice-chairman.html','vice-chancellor.html','director.html'];
+  window.location.href=pages[i];
+}
+/* PROGRAMME SPLIT SELECTOR */
+function selectProg(target){
+  document.querySelectorAll('.prog-tab').forEach(t=>t.classList.toggle('active',t.dataset.target===target));
+  document.querySelectorAll('.prog-panel').forEach(p=>p.classList.toggle('active',p.id==='panel-'+target));
+}
+
+const streamLabels={psychology:'Psychology',sociology:'Sociology',geography:'Geography'};
+function selectStream(stream){
+  document.querySelectorAll('.ba-stream-tile').forEach(t=>t.classList.toggle('selected',t.dataset.stream===stream));
+  document.getElementById('baStreamCta').innerHTML='View '+streamLabels[stream]+' Curriculum <span>→</span>';
+}
+function openContactModal(){document.getElementById('contactModalOverlay').classList.add('show');}
+function closeContactModal(){document.getElementById('contactModalOverlay').classList.remove('show');}
+/* Emails: computer par Gmail khule, phone par mail app */
+document.querySelectorAll('.contact-modal a[href^="mailto:"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    if(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) return; // phone: normal mail app
+    e.preventDefault();
+    var to=a.getAttribute('href').replace('mailto:','');
+    window.open('https://mail.google.com/mail/?view=cm&fs=1&to='+encodeURIComponent(to),'_blank','noopener');
+  });
+});
+
+</script>
+</body>
+</html>

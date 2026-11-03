@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile - Dr. Jatinder Manhas</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top, #2b2d42, #0f172a);
+    color: white;
+    min-height: 100vh;
+}
+
+/* HEADER */
+.header {
+    text-align: center;
+    padding: 28px 20px 18px;
+}
+
+.header h1 {
+    font-size: 3.8em;
+    font-weight: 900;
+    letter-spacing: 4px;
+    margin: 0;
+    background: linear-gradient(90deg, #8b5cf6, #d946ef);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    position: relative;
+}
+
+.header h1::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -35px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(168,85,247,0.3), transparent);
+    filter: blur(60px);
+    z-index: -1;
+}
+
+.header h1::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    width: 100%;
+    height: 4px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #00dbde, #fc00ff);
+    box-shadow: 0 0 10px #fc00ff;
+}
+
+.header p {
+    margin: 14px 0 0;
+    font-size: 1.25em;
+    font-weight: 700;
+    background: linear-gradient(90deg, #00dbde, #fc00ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-style: italic;
+}
+
+/* PROFILE CARD */
+.profile-container {
+    width: min(1100px, 92%);
+    margin: 15px auto 45px;
+}
+
+.profile-card {
+    position: relative;
+    padding: 42px 50px;
+    border-radius: 24px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+}
+
+.profile-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    padding: 2px;
+    background: linear-gradient(45deg, #ff00cc, #3333ff, #00ffcc);
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.profile-name {
+    text-align: center;
+    margin: 0 0 5px;
+    font-size: 2em;
+    font-weight: 700;
+}
+
+.profile-role {
+    text-align: center;
+    margin: 0 0 30px;
+    color: #ddd;
+    font-size: 1.05em;
+}
+
+.profile-card p {
+    color: #e7e7e7;
+    font-size: 1em;
+    line-height: 1.85;
+    margin: 0 0 22px;
+    text-align: justify;
+}
+
+.address {
+    margin-top: 28px !important;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    color: #ddd !important;
+}
+
+.contact {
+    text-align: center !important;
+    margin-bottom: 0 !important;
+    color: #ddd !important;
+}
+
+.contact a {
+    color: #00dbde;
+    text-decoration: none;
+}
+
+.contact a:hover {
+    color: #fc00ff;
+}
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+    .header h1 {
+        font-size: 2.4em;
+        letter-spacing: 2px;
+    }
+
+    .header p {
+        font-size: 1em;
+    }
+
+    .profile-card {
+        padding: 28px 22px;
+    }
+
+    .profile-name {
+        font-size: 1.5em;
+    }
+
+    .profile-card p {
+        font-size: 0.92em;
+        line-height: 1.7;
+        text-align: left;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+    <h1>PROFILE</h1>
+    <p>Dr. Jatinder Manhas</p>
+</div>
+
+<!-- PROFILE -->
+<div class="profile-container">
+    <div class="profile-card">
+
+        <h2 class="profile-name">DR. JATINDER MANHAS, PROFESSOR</h2>
+        <div class="profile-role">Bhaderwah Campus (Computer Science and IT)</div>
+
+        <p>
+            Contributing as Professor of Computer Science &amp; IT and the Associate Director of SIIEDC,
+            University of Jammu, I bring over 19 years of enriching experience in Teaching, Research,
+            Innovation, and Academic Leadership. I have dedicated my work to the advancement of
+            Artificial Intelligence, Machine Learning, Computer Vision, Networks, EEG, BCI, Cyber
+            Forensics, and Databases, and my academic contributions include 103 international
+            publications, 3 books, and 4 patents filed.
+        </p>
+
+        <p>
+            I am actively leading several interdisciplinary and high-impact research projects, including
+            Human Emotion Recognition using Brain Signals, AI-based Early Warning Systems, Landslide
+            Monitoring, Drone Technologies, IoT Sensor Networks, and AI-enabled Smart Microscopy.
+            I have guided four PhD scholars, and I am currently mentoring six more, along with
+            supervising six research fellows working under different sponsored research projects.
+        </p>
+
+        <p>
+            Honored with prestigious fellowships from UGC, DST, CSI, INSA, MeitY, LTU Sweden, and
+            Rutgers University (USA). These opportunities have enabled me to collaborate with leading
+            global institutions such as IIT Roorkee, Luleå University of Technology (Sweden),
+            Appalachian State University (USA), and the National University of Singapore. My research
+            engagements have taken me to Singapore, Oman, Hong Kong, Thailand, USA, Sweden, and China.
+        </p>
+
+        <p>
+            Currently, serve as an Editorial Board Member for <i>Discover Artificial Intelligence</i>,
+            Springer Nature (SCI, Scopus Indexed, High Impact International Journal) and MECS Publisher,
+            Hong Kong (Scopus Indexed International Journal).
+        </p>
+
+        <p>
+            As the Coordinator, Spoke Hub (University of Jammu) for the iHUB DivyaSampark Technology
+            Innovation Hub (DST–IIT Roorkee), I played a key role in establishing the MoU with
+            TIH/iHUB DivyaSampark and continue to coordinate several technology-driven innovation and
+            product-development projects.
+        </p>
+
+        <p>
+            I hold memberships and fellowships in professional bodies such as CSI, IEEE, and ACM.
+            I have served as Coordinator, CSI Jammu &amp; Kashmir Chapter, and I am presently the
+            Coordinator of the ACM Jammu &amp; Kashmir Chapter. I have also contributed as Guest Faculty
+            at IIM Jammu, Guest/Visiting Faculty at BGSBU Rajouri, and Visiting Fellow at LTU Sweden.
+        </p>
+
+        <p>
+            My current research focuses on AI and Machine Learning applications in Bacterial Image
+            Classification, Nematode Identification, EEG-based Human Emotion Analysis, Stock Market
+            Prediction, UAV/Drone Analytics, IoT &amp; Sensor Systems, Intrusion Detection, Oral Cancer
+            Detection, Cyber Forensics, and Alzheimer’s Diagnosis. I am also deeply committed to
+            mentoring young learners through the University’s innovative “Design Your Degree”
+            four-year interdisciplinary undergraduate program. Recently, I have expanded my work into
+            Cyber Forensics, contributing to capacity building, curriculum development, and
+            technology-driven investigative practices.
+        </p>
+
+        <p>
+            I serve on several academic and administrative bodies at the University of Jammu, including
+            BOS Computer Science, BOS DYD, DRC Computer Science, DRC Statistics, DAC DYD, the IPR
+            Committee, and the IT Club. Previously, I have contributed to the University in multiple
+            capacities such as Incharge Administration, Warden, Provost Hostels, and Incharge Head
+            of Department.
+        </p>
+
+        <p class="address">
+            <strong>Address:</strong> Behind State Bank of India, Branch Purkhoo, Near Dev Banquet Hall,
+            Gumpal Domana, Tehsil &amp; Distt: Jammu, PIN - 181206, J &amp; K (India)
+        </p>
+
+        <p class="contact">
+            <a href="mailto:jatindermanhas@jammuuniversity.ac.in">
+                jatindermanhas@jammuuniversity.ac.in
+            </a>
+            &nbsp;&nbsp;&nbsp; Mob: (+91-9419173793 &amp; +91-8082770939)
+        </p>
+
+    </div>
+</div>
+
+</body>
+</html>

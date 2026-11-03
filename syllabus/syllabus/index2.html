@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academic Framework - Design Your Degree</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f8fafc 0%, #e8f4ff 50%, #f0f9ff 100%);
+  color: #1e293b;
+  min-height: 100vh;
+}
+
+/* Background Enhancement */
+.bg-gradient {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(ellipse 800px 400px at 20% 30%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 600px 300px at 80% 70%, rgba(59, 130, 246, 0.06) 0%, transparent 50%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.main-wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* HEADER */
+.header {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #2563eb 100%);
+  color: white;
+  padding: 50px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0 0 30px 30px;
+  box-shadow: 0 20px 60px rgba(30, 58, 138, 0.2);
+  margin-bottom: 60px;
+  animation: slideDown 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,50 Q300,0 600,50 T1200,50 L1200,120 L0,120 Z" fill="%23ffffff" opacity="%220.03%22"/></svg>');
+  background-size: 600px 120px;
+  animation: wave 15s linear infinite;
+  z-index: 1;
+}
+
+@keyframes wave {
+  0% { background-position: 0 0; }
+  100% { background-position: 600px 0; }
+}
+
+.header-content {
+  position: relative;
+  z-index: 2;
+}
+
+.header h1 {
+  font-size: 48px;
+  font-weight: 900;
+  letter-spacing: -2px;
+  margin-bottom: 12px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.header .subtitle {
+  font-size: 18px;
+  opacity: 0.9;
+  margin-bottom: 16px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.header-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
+}
+
+/* PAGE SYSTEM */
+.page {
+  display: none;
+  opacity: 0;
+  animation: pageIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.page.active {
+  display: block;
+  opacity: 1;
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* HOME PAGE */
+.home-section {
+  padding: 40px 30px;
+}
+
+.section-intro {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-intro h2 {
+  font-size: 36px;
+  color: #0f172a;
+  margin-bottom: 14px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.section-intro p {
+  font-size: 16px;
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* Programme Cards */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+  margin-bottom: 60px;
+}
+
+.card {
+  background: white;
+  border-radius: 24px;
+  padding: 36px 28px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(30, 58, 138, 0.06);
+  border: 2px solid #e0e7ff;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #0f172a, #1e3a8a, #2563eb);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 1;
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+.card:hover {
+  transform: translateY(-14px) scale(1.02);
+  box-shadow: 0 25px 60px rgba(30, 58, 138, 0.15);
+  border-color: #bfdbfe;
+}
+
+.card-icon {
+  font-size: 56px;
+  display: block;
+  margin-bottom: 18px;
+  animation: bounce 2.5s ease-in-out infinite;
+  transition: transform 0.3s;
+}
+
+.card:nth-child(2) .card-icon { animation-delay: 0.15s; }
+.card:nth-child(3) .card-icon { animation-delay: 0.3s; }
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.card:hover .card-icon {
+  transform: scale(1.15) rotate(5deg);
+}
+
+.card h3 {
+  font-size: 26px;
+  color: #0f172a;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.card-label {
+  font-size: 13px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.card p {
+  font-size: 15px;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.card-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #e0e7ff, #dbeafe);
+  color: #1e3a8a;
+  padding: 7px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: 0.4px;
+}
+
+.card-btn {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: white;
+  border: none;
+  padding: 13px 24px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-align: center;
+}
+
+.card-btn:hover {
+  background: linear-gradient(135deg, #1e40af, #1e3a8a);
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+}
+
+.card-btn:active {
+  transform: scale(0.96);
+}
+
+/* Stats Bar */
+.stats-section {
+  background: white;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(30, 58, 138, 0.06);
+  border: 2px solid #e0e7ff;
+  margin: 0 30px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 16px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #f8fafc, #f0f9ff);
+  transition: all 0.3s;
+}
+
+.stat-item:hover {
+  background: linear-gradient(135deg, #e0e7ff, #dbeafe);
+  transform: translateY(-4px);
+}
+
+.stat-num {
+  font-size: 42px;
+  font-weight: 900;
+  color: #1e3a8a;
+  display: block;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+/* INNER PAGES */
+.page-header {
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 50%, #93c5fd 100%);
+  padding: 36px 40px;
+  border-radius: 20px;
+  margin: 0 30px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  animation: slideDown 0.5s ease;
+}
+
+.page-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.page-header-content {
+  position: relative;
+  z-index: 1;
+}
+
+.page-header h2 {
+  font-size: 32px;
+  color: #0f172a;
+  margin-bottom: 8px;
+  font-weight: 800;
+}
+
+.page-header p {
+  font-size: 14px;
+  color: #1e40af;
+  font-weight: 500;
+}
+
+.page-icon-lg {
+  font-size: 90px;
+  opacity: 0.15;
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  border: 2.5px solid #2563eb;
+  color: #2563eb;
+  padding: 11px 22px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 30px 30px 0;
+  transition: all 0.3s;
+}
+
+.back-btn:hover {
+  background: #2563eb;
+  color: white;
+  transform: translateX(-4px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}
+
+/* Semester Grid */
+.semester-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  padding: 0 30px 30px;
+}
+
+.sem-card {
+  background: white;
+  border-radius: 18px;
+  padding: 28px 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(30, 58, 138, 0.06);
+  border: 2px solid #e0e7ff;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  text-align: center;
+  position: relative;
+}
+
+.sem-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #0f172a, #2563eb);
+  border-radius: 0 0 18px 18px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.sem-card:hover::after {
+  transform: scaleX(1);
+}
+
+.sem-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(30, 58, 138, 0.12);
+  border-color: #bfdbfe;
+}
+
+.sem-num {
+  font-size: 44px;
+  font-weight: 900;
+  color: #dbeafe;
+  margin-bottom: 6px;
+  transition: color 0.3s;
+}
+
+.sem-card:hover .sem-num {
+  color: #2563eb;
+}
+
+.sem-title {
+  font-size: 16px;
+  color: #0f172a;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.sem-count {
+  font-size: 12px;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+/* Subjects Section */
+.subjects-wrapper {
+  padding: 0 30px 40px;
+}
+
+.subject-header {
+  background: white;
+  border-radius: 16px;
+  padding: 24px 28px;
+  margin-bottom: 28px;
+  box-shadow: 0 2px 12px rgba(30, 58, 138, 0.06);
+  border-left: 5px solid #2563eb;
+}
+
+.subject-header h3 {
+  font-size: 20px;
+  color: #0f172a;
+  margin-bottom: 4px;
+  font-weight: 800;
+}
+
+.subject-header p {
+  font-size: 13px;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Subjects Grid */
+.subjects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.subject-item {
+  background: white;
+  border-radius: 14px;
+  padding: 18px 20px;
+  box-shadow: 0 2px 10px rgba(30, 58, 138, 0.04);
+  border: 2px solid #e0e7ff;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 0.4s ease forwards;
+}
+
+.subject-item:nth-child(1) { animation-delay: 0.05s; }
+.subject-item:nth-child(2) { animation-delay: 0.1s; }
+.subject-item:nth-child(3) { animation-delay: 0.15s; }
+.subject-item:nth-child(4) { animation-delay: 0.2s; }
+.subject-item:nth-child(5) { animation-delay: 0.25s; }
+.subject-item:nth-child(6) { animation-delay: 0.3s; }
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.subject-item:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(30, 58, 138, 0.1);
+  border-color: #bfdbfe;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.sub-num {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 800;
+  color: #1e3a8a;
+  flex-shrink: 0;
+  transition: all 0.3s;
+}
+
+.subject-item:hover .sub-num {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: white;
+  transform: scale(1.1) rotate(5deg);
+}
+
+.sub-info {
+  flex: 1;
+}
+
+.sub-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 3px;
+  line-height: 1.3;
+}
+
+.sub-code {
+  font-size: 12px;
+  color: #94a3b8;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+
+/* Action Buttons */
+.action-section {
+  background: white;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 2px 12px rgba(30, 58, 138, 0.06);
+  border: 2px solid #e0e7ff;
+  margin-bottom: 20px;
+}
+
+.action-label {
+  font-size: 12px;
+  color: #64748b;
+  margin-bottom: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.action-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 18px;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #1e40af, #1e3a8a);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+}
+
+.btn-secondary {
+  background: white;
+  color: #2563eb;
+  border: 2.5px solid #2563eb;
+}
+
+.btn-secondary:hover {
+  background: #f0f9ff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15);
+}
+
+.btn-primary:active,
+.btn-secondary:active {
+  transform: scale(0.96);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .semester-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .subjects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .page-icon-lg {
+    display: none;
+  }
+
+  .header {
+    padding: 36px 24px;
+  }
+
+  .header h1 {
+    font-size: 36px;
+  }
+
+  .action-buttons {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+<a href="sem1.pdf" target="_blank">Open My PDF</a>
+
+<div class="bg-gradient"></div>
+<div class="main-wrapper">
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-content">
+    <h1> Academic Framework</h1>
+    <p class="subtitle">Design Your Degree, University Of Jammu</p>
+    <div class="header-badge">✨“Empowering minds through structured learning,<br> innovation, and academic excellence.”</div>
+  </div>
+</div>
+
+<!-- HOME PAGE -->
+<div id="home" class="page active">
+  <div class="home-section">
+    <div class="section-intro">
+      <h2>Explore Academic Pathways</h2>
+      <p>Access complete curriculum details, subject information, and syllabus resources</p>
+    </div>
+
+    <div class="cards-grid">
+      <!-- DYD Card -->
+      <div class="card" onclick="showProgramme('dyd')">
+        <span class="card-icon">📘</span>
+        <h3>DYD</h3>
+        <div class="card-label">Foundation Programme</div>
+        <p>Degree in Values & Development — Comprehensive foundation curriculum covering 4 semesters with interdisciplinary subjects.</p>
+        <span class="card-badge">Semesters 1–4</span>
+        <button class="card-btn">View Curriculum →</button>
+      </div>
+
+      <!-- B.Tech Card -->
+      <div class="card" onclick="showProgramme('btech')">
+        <span class="card-icon">⚙️</span>
+        <h3>B.Tech</h3>
+        <div class="card-label">Engineering Programme</div>
+        <p>Bachelor of Technology — Advanced engineering curriculum with specialized technical subjects across 4 semesters.</p>
+        <span class="card-badge">Semesters 5–8</span>
+        <button class="card-btn">View Curriculum →</button>
+      </div>
+
+      <!-- BBA Card -->
+      <div class="card" onclick="showProgramme('bba')">
+        <span class="card-icon">💼</span>
+        <h3>BBA</h3>
+        <div class="card-label">Management Programme</div>
+        <p>Bachelor of Business Administration — Professional management curriculum focusing on business excellence over 2 semesters.</p>
+        <span class="card-badge">Semesters 5–6</span>
+        <button class="card-btn">View Curriculum →</button>
+      </div>
+    </div>
+
+    <div class="stats-section">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-num"><h6>Building strong foundations for future success..</h6></span>
+          <div class="stat-label"></div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num"><h6>Shaping skills for tomorrow’s challenges.</h6></span>
+          <div class="stat-label"></div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num"><h6>Building strong foundations for future success.</h6></span>
+          <div class="stat-label"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DYD PROGRAMME -->
+<div id="dyd" class="page">
+  <button class="back-btn" onclick="goHome()">← Back</button>
+  <div class="page-header">
+    <div class="page-header-content">
+      <h2>📘 DYD Programme</h2>
+      <p>Foundation Programme — Semesters 1–4</p>
+    </div>
+    <div class="page-icon-lg">📘</div>
+  </div>
+  <div class="semester-grid">
+    <div class="sem-card" onclick="showSubjects('dyd', 1)">
+      <div class="sem-num">01</div>
+      <div class="sem-title">Semester 1</div>
+      <div class="sem-count">6 Subjects</div>
+    </div>
+    <div class="sem-card" onclick="showSubjects('dyd', 2)">
+      <div class="sem-num">02</div>
+      <div class="sem-title">Semester 2</div>
+      <div class="sem-count">6 Subjects</div>
+    </div>
+    <div class="sem-card" onclick="showSubjects('dyd', 3)">
+      <div class="sem-num">03</div>
+      <div class="sem-title">Semester 3</div>
+      <div class="sem-count">6 Subjects</div>
+    </div>
+    <div class="sem-card" onclick="showSubjects('dyd', 4)">
+      <div class="sem-num">04</div>
+      <div class="sem-title">Semester 4</div>
+      <div class="sem-count">6 Subjects</div>
+    </div>
+  </div>
+</div>
+
+<!-- B.TECH PROGRAMME -->
+<div id="btech" class="page">
+  <button class="back-btn" onclick="goHome()">← Back</button>
+  <div class="page-header">
+    <div class="page-header-content">
+      <h2>⚙️ B.Tech Programme</h2>
+      <p>Engineering Programme — Semesters 5–8</p>
+    </div>
+    <div class="page-icon-lg">⚙️</div>
+  </div>
+  <div class="semester-grid">
+    <div class="sem-card" onclick="showSubjects('btech', 5)">
+      <div class="sem-num">05</div>
+      <div class="sem-title">Semester 5</div>
+      <div class="sem-count">5 Subjects</div>
+    </div>
+    <div class="sem-card" onclick="showSubjects('btech', 6)">
+      <div class="sem-num">06</div>
+      <div class="sem-title">Semester 6</div>
+      <div class="sem-count">5 Subjects</div>
+    </div>
+    <div class="sem-card" onclick="showSubjects('btech', 7)">
+      <div class="sem-num">07</div>
+      <div class="sem-title">Semester 7</div>
+      <div class="sem-count">5 Subjects</div>
+    </div>
+    <div class="sem-card" onclick="showSubjects('btech', 8)">
+      <div class="sem-num">08</div>
+      <div class="sem-title">Semester 8</div>
+      <div class="sem-count">5 Subjects</div>
+    </div>
+  </div>
+</div>
+
+<!-- BBA PROGRAMME -->
+<div id="bba" class="page">
+  <button class="back-btn" onclick="goHome()">← Back</button>
+  <div class="page-header">
+    <div class="page-header-content">
+      <h2>💼 BBA Programme</h2>
+      <p>Management Programme — Semesters 5–6</p>
+    </div>
+    <div class="page-icon-lg">💼</div>
+  </div>
+  <div class="semester-grid">
+    <div class="sem-card" onclick="showSubjects('bba', 5)">
+      <div class="sem-num">05</div>
+      <div class="sem-title">Semester 5</div>
+      <div class="sem-count">5 Subjects</div>
+    </div>
+    <div class="sem-card" onclick="showSubjects('bba', 6)">
+      <div class="sem-num">06</div>
+      <div class="sem-title">Semester 6</div>
+      <div class="sem-count">5 Subjects</div>
+    </div>
+  </div>
+</div>
+
+<!-- SUBJECTS PAGE -->
+<div id="subjects" class="page">
+  <button class="back-btn" id="backBtn" onclick="goBack()">← Back</button>
+  <div class="page-header">
+    <div class="page-header-content">
+      <h2 id="subPageTitle">Semester 1</h2>
+      <p id="subPageSubtitle">DYD Programme</p>
+    </div>
+    <div class="page-icon-lg" id="subPageIcon">📘</div>
+  </div>
+
+  <div class="subjects-wrapper">
+    <div class="subject-header">
+      <h3 id="semTitle">Semester 1 — Curriculum</h3>
+      <p id="semDesc">6 Subjects Listed</p>
+    </div>
+
+    <div class="subjects-grid" id="subjectsList"></div>
+
+    <div class="action-section">
+      <div class="action-label">📥 Curriculum Resources</div>
+      <div class="action-buttons">
+        <a class="action-btn btn-primary" id="viewPdf" href="sem1.pdf" target="_blank">
+          📄 View Syllabus
+        </a>
+        <a class="action-btn btn-secondary" id="downloadPdf" href="sem1.pdf" download>
+          ⬇️ Download PDF
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+// Curriculum Data
+const curriculumData = {
+  dyd: {
+    icon: '📘',
+    name: 'DYD Programme',
+    semesters: {
+      1: {
+        title: 'Semester 1',
+        pdfLink: 'sem1.pdf',
+        subjects: [
+          { name: 'Life Skills', code: 'DYD101' },
+          { name: 'Mathematics Without Phobia', code: 'DYD102' },
+          { name: 'Understanding the World through Data Lens', code: 'DYD103' },
+          { name: 'Expressing Creativity', code: 'DYD104' },
+          { name: 'Exploring the Surrounding', code: 'DYD105' },
+          { name: 'IT in Everyday Life', code: 'DYD106' }
+        ]
+      },
+      2: {
+        title: 'Semester 2',
+        pdfLink: 'sem2.pdf',
+        subjects: [
+          { name: 'Discovering the Self', code: 'DYD201' },
+          { name: 'Decoding the World through AI', code: 'DYD202' },
+          { name: 'World of Startup through Real Life Studies', code: 'DYD203' },
+          { name: 'Art and Aesthetic of Designing', code: 'DYD204' },
+          { name: 'Responsible Citizenship through Experimentation', code: 'DYD205' },
+          { name: 'Coding Through GPT-4', code: 'DYD206' }
+        ]
+      },
+      3: {
+        title: 'Semester 3',
+        pdfLink: 'sem3.pdf',
+        subjects: [
+          { name: 'Developing Equanimity of Mind and Body', code: 'DYD301' },
+          { name: 'Understanding the Challenges of Climate Change', code: 'DYD302' },
+          { name: 'Does the World Revolve Around Economics', code: 'DYD303' },
+          { name: 'Technologies of the Future', code: 'DYD304' },
+          { name: 'Social Innovations', code: 'DYD305' },
+          { name: 'Art and Science of Communication', code: 'DYD306' }
+        ]
+      },
+      4: {
+        title: 'Semester 4',
+        pdfLink: 'sem4.pdf',
+        subjects: [
+          { name: 'Demystify Human Behaviour', code: 'DYD401' },
+          { name: 'Marvels of the World', code: 'DYD402' },
+          { name: 'Exploring Tourism in J&K: An Entrepreneurial Perspective', code: 'DYD403' },
+          { name: 'Exploring the World of Cinema With Smartphones', code: 'DYD404' },
+          { name: 'Food as Medicine: Traditional and Modern Practices', code: 'DYD405' },
+          { name: 'Digital Humanities', code: 'DYD406' }
+        ]
+      }
+    }
+  },
+  btech: {
+    icon: '⚙️',
+    name: 'B.Tech Programme',
+    semesters: {
+      5: {
+        title: 'Semester 5',
+        pdfLink: 'btech_sem5.pdf',
+        subjects: [
+          { name: 'Data Structures & Algorithms', code: 'CSE501' },
+          { name: 'Operating Systems', code: 'CSE502' },
+          { name: 'Database Management Systems', code: 'CSE503' },
+          { name: 'Computer Networks', code: 'CSE504' },
+          { name: 'Software Engineering', code: 'CSE505' }
+        ]
+      },
+      6: {
+        title: 'Semester 6',
+        pdfLink: 'btech_sem6.pdf',
+        subjects: [
+          { name: 'Linear Logic:Art of Optimization', code: 'CSE601' },
+          { name: 'Exploring Database Management System', code: 'CSE602' },
+          { name: 'Architecting The Web:Modern Web Application Engineering', code: 'CSE603' },
+          { name: 'Computer Graphics and Visualization Using Java', code: 'CSE604' },
+          { name: 'Data Structure and Design Using Object Oriented Programm9ing(C/C++)', code: 'CSE605' }
+        ]
+      },
+      7: {
+        title: 'Semester 7',
+        pdfLink: 'btech_sem7.pdf',
+        subjects: [
+          { name: 'Distributed Systems', code: 'CSE701' },
+          { name: 'Information Security', code: 'CSE702' },
+          { name: 'IoT & Embedded Systems', code: 'CSE703' },
+          { name: 'Deep Learning', code: 'CSE704' },
+          { name: 'Project Management', code: 'CSE705' }
+        ]
+      },
+      8: {
+        title: 'Semester 8',
+        pdfLink: 'btech_sem8.pdf',
+        subjects: [
+          { name: 'Big Data Analytics', code: 'CSE801' },
+          { name: 'Blockchain Technology', code: 'CSE802' },
+          { name: 'Natural Language Processing', code: 'CSE803' },
+          { name: 'Entrepreneurship & Innovation', code: 'CSE804' },
+          { name: 'Major Project / Thesis', code: 'CSE805' }
+        ]
+      }
+    }
+  },
+  bba: {
+    icon: '💼',
+    name: 'BBA Programme',
+    semesters: {
+      5: {
+        title: 'Semester 5',
+        pdfLink: 'bba_sem5.pdf',
+        subjects: [
+          { name: 'Business economics', code: 'BBA501' },
+          { name: 'Financial management', code: 'BBA502' },
+          { name: 'Marketing Management', code: 'BBA503' },
+          { name: 'Legal and ethical issues in business', code: 'BBA504' },
+          { name: '5. Principal and practices of management and organisational behaviour', code: 'BBA505' }
+        ]
+      },
+      6: {
+        title: 'Semester 6',
+        pdfLink: 'bba_sem6.pdf',
+        subjects: [
+          { name: 'Business environment and public policy', code: 'BBA601' },
+          { name: 'Financial management', code: 'BBA602' },
+          { name: 'Operation management', code: 'BBA603' },
+          { name: 'Human resource Management', code: 'BBA604' },
+          { name: 'Innovation and entrepreneurship', code: 'BBA605' }
+        ]
+      }
+    }
+  }
+};
+
+let currentProg = null;
+let currentSem = null;
+
+function showPage(pageId) {
+  const pages = document.querySelectorAll('.page');
+  pages.forEach(p => p.classList.remove('active'));
+  document.getElementById(pageId).classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function goHome() {
+  showPage('home');
+}
+
+function goBack() {
+  showPage(currentProg);
+}
+
+function showProgramme(prog) {
+  currentProg = prog;
+  showPage(prog);
+}
+
+function showSubjects(prog, sem) {
+  currentProg = prog;
+  currentSem = sem;
+
+  const data = curriculumData[prog].semesters[sem];
+  const progData = curriculumData[prog];
+
+  // Update Header
+  document.getElementById('subPageTitle').textContent = data.title;
+  document.getElementById('subPageSubtitle').textContent = progData.name;
+  document.getElementById('subPageIcon').textContent = progData.icon;
+
+  // Update Semester Info
+  document.getElementById('semTitle').textContent = data.title + ' — Curriculum';
+  document.getElementById('semDesc').textContent = data.subjects.length + ' Subjects Listed';
+
+  // Build Subjects List
+  const html = data.subjects.map((sub, i) => `
+    <div class="subject-item">
+      <div class="sub-num">${i + 1}</div>
+      <div class="sub-info">
+        <div class="sub-name">${sub.name}</div>
+        <div class="sub-code">${sub.code}</div>
+      </div>
+    </div>
+  `).join('');
+
+  document.getElementById('subjectsList').innerHTML = html;
+
+  // Set PDF Links
+  document.getElementById('viewPdf').href = data.pdfLink;
+  document.getElementById('downloadPdf').href = data.pdfLink;
+  document.getElementById('downloadPdf').download = data.pdfLink;
+
+  showPage('subjects');
+}
+</script>
+
+</body>
+</html>

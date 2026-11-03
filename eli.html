@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admission Procedure</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #1e3c72, #2a5298, #ffd700);
+        background-size: 300% 300%;
+        animation: gradientMove 8s ease infinite;
+        min-height: 100vh;
+    }
+
+    @keyframes gradientMove {
+        0% {background-position: 0% 50%;}
+        50% {background-position: 100% 50%;}
+        100% {background-position: 0% 50%;}
+    }
+
+    header {
+        text-align: center;
+        padding: 25px;
+        font-size: 30px;
+        font-weight: 600;
+        color: white;
+        text-shadow: 0 0 10px rgba(255,255,255,0.6);
+    }
+
+    .container {
+        width: 85%;
+        margin: 20px auto;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        backdrop-filter: blur(10px);
+        animation: fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+        from {opacity: 0; transform: translateY(20px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+
+    h2 {
+        margin-bottom: 15px;
+        color: #1e3c72;
+    }
+
+    p {
+        line-height: 1.7;
+        margin-bottom: 10px;
+        color: #444;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    th {
+        background: linear-gradient(45deg, #1e3c72, #ffd700);
+        color: white;
+        padding: 12px;
+        text-align: left;
+    }
+
+    td {
+        padding: 12px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tr:nth-child(even) {
+        background: #f7faff;
+    }
+
+    tr:hover {
+        background: #fff4cc;
+        transform: scale(1.01);
+        transition: 0.3s;
+    }
+
+    /* Contact */
+    .contact {
+        text-align: center;
+        margin-top: 40px;
+        padding: 25px;
+        color: white;
+        text-shadow: 0 0 8px rgba(255,255,255,0.5);
+    }
+
+    .contact a {
+        color: #ffd700;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    .contact a:hover {
+        text-decoration: underline;
+    }
+
+    footer {
+        text-align: center;
+        padding: 12px;
+        color: #fff;
+        font-size: 13px;
+        opacity: 0.8;
+    }
+</style>
+
+</head>
+
+<body>
+
+<header>
+    Admission Procedure
+</header>
+
+<div class="container">
+
+    <h2>Admission Procedure</h2>
+
+    <p>
+        Admission shall be made on the basis of an entrance test conducted by the University of Jammu followed by Group Discussion and Interview.
+    </p>
+
+    <p>
+        The eligible candidates shall be selected based on the following components:
+    </p>
+
+    <table>
+        <tr>
+            <th>S.No</th>
+            <th>Component</th>
+            <th>Weightage (%)</th>
+            <th>Remarks</th>
+        </tr>
+
+        <tr>
+            <td>1</td>
+            <td>Academic 12th</td>
+            <td>10</td>
+            <td>Pro rata basis.</td>
+        </tr>
+
+        <tr>
+            <td>2</td>
+            <td>Entrance Test</td>
+            <td>60</td>
+            <td>General awareness & aptitude.</td>
+        </tr>
+
+        <tr>
+            <td>3</td>
+            <td>Group Discussion</td>
+            <td>15</td>
+            <td>Group-based activity.</td>
+        </tr>
+
+        <tr>
+            <td>4</td>
+            <td>Personal Interview</td>
+            <td>15</td>
+            <td>Individual interaction.</td>
+        </tr>
+    </table>
+
+    <div style="margin-top: 20px;">
+        <p>
+            Candidates shall be called for Group Discussion and Personal Interview in the ratio of 1:3 based on combined score.
+        </p>
+
+        <p>
+            Final merit shall be calculated on the composite score of all components.
+        </p>
+    </div>
+
+</div>
+
+<div class="contact">
+    <p>Contact Us</p>
+    <p>
+        <a href="mailto:siiedc@jammuuniversity.ac.in">
+            siiedc@jammuuniversity.ac.in
+        </a>
+    </p>
+</div>
+
+<footer>
+    Made with care for DYD Program ✨
+</footer>
+
+</body>
+</html>

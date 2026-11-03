@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vice Chancellor Message</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #eef2ff, #fce4ec);
+}
+
+/* MAIN CONTAINER */
+.container {
+    width: 85%;
+    margin: 40px auto;
+    background: white;
+    border-radius: 20px;
+    padding: 60px 50px 60px 160px;
+    
+    /* smoother shadow */
+    box-shadow: 0 20px 45px rgba(0,0,0,0.12);
+    
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+}
+
+/* DECORATIVE SHAPES */
+.container::before {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, #3f51b5, transparent);
+    opacity: 0.12;
+    top: -80px;
+    right: -80px;
+    border-radius: 50%;
+}
+
+.container::after {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, #d81b60, transparent);
+    opacity: 0.12;
+    bottom: -80px;
+    left: -80px;
+    border-radius: 50%;
+}
+
+/* SIDE TEXT */
+.side-text {
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    
+    font-size: 28px;
+    font-weight: 900;
+    
+    /* gradient text */
+    background: linear-gradient(45deg, #d81b60, #3f51b5);
+    -webkit-background-clip: text;
+    color: transparent;
+
+    letter-spacing: 3px;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* LEFT TEXT */
+.left h2 {
+    margin: 0;
+    font-size: 30px;
+
+    /* soft gradient */
+    background: linear-gradient(45deg, #3f51b5, #d81b60);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.left p {
+    margin: 5px 0;
+    color: #555;
+}
+
+/* IMAGE */
+.right {
+    width: 280px;
+    text-align: right;
+}
+
+.right img {
+    width: 260px;
+    height: auto;
+    object-fit: contain;
+
+    border-radius: 15px;
+    border: 4px solid #fff;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transition: 0.3s;
+}
+.right img:hover {
+    transform: scale(1.05);
+}
+
+/* CONTENT */
+.content {
+    margin-top: 30px;
+    line-height: 1.95;   /* slightly more readable */
+    text-align: justify;
+    color: #333;
+    font-size: 15px;
+}
+
+/* SIGNATURE */
+.signature {
+    margin-top: 40px;
+    text-align: right;
+}
+
+.signature h3 {
+    margin: 0;
+
+    /* gradient touch */
+    background: linear-gradient(45deg, #d81b60, #3f51b5);
+    -webkit-background-clip: text;
+    color: transparent;
+
+    font-size: 22px;
+}
+
+.signature p {
+    margin: 0;
+    color: #666;}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="side-text">
+        FROM THE DESK OF THE VICE CHANCELLOR
+    </div>
+
+    <div class="header">
+        <div class="left">
+            <h2>VICE-CHANCELLOR</h2>
+            <p>UNIVERSITY OF JAMMU</p>
+        </div>
+
+        <div class="right">
+    <img src="vice-chancellor.jpg" alt="Vice Chancellor">
+</div>
+    </div>
+
+    <div class="content">
+
+        <p><b>Dear Students,</b></p>
+
+        <p>
+        I am happy to introduce you to our innovative and path breaking "Design Your Degree" program, an exciting initiative from the University of Jammu. As the Vice-Chancellor of this institution, I am proud to present you with a unique opportunity to shape your own educational path and unlock your true potential.
+        </p>
+
+        <p>
+        "Design Your Degree" is a Four-Year Undergraduate Program that embodies the spirit of freedom and flexibility in education. We understand that each student is unique, with diverse interests, passions, and aspirations. With this program, we offer you the autonomy to curate your academic journey, aligning it with your individual talents and goals.
+        </p>
+
+        <p>
+        Embracing a paradigm shift from rigid, one-size-fits-all degree programs, our approach to learning with "Design Your Degree" is dynamic and interactive. We foster a culture of hands-on experiences, peer learning, and the pursuit of knowledge beyond traditional confines. Be it the arts, sciences, humanities, or a harmonious blend of disciplines, this program empowers you to craft a specialized course of study that ignites your intellectual curiosity and nurtures personal growth.
+        </p>
+
+        <p>
+        As you commence this interesting journey, our dedicated faculty and mentors will provide personalized guidance and support, helping you navigate the vast array of possibilities and design a degree that reflects your true passions. Our emphasis on hands-on experiences equips you with practical skills and prepares you to excel in the ever-evolving professional landscape.
+        </p>
+
+        <p>
+        The University of Jammu has always been committed to promoting academic excellence, research, and social development. With "Design Your Degree," we take this commitment even further, enabling you to become not only skilled professionals but also job creators and compassionate global citizens.
+        </p>
+
+        <p>
+        I encourage you to seize this unparalleled opportunity of self-discovery, innovation, and empowerment.
+        </p>
+
+        <p>
+        Welcome to "Design Your Degree" — where your dreams and aspirations find their wings!
+        </p>
+
+    </div>
+
+    <div class="signature">
+        <h3>Prof. Umesh Rai</h3>
+        <p>Vice-Chancellor</p>
+    </div>
+
+</div>
+
+</body>
+</html>

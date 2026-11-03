@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Design Your Degree – University of Jammu</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --navy:#000080;--navy-mid:#0a0a9a;--navy-lt:#1a1ab5;
+  --sky:#e8f0ff;--bg:#F3FDFE;--gold:#c8a84b;
+  --crimson:#8b1a1a;
+  --white:#ffffff;--text:#1a1a2e;--muted:#5a6480;--border:#c5d5f0;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);}
+
+.top-bar{background:var(--navy);padding:7px 32px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.1);}
+.top-bar-links{display:flex;align-items:center;}
+.top-bar-links a{color:#fff;font-size:12px;font-weight:500;text-decoration:underline;text-underline-offset:2px;padding:0 16px;border-right:1px solid rgba(255,255,255,0.2);letter-spacing:0.3px;transition:color 0.2s;}
+.top-bar-links a:first-child{padding-left:0;}
+.top-bar-links a:last-child{border-right:none;}
+.top-bar-links a:hover{color:#aacfff;}
+
+.header{background:var(--white);padding:18px 40px;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--border);box-shadow:0 2px 20px rgba(0,0,128,0.07);}
+.header-left{display:flex;align-items:center;gap:18px;}
+.logo-img-wrap{flex-shrink:0;width:82px;height:82px;display:flex;align-items:center;justify-content:center;}
+.logo-img-wrap img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 2px 6px rgba(0,0,128,0.18));}
+.logo-text{display:flex;flex-direction:column;gap:2px;}
+.logo-brand{font-family:'DM Serif Display',serif;font-size:24px;color:var(--navy);line-height:1.1;}
+.logo-univ{font-size:12px;font-weight:400;color:var(--muted);letter-spacing:0.5px;margin-top:3px;}
+.logo-univ-row{display:flex;align-items:center;gap:8px;margin-top:3px;}
+.naac-inline-badge{display:inline-flex;align-items:center;gap:5px;background:linear-gradient(90deg,#7a0000,#a80000);border-radius:20px;padding:2px 9px;font-size:10px;font-weight:700;color:#fff;letter-spacing:0.8px;white-space:nowrap;}
+.naac-inline-star{color:#ffd700;font-size:11px;}
+.naac-inline-grade{color:#ffd700;font-weight:800;font-size:12px;font-family:'Playfair Display',serif;}
+.logo-divider{width:36px;height:2px;background:linear-gradient(90deg,var(--navy),transparent);margin-top:5px;border-radius:2px;}
+.header-center{flex:1;display:flex;align-items:center;justify-content:center;padding:0 24px;}
+.tagline-wrap{display:flex;flex-direction:column;align-items:center;gap:4px;}
+.tagline-main{font-family:'Playfair Display',serif;font-size:26px;font-style:italic;color:var(--navy);letter-spacing:0.5px;animation:glowPulse 3s ease-in-out infinite;text-align:center;line-height:1.3;}
+.tagline-sub{display:block;font-size:11px;font-weight:500;color:#4466bb;letter-spacing:1.8px;text-transform:none;text-align:center;}
+@keyframes glowPulse{0%,100%{text-shadow:0 0 8px rgba(0,0,128,0.25);}50%{text-shadow:0 0 24px rgba(0,50,220,0.55),0 0 50px rgba(30,100,255,0.3);}}
+.search-pane{display:flex;align-items:center;border:1.5px solid var(--navy);border-radius:8px;overflow:hidden;box-shadow:0 3px 12px rgba(0,0,128,0.12);}
+.search-pane:focus-within{box-shadow:0 4px 20px rgba(0,0,200,0.25);}
+.search-pane input{border:none;outline:none;padding:10px 15px;font-size:13px;background:#eef2ff;color:var(--text);width:200px;font-family:'DM Sans',sans-serif;}
+.search-pane input::placeholder{color:#8898b8;}
+.search-pane button{background:var(--navy);color:#fff;border:none;padding:10px 18px;font-size:13px;font-weight:600;cursor:pointer;letter-spacing:0.5px;transition:background 0.2s;display:flex;align-items:center;gap:5px;}
+.search-pane button:hover{background:var(--navy-lt);}
+
+.navbar{background:var(--white);border-bottom:3px solid var(--navy);box-shadow:0 2px 10px rgba(0,0,128,0.07);}
+.nav-inner{max-width:1300px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:center;}
+.nav-list{list-style:none;display:flex;align-items:center;}
+.nav-list>li{position:relative;}
+.nav-list>li>a{display:flex;align-items:center;gap:5px;padding:16px 20px;font-size:14px;font-weight:600;color:var(--text);text-decoration:none;white-space:nowrap;border-bottom:3px solid transparent;margin-bottom:-3px;letter-spacing:0.2px;transition:color 0.2s,border-color 0.2s,background 0.2s;}
+.nav-list>li>a:hover,.nav-list>li:hover>a{color:var(--navy);border-bottom-color:var(--navy);background:var(--sky);}
+.chevron{font-size:10px;color:#999;transition:transform 0.2s;}
+.nav-list>li:hover .chevron{transform:rotate(180deg);color:var(--navy);}
+.dropdown{position:absolute;top:100%;left:0;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--navy);min-width:220px;box-shadow:0 8px 28px rgba(0,0,128,0.11);z-index:999;display:none;border-radius:0 0 8px 8px;overflow:hidden;}
+.nav-list>li:hover .dropdown{display:block;}
+.dropdown a{display:block;padding:11px 18px;font-size:13px;color:#333;text-decoration:none;border-bottom:1px solid #eef2ff;transition:background 0.15s,color 0.15s,padding-left 0.15s;}
+.dropdown a:last-child{border-bottom:none;}
+.dropdown a:hover{background:var(--sky);color:var(--navy);padding-left:24px;}
+
+.announcements{display:flex;align-items:stretch;background:#fff;border-bottom:1px solid var(--border);}
+.ann-label{background:var(--navy);color:#fff;font-size:11px;font-weight:700;padding:11px 20px;white-space:nowrap;display:flex;align-items:center;gap:8px;letter-spacing:1px;text-transform:uppercase;}
+.ann-dot{width:7px;height:7px;border-radius:50%;background:#ff4444;animation:blink 1.2s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.2;}}
+.ann-ticker{flex:1;overflow:hidden;display:flex;align-items:center;}
+.ann-track{display:flex;animation:ticker 38s linear infinite;white-space:nowrap;}
+.ann-track:hover{animation-play-state:paused;}
+.ann-item{display:inline-flex;align-items:center;gap:8px;padding:11px 28px;font-size:12.5px;font-weight:500;color:#1a2550;text-decoration:none;border-right:1px solid var(--border);transition:color 0.2s;}
+.ann-item:hover{color:var(--navy);}
+.ann-item .tag{font-size:9.5px;font-weight:700;text-transform:uppercase;padding:2px 8px;border-radius:20px;letter-spacing:0.5px;}
+.tag-new{background:#fff0f0;color:#cc0000;}
+.tag-open{background:#e8fff0;color:#007a30;}
+.tag-soon{background:#fffbe8;color:#997700;}
+@keyframes ticker{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+.hero{position:relative;overflow:hidden;height:510px;background:#000040;}
+.slides{display:flex;height:100%;transition:transform 0.9s cubic-bezier(0.4,0,0.2,1);will-change:transform;}
+.slide{min-width:100%;height:100%;position:relative;background-size:cover;background-position:center;flex-shrink:0;}
+.slide-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,40,0.1) 0%,rgba(0,0,40,0.08) 40%,rgba(0,0,40,0.65) 80%,rgba(0,0,60,0.8) 100%);}
+.slide-caption{position:absolute;bottom:0;left:0;right:0;padding:40px 56px 44px;display:flex;flex-direction:column;align-items:flex-start;gap:10px;z-index:2;}
+.slide-tagline{font-family:'DM Serif Display',serif;font-size:42px;font-weight:400;color:#fff;line-height:1.15;text-shadow:0 2px 24px rgba(0,0,60,0.6);opacity:0;transform:translateY(20px);transition:opacity 0.6s ease 0.2s,transform 0.6s ease 0.2s;}
+.slide-tagline em{font-style:italic;color:#aaccff;}
+.slide-tagline-sub{font-size:15px;font-weight:300;color:rgba(255,255,255,0.7);opacity:0;transform:translateY(12px);transition:opacity 0.5s ease 0.4s,transform 0.5s ease 0.4s;}
+.slide.active .slide-tagline,.slide.active .slide-tagline-sub{opacity:1;transform:translateY(0);}
+.hero-progress{position:absolute;bottom:0;left:0;right:0;height:3px;background:rgba(255,255,255,0.12);z-index:5;}
+.hero-progress-fill{height:100%;width:0%;background:linear-gradient(90deg,#5588ff,#fff);transition:width 0.1s linear;}
+.hero-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,80,0.35);border:1px solid rgba(255,255,255,0.18);color:#fff;font-size:26px;width:48px;height:68px;cursor:pointer;z-index:10;display:flex;align-items:center;justify-content:center;transition:background 0.2s;backdrop-filter:blur(4px);}
+.hero-btn:hover{background:rgba(0,0,160,0.6);}
+.hero-btn.prev{left:0;border-radius:0 4px 4px 0;}
+.hero-btn.next{right:0;border-radius:4px 0 0 4px;}
+.hero-dots{position:absolute;bottom:14px;right:24px;display:flex;gap:6px;z-index:10;}
+.hero-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.32);cursor:pointer;border:none;transition:background 0.25s,width 0.3s,border-radius 0.3s;}
+.hero-dot.active{background:#fff;width:22px;border-radius:4px;}
+.hero-counter{position:absolute;top:18px;right:24px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.6);z-index:10;letter-spacing:1px;background:rgba(0,0,80,0.28);padding:4px 12px;border-radius:20px;backdrop-filter:blur(4px);}
+
+.leader-section{background:#fff;padding:60px 0 72px;border-bottom:1px solid #dde4f4;}
+.leader-inner{max-width:1180px;margin:0 auto;padding:0 44px;}
+.section-heading-row{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px;}
+.section-heading-left{display:flex;flex-direction:column;gap:6px;}
+.section-eyebrow{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--crimson);}
+.section-title{font-family:'DM Serif Display',serif;font-size:32px;color:var(--navy);}
+.section-rule{width:56px;height:3px;background:linear-gradient(90deg,var(--navy),#6688ee);border-radius:2px;margin-top:6px;}
+.leader-cards-row{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;}
+.ldr-card{border:1.5px solid #dde4f4;border-radius:14px;overflow:hidden;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease,border-color .25s;background:#fff;display:flex;flex-direction:column;}
+.ldr-card:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(0,0,128,.13);border-color:#aabcee;}
+.ldr-card.active{border-color:var(--navy);border-width:2px;transform:translateY(-6px);box-shadow:0 20px 48px rgba(0,0,128,.18);}
+.ldr-photo{width:100%;aspect-ratio:4/5;background:linear-gradient(145deg,#dce8ff,#b8ccf4);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.ldr-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;position:relative;z-index:2;}
+.ldr-photo-fallback{font-family:'DM Serif Display',serif;font-size:48px;color:rgba(0,0,128,.22);position:absolute;inset:0;display:none;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(220,232,255,0.8),rgba(184,204,244,0.8));z-index:1;}
+.ldr-designation-ribbon{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,80,.82),transparent);padding:16px 12px 10px;text-align:center;}
+.ldr-designation-ribbon span{font-size:9px;font-weight:700;letter-spacing:1.2px;color:rgba(255,255,255,.9);text-transform:uppercase;}
+.ldr-meta{padding:14px 16px 18px;border-top:1px solid #eef2ff;background:#fcfdff;}
+.ldr-name{font-size:13px;font-weight:600;color:var(--navy);line-height:1.35;margin-bottom:3px;}
+.ldr-role-tag{display:inline-block;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;border-radius:20px;margin-top:4px;background:#eef2ff;color:var(--navy);}
+.ldr-card.active .ldr-role-tag{background:var(--navy);color:#fff;}
+
+.explore-section{background:#f5f6fa;padding:60px 0 72px;border-bottom:1px solid #dde4f4;}
+.explore-inner{max-width:1180px;margin:0 auto;padding:0 44px;}
+.explore-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.exp-card{background:#fff;border:1px solid #dde4f4;border-radius:14px;overflow:hidden;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease,border-color .25s;display:flex;flex-direction:column;}
+.exp-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,0,128,.11);border-color:#aabcee;}
+.exp-card.featured{grid-row:span 2;}
+.exp-img{width:100%;height:160px;background:linear-gradient(135deg,#d0dcf4,#b0c4ec);position:relative;overflow:hidden;flex-shrink:0;}
+.exp-card.featured .exp-img{height:100%;min-height:260px;flex:1;}
+.exp-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;}
+.exp-card:hover .exp-img img{transform:scale(1.06);}
+.exp-img-bg{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:48px;opacity:.35;}
+.exp-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,50,.6) 0%,transparent 55%);}
+.exp-cat-pill{position:absolute;top:12px;left:12px;background:var(--crimson);color:#fff;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 11px;border-radius:20px;}
+.exp-body{padding:16px 18px 20px;}
+.exp-title{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:6px;line-height:1.4;}
+.exp-desc{font-size:12px;color:var(--muted);line-height:1.7;}
+.exp-card-strip{height:3px;background:linear-gradient(90deg,var(--navy),#6688ee);}
+
+.domains-section{background:#fff;padding:60px 0 72px;border-bottom:1px solid #dde4f4;}
+.domains-inner{max-width:1180px;margin:0 auto;padding:0 44px;}
+.dom-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+.dom-card{background:#fff;border:1.5px solid #dde4f4;border-radius:16px;overflow:hidden;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease,border-color .25s;display:flex;flex-direction:column;position:relative;}
+.dom-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0) 0%,rgba(0,0,128,0.02) 100%);pointer-events:none;z-index:1;}
+.dom-card:hover{transform:translateY(-8px);box-shadow:0 20px 48px rgba(0,0,128,.14);border-color:#8899dd;}
+.dom-icon-area{padding:28px 20px 20px;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,#eef2ff 0%,#e2eaff 100%);position:relative;overflow:hidden;min-height:160px;}
+.dom-icon-area::before{content:'';position:absolute;bottom:-30px;right:-30px;width:100px;height:100px;border-radius:50%;background:rgba(0,0,128,.05);animation:floatPulse 4s ease-in-out infinite;}
+.dom-icon-area::after{content:'';position:absolute;top:-20px;left:-20px;width:70px;height:70px;border-radius:50%;background:rgba(0,0,128,.04);animation:floatPulse 5s ease-in-out infinite 0.5s;}
+@keyframes floatPulse{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(-10px,10px) scale(1.1);}}
+.dom-icon-box{width:90px;height:90px;border-radius:20px;background:#fff;border:1px solid rgba(0,0,128,.1);display:flex;align-items:center;justify-content:center;position:relative;z-index:2;box-shadow:0 6px 20px rgba(0,0,128,.12);animation:iconPop 0.6s cubic-bezier(0.175,0.885,0.32,1.275) backwards;}
+@keyframes iconPop{0%{transform:scale(0.5) rotateZ(-10deg);opacity:0;}100%{transform:scale(1) rotateZ(0);opacity:1;}}
+.dom-bottom-accent{height:3px;background:linear-gradient(90deg,var(--navy),#6688ee);}
+.dom-body{padding:16px 18px 20px;flex:1;display:flex;flex-direction:column;gap:3px;}
+.dom-cat{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--crimson);margin-bottom:2px;}
+.dom-title{font-size:15px;font-weight:600;color:var(--navy);line-height:1.3;margin-bottom:5px;}
+.dom-desc{font-size:12px;color:var(--muted);line-height:1.7;flex:1;}
+.dom-arrow-link{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:var(--navy);margin-top:10px;letter-spacing:.3px;opacity:0;transform:translateY(4px);transition:opacity .2s,transform .2s;text-decoration:none;}
+.dom-card:hover .dom-arrow-link{opacity:1;transform:translateY(0);}
+
+.dom-card.teal .dom-icon-area{background:linear-gradient(145deg,#e0f5ee,#c8ede0);animation:gradShift1 8s ease-in-out infinite;}
+.dom-card.amber .dom-icon-area{background:linear-gradient(145deg,#fff5e0,#feeac8);animation:gradShift2 8s ease-in-out infinite;}
+.dom-card.rose .dom-icon-area{background:linear-gradient(145deg,#ffeef4,#f8d8ec);animation:gradShift3 8s ease-in-out infinite;}
+.dom-card.violet .dom-icon-area{background:linear-gradient(145deg,#f0eeff,#e0d8f8);animation:gradShift4 8s ease-in-out infinite;}
+.dom-card.green .dom-icon-area{background:linear-gradient(145deg,#eef8ee,#d8f0d8);animation:gradShift5 8s ease-in-out infinite;}
+.dom-card.cyan .dom-icon-area{background:linear-gradient(145deg,#e0f5f8,#c0e8f0);animation:gradShift6 8s ease-in-out infinite;}
+.dom-card.plum .dom-icon-area{background:linear-gradient(145deg,#f4eeff,#e4d0f8);animation:gradShift7 8s ease-in-out infinite;}
+
+@keyframes gradShift1{0%,100%{background:linear-gradient(145deg,#e0f5ee,#c8ede0);}50%{background:linear-gradient(145deg,#c8ede0,#b0e5d0);}}
+@keyframes gradShift2{0%,100%{background:linear-gradient(145deg,#fff5e0,#feeac8);}50%{background:linear-gradient(145deg,#ffeac8,#ffe0b0);}}
+@keyframes gradShift3{0%,100%{background:linear-gradient(145deg,#ffeef4,#f8d8ec);}50%{background:linear-gradient(145deg,#f8d8ec,#f0c8e4);}}
+@keyframes gradShift4{0%,100%{background:linear-gradient(145deg,#f0eeff,#e0d8f8);}50%{background:linear-gradient(145deg,#e0d8f8,#d0c8f0);}}
+@keyframes gradShift5{0%,100%{background:linear-gradient(145deg,#eef8ee,#d8f0d8);}50%{background:linear-gradient(145deg,#d8f0d8,#c0e8c0);}}
+@keyframes gradShift6{0%,100%{background:linear-gradient(145deg,#e0f5f8,#c0e8f0);}50%{background:linear-gradient(145deg,#c0e8f0,#a8e0e8);}}
+@keyframes gradShift7{0%,100%{background:linear-gradient(145deg,#f4eeff,#e4d0f8);}50%{background:linear-gradient(145deg,#e4d0f8,#d4c0f0);}}
+
+.dom-card.teal .dom-bottom-accent{background:linear-gradient(90deg,#006644,#44bb88);}
+.dom-card.amber .dom-bottom-accent{background:linear-gradient(90deg,#c87800,#ffaa44);}
+.dom-card.rose .dom-bottom-accent{background:linear-gradient(90deg,#990044,#cc4488);}
+.dom-card.violet .dom-bottom-accent{background:linear-gradient(90deg,#5500bb,#8844ee);}
+.dom-card.green .dom-bottom-accent{background:linear-gradient(90deg,#006622,#44aa55);}
+.dom-card.cyan .dom-bottom-accent{background:linear-gradient(90deg,#006688,#22aacc);}
+.dom-card.plum .dom-bottom-accent{background:linear-gradient(90deg,#660088,#9933cc);}
+
+.ach-section{background:var(--bg);padding:52px 44px 60px;border-top:1px solid var(--border);}
+.ach-header{display:flex;align-items:flex-end;justify-content:space-between;padding-bottom:20px;border-bottom:3px solid var(--navy);margin-bottom:28px;}
+.ach-title-wrap{display:flex;flex-direction:column;gap:4px;}
+.ach-eyebrow{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--muted);}
+.ach-title{font-family:'DM Serif Display',serif;font-size:30px;color:var(--navy);}
+.ach-underline{width:52px;height:3px;background:linear-gradient(90deg,var(--navy),#6699ff);border-radius:2px;margin-top:4px;}
+.ach-view-more{display:inline-flex;align-items:center;gap:7px;background:var(--navy);color:#fff;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:10px 22px;border-radius:6px;text-decoration:none;transition:background 0.2s;}
+.ach-view-more:hover{background:var(--navy-lt);}
+.ach-scroll-container{display:flex;justify-content:center;margin-bottom:20px;}
+.ach-scroll-track{display:flex;gap:22px;overflow-x:auto;scroll-behavior:smooth;padding:10px 0;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--navy) #dce8f8;max-width:100%;}
+.ach-scroll-track::-webkit-scrollbar{height:5px;}
+.ach-scroll-track::-webkit-scrollbar-thumb{background:var(--navy);border-radius:3px;}
+.ach-card{min-width:280px;max-width:280px;background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;flex-shrink:0;transition:transform 0.2s,box-shadow 0.2s;}
+.ach-card:hover{transform:translateY(-5px);box-shadow:0 12px 32px rgba(0,0,128,.12);}
+.ach-card-top{height:4px;background:linear-gradient(90deg,var(--navy),#6699ff);}
+.ach-img-wrap{width:100%;height:165px;overflow:hidden;position:relative;background:#d0daf5;}
+.ach-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s;}
+.ach-card:hover .ach-img-wrap img{transform:scale(1.05);}
+.ach-badge{position:absolute;top:10px;left:10px;background:var(--navy);color:#fff;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:20px;}
+.ach-body{padding:16px 18px 20px;flex:1;display:flex;flex-direction:column;gap:6px;}
+.ach-venue{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold);}
+.ach-headline{font-family:'DM Serif Display',serif;font-size:15px;color:var(--navy);line-height:1.35;}
+.ach-desc{font-size:12px;color:var(--muted);line-height:1.65;flex:1;}
+.ach-award{display:inline-flex;align-items:center;gap:6px;background:#e8f0ff;color:var(--navy);font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;margin-top:4px;align-self:flex-start;}
+.ach-arrows-container{display:flex;justify-content:center;gap:8px;}
+.ach-arrow{background:var(--navy);color:#fff;border:none;width:36px;height:36px;border-radius:6px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;line-height:1;}
+.ach-arrow:hover{background:var(--navy-lt);}
+
+.dyd-intro-section{background:linear-gradient(135deg,#f0f4ff 0%,#e8f0ff 50%,#f5f8ff 100%);padding:72px 0 64px;border-bottom:1px solid #dde4f4;position:relative;overflow:hidden;}
+.dyd-intro-section::before{content:'';position:absolute;top:-80px;right:-80px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(0,0,128,0.06) 0%,transparent 70%);pointer-events:none;}
+.dyd-intro-section::after{content:'';position:absolute;bottom:-60px;left:-60px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(0,0,128,0.05) 0%,transparent 70%);pointer-events:none;}
+.dyd-intro-inner{max-width:1180px;margin:0 auto;padding:0 44px;}
+.dyd-heading-wrap{text-align:center;margin-bottom:48px;}
+.dyd-main-heading{font-family:'Lucida Calligraphy','Palatino Linotype',cursive;font-size:52px;font-weight:normal;color:#000080;letter-spacing:2px;line-height:1.2;animation:dydGlow 3s ease-in-out infinite;margin-bottom:16px;}
+@keyframes dydGlow{0%,100%{text-shadow:0 0 10px rgba(0,0,180,0.3),0 0 30px rgba(0,0,180,0.15),0 2px 4px rgba(0,0,80,0.2);}50%{text-shadow:0 0 20px rgba(0,0,220,0.6),0 0 60px rgba(0,0,200,0.35),0 0 100px rgba(30,30,255,0.2),0 2px 4px rgba(0,0,80,0.2);}}
+.dyd-heading-rule{width:80px;height:3px;background:linear-gradient(90deg,transparent,#000080,transparent);margin:0 auto 28px;border-radius:2px;}
+.dyd-intro-text{font-family:'Times New Roman',Times,serif;font-size:16px;line-height:1.95;color:#1a1a2e;max-width:860px;margin:0 auto;text-align:justify;letter-spacing:0.2px;font-weight:600;}
+.dyd-strip-wrap{overflow:hidden;width:100%;margin:0 -44px;width:calc(100% + 88px);position:relative;}
+.dyd-strip-wrap::before,.dyd-strip-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;}
+.dyd-strip-wrap::before{left:0;background:linear-gradient(to right,#edf1ff,transparent);}
+.dyd-strip-wrap::after{right:0;background:linear-gradient(to left,#edf1ff,transparent);}
+.dyd-strip-track{display:flex;gap:14px;animation:dydScroll 30s linear infinite;width:max-content;padding:8px 0;}
+.dyd-strip-track:hover{animation-play-state:paused;}
+.dyd-strip-track img{height:200px;width:280px;object-fit:cover;border-radius:12px;box-shadow:0 6px 24px rgba(0,0,128,0.13);flex-shrink:0;transition:transform 0.3s ease,box-shadow 0.3s ease;}
+.dyd-strip-track img:hover{transform:scale(1.04) translateY(-4px);box-shadow:0 14px 36px rgba(0,0,128,0.22);}
+@keyframes dydScroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+.dyd-btn-wrap{text-align:center;margin-top:44px;}
+.dyd-explore-btn{display:inline-block;font-family:'Times New Roman',Times,serif;font-size:15px;font-style:italic;letter-spacing:0.5px;color:#fff;background:linear-gradient(135deg,#000080,#1a1ab5);padding:14px 40px;border-radius:40px;text-decoration:none;box-shadow:0 6px 24px rgba(0,0,128,0.30);transition:transform 0.25s ease,box-shadow 0.25s ease,background 0.25s;border:1px solid rgba(255,255,255,0.15);}
+.dyd-explore-btn:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,0,180,0.40);background:linear-gradient(135deg,#0000aa,#2222cc);}
+.leader-quote{font-family:'Times New Roman',Times,serif;font-size:19px;font-style:italic;color:var(--muted);margin-top:8px;letter-spacing:0.3px;}
+
+.footer{background:#00003a;color:#8899bb;border-top:3px solid #0000aa;}
+.footer-inner{max-width:1180px;margin:0 auto;padding:60px 44px 40px;display:grid;grid-template-columns:1.4fr 1fr 1fr 0.9fr;gap:48px;}
+.footer-col{display:flex;flex-direction:column;gap:10px;}
+.footer-logo{width:64px;height:64px;object-fit:contain;margin-bottom:6px;}
+.footer-brand-name{font-family:'DM Serif Display',serif;font-size:20px;color:#fff;}
+.footer-brand-sub{font-size:12px;color:#aabbd4;letter-spacing:0.4px;}
+.footer-naac{display:inline-block;background:linear-gradient(90deg,#7a0000,#a80000);color:#ffd700;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:1px;width:fit-content;margin-top:2px;}
+.footer-socials{margin-top:8px;}
+.footer-social-btn{display:inline-flex;align-items:center;gap:7px;background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);color:#fff;font-size:12px;font-weight:600;padding:8px 18px;border-radius:24px;text-decoration:none;letter-spacing:0.3px;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 4px 16px rgba(200,50,50,0.3);}
+.footer-social-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,50,50,0.45);}
+.footer-col-heading{font-family:'DM Serif Display',serif;font-size:15px;color:#fff;letter-spacing:0.5px;}
+.footer-divider{width:36px;height:2px;background:linear-gradient(90deg,#0000cc,#4466ff);border-radius:2px;margin-bottom:4px;}
+.footer-address{font-size:13px;line-height:1.85;color:#9aaac8;}
+.footer-contact-link{font-size:12px;color:#8899bb;text-decoration:none;transition:color 0.2s;}
+.footer-contact-link:hover{color:#aaccff;}
+.footer-link{font-size:13px;color:#8899bb;text-decoration:none;transition:color 0.2s,padding-left 0.2s;padding-left:0;}
+.footer-link:hover{color:#fff;padding-left:6px;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding:16px 44px;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#556688;}
+.footer-bottom a{color:#6677aa;text-decoration:none;}
+.footer-bottom a:hover{color:#aabbdd;}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <nav class="top-bar-links">
+    <a href="mentors.html">Faculty &amp; Staff</a>
+    <a href="https://dyd-web.vercel.app/" target="_blank">Students</a>
+    <a href="#">Alumni</a>
+    <a href="#">Contact</a>
+  </nav>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-left">
+    <div class="logo-img-wrap">
+      <img src="university.png" alt="University of Jammu Logo" onerror="this.style.display='none'"/>
+    </div>
+    <div class="logo-text">
+      <div class="logo-brand">Design Your Degree</div>
+      <div class="logo-univ-row">
+        <span class="logo-univ">University of Jammu</span>
+        <span class="naac-inline-badge">
+          <span class="naac-inline-star">★</span>
+          NAAC
+          <span class="naac-inline-grade">A++</span>
+        </span>
+      </div>
+      <div class="logo-divider"></div>
+    </div>
+  </div>
+  <div class="header-center">
+    <div class="tagline-wrap">
+      <div class="tagline-main">Welcome to Design Your Degree</div>
+      <span class="tagline-sub">✦ A unique initiative by University of Jammu ✦</span>
+    </div>
+  </div>
+  <div>
+    <div class="search-pane">
+      <input type="text" placeholder="Search programs, faculty…" id="searchInput"/>
+      <button onclick="doSearch()">🔍 Search</button>
+    </div>
+  </div>
+</header>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <ul class="nav-list">
+      <li>
+        <a href="#">Design Your Degree<span class="chevron">▾</span></a>
+        <div class="dropdown">
+          <a href="about_design_your_degree.html">About</a>
+          <a href="brochure.html">Course Guide</a>
+        </div>
+      </li>
+      <li>
+        <a href="#">Leadership Notes <span class="chevron">▾</span></a>
+        <div class="dropdown">
+          <a href="LG.html">Message from Hon'ble LG Sir</a>
+          <a href="pro-vice-chancellor.html">Message from Pro Vice Chancellor</a>
+          <a href="vice-chairman.html">Message from the Vice Chairman</a>
+          <a href="vice-chancellor.html">Message from the Vice Chancellor</a>
+          <a href="director.html">Message from the Director</a>
+        </div>
+      </li>
+      <li>
+        <a href="#">Academics <span class="chevron">▾</span></a>
+        <div class="dropdown">
+          <!-- ✅ FIX: Domains click pe smooth scroll to #domains-section -->
+          <a href="#domains-section" onclick="event.preventDefault(); document.getElementById('domains-section').scrollIntoView({behavior:'smooth'}); return false;">Domains</a>
+          <a href="syllabus/syllabus/index2.html">Syllabi</a>
+          <a href="#">Academic Calendar</a>
+        </div>
+      </li>
+      <li>
+        <a href="#">Happenings <span class="chevron">▾</span></a>
+        <div class="dropdown">
+          <a href="DYD_WORKSHOPS (2).html">Events</a>
+          <a href="achievers.html">Achievements</a>
+        </div>
+      </li>
+      <li>
+        <a href="#">Admissions <span class="chevron">▾</span></a>
+        <div class="dropdown">
+          <a href="eli.html">Check Eligibility</a>
+          <a href="https://dyd-admission-backend.onrender.com/" target="_blank">Apply Now</a>
+        </div>
+      </li>
+      <li>
+        <a href="#">The Institute <span class="chevron">▾</span></a>
+        <div class="dropdown">
+          <a href="DYD.html">About The Campus</a>
+          <a href="https://university-360-tour-2g2j.vercel.app?_vercel_share=vRXeivhZ3qDT50rLFNKAl2jb7gj5HfCj/">Jammu University Campus and DYD Labs</a>
+          <a href="#">Clubs</a>
+          <a href="#contact-footer" onclick="document.getElementById('contact-footer').scrollIntoView({behavior:'smooth'});return false;">Contact Us</a>
+        </div>
+      </li>
+      <li><a href="#">Photo Gallery</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ANNOUNCEMENTS -->
+<div class="announcements">
+  <div class="ann-label"><span class="ann-dot"></span>Announcements</div>
+  <div class="ann-ticker">
+    <div class="ann-track" id="ticker">
+      <a href="https://dyd-admission-backend.onrender.com/" class="ann-item"><span class="tag tag-open">Open</span>Admissions are open for Batch 2026 — Apply Now</a>
+      <a href="#" class="ann-item"><span class="tag tag-soon">Soon</span>Design Your Degree — Counselling Opening Soon</a>
+      <a href="eli.html" class="ann-item"><span class="tag tag-new">New</span>Check the Eligibility Criteria for DYD 2026</a>
+      <a href="#" class="ann-item"><span class="tag tag-new">Alert</span>Don't Miss the Opportunity — Last Date Approaching</a>
+      <a href="https://dyd-admission-backend.onrender.com/" class="ann-item"><span class="tag tag-open">Open</span>Admissions are open for Batch 2026 — Apply Now</a>
+      <a href="#" class="ann-item"><span class="tag tag-soon">Soon</span>Design Your Degree — Counselling Opening Soon</a>
+      <a href="eli.html" class="ann-item"><span class="tag tag-new">New</span>Check the Eligibility Criteria for DYD 2026</a>
+      <a href="#" class="ann-item"><span class="tag tag-new">Alert</span>Don't Miss the Opportunity — Last Date Approaching</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO SLIDER -->
+<div class="hero" id="hero">
+  <div class="hero-progress"><div class="hero-progress-fill" id="progressFill"></div></div>
+  <div id="heroCounter" class="hero-counter">1 / 11</div>
+  <div class="slides" id="slides">
+    <div class="slide active" style="background-image:url('p1.jpeg')">
+      <div class="slide-overlay"></div>
+      <div class="slide-caption">
+        <h2 class="slide-tagline">Turning ideas<br/><em>into impact</em></h2>
+        <p class="slide-tagline-sub">Where vision meets execution at the University of Jammu</p>
+      </div>
+    </div>
+    <div class="slide" style="background-image:url('p2.jpeg')">
+      <div class="slide-overlay"></div>
+      <div class="slide-caption">
+        <h2 class="slide-tagline">Dream.<br/><em>Build. Win.</em></h2>
+        <p class="slide-tagline-sub">Your ambition, our platform — together we achieve greatness</p>
+      </div>
+    </div>
+    <div class="slide" style="background-image:url('p3.jpeg')">
+      <div class="slide-overlay"></div>
+      <div class="slide-caption">
+        <h2 class="slide-tagline">Small steps,<br/><em>big achievements</em></h2>
+        <p class="slide-tagline-sub">Every milestone begins with the courage to begin</p>
+      </div>
+    </div>
+    <div class="slide" style="background-image:url('p4.jpeg')">
+      <div class="slide-overlay"></div>
+      <div class="slide-caption">
+        <h2 class="slide-tagline">From concept<br/><em>to creation</em></h2>
+        <p class="slide-tagline-sub">Bridging imagination and innovation on one campus</p>
+      </div>
+    </div>
+    <div class="slide" style="background-image:url('p5.jpeg')">
+      <div class="slide-overlay"></div>
+      <div class="slide-caption">
+        <h2 class="slide-tagline">Moments<br/><em>that matter</em></h2>
+        <p class="slide-tagline-sub">Creating memories and milestones that last a lifetime</p>
+      </div>
+    </div>
+    <div class="slide" style="background-image:url('p6.jpeg')">
+      <div class="slide-overlay"></div>
+      <div class="slide-caption">
+        <h2 class="slide-tagline">Built on teamwork,<br/><em>driven by ambition</em></h2>
+        <p class="slide-tagline-sub">Collaboration is the engine of extraordinary results</p>
+      </div>
+    </div>
+    <div class="slide" style="background-image:url('p7.jpeg')">
+      <div class="slide-overlay"></div>
+      <div class="slide-caption">
+        <h2 class="slide-tagline">Learning<br/><em>beyond classrooms</em></h2>
+        <p class="slide-tagline-sub">Real-world skills forged through experience and exploration</p>
+      </div>
+    </div>
+    <div class="slide" style="background-image:url('p8.jpeg')">
+      <div class="slide-overlay"></div>
+      <div class="slide-caption">
+        <h2 class="slide-tagline">From campus to<br/><em>global platforms</em></h2>
+        <p class="slide-tagline-sub">Representing Jammu on the world stage with pride</p>
+      </div>
+    </div>
+    <div class="slide" style="background-image:url('p9.jpeg')">
+      <div class="slide-overlay"></div>
+      <div class="slide-caption">
+        <h2 class="slide-tagline">Hard work turned<br/><em>into victory</em></h2>
+        <p class="slide-tagline-sub">Dedication, discipline and determination define our students</p>
+      </div>
+    </div>
+    <div class="slide" style="background-image:url('p10.jpeg')">
+      <div class="slide-overlay"></div>
+      <div class="slide-caption">
+        <h2 class="slide-tagline">Dreams backed<br/><em>by achievement</em></h2>
+        <p class="slide-tagline-sub">Every dream here is backed by a system built to succeed</p>
+      </div>
+    </div>
+    <div class="slide" style="background-image:url('p11.jpeg')">
+      <div class="slide-overlay"></div>
+      <div class="slide-caption">
+        <h2 class="slide-tagline">Driven by Excellence,<br/><em>Defined by Success</em></h2>
+        <p class="slide-tagline-sub">Setting benchmarks. Raising the bar. Every single day.</p>
+      </div>
+    </div>
+  </div>
+  <button class="hero-btn prev" id="prevBtn">&#8249;</button>
+  <button class="hero-btn next" id="nextBtn">&#8250;</button>
+  <div class="hero-dots" id="heroDots"></div>
+</div>
+
+<!-- DYD INTRO SECTION -->
+<section class="dyd-intro-section">
+  <div class="dyd-intro-inner">
+    <div class="dyd-heading-wrap">
+      <h2 class="dyd-main-heading">Design Your Degree</h2>
+      <div class="dyd-heading-rule"></div>
+      <p class="dyd-intro-text">
+        Design Your Degree is a pioneering interdisciplinary programme at the University of Jammu,
+        conceived to empower students with the freedom to craft their own academic journey.
+        Breaking the boundaries of conventional education, DYD allows students to seamlessly
+        blend domains from Technology and Economics to Psychology and Environmental Sciences
+        creating a degree that is truly their own. Guided by distinguished faculty and enriched
+        through hands-on experiences, industry exposure, and innovation challenges, the programme
+        nurtures thinkers, creators, and leaders who are prepared not just for careers, but for
+        life. At DYD, your curiosity is the curriculum.
+      </p>
+    </div>
+    <div class="dyd-strip-wrap">
+      <div class="dyd-strip-track" id="dydStrip">
+        <img src="jr1.jpeg" alt="DYD Moment"/>
+        <img src="jr2.jpeg" alt="DYD Moment"/>
+        <img src="jr3.jpeg" alt="DYD Moment"/>
+        <img src="jr4.jpeg" alt="DYD Moment"/>
+        <img src="jr5.jpeg" alt="DYD Moment"/>
+        <img src="jr6.jpeg" alt="DYD Moment"/>
+        <img src="jr8.jpeg" alt="DYD Moment"/>
+        <img src="jr9.jpeg" alt="DYD Moment"/>
+        <img src="jr10.jpeg" alt="DYD Moment"/>
+        <img src="jr1.jpeg" alt="DYD Moment"/>
+        <img src="jr2.jpeg" alt="DYD Moment"/>
+        <img src="jr3.jpeg" alt="DYD Moment"/>
+        <img src="jr4.jpeg" alt="DYD Moment"/>
+        <img src="jr5.jpeg" alt="DYD Moment"/>
+        <img src="jr6.jpeg" alt="DYD Moment"/>
+        <img src="jr8.jpeg" alt="DYD Moment"/>
+        <img src="jr9.jpeg" alt="DYD Moment"/>
+        <img src="jr10.jpeg" alt="DYD Moment"/>
+      </div>
+    </div>
+    <div class="dyd-btn-wrap">
+      <a href="about.html" class="dyd-explore-btn">
+        Explore More About Design Your Degree &nbsp;›
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP NOTES -->
+<section class="leader-section">
+  <div class="leader-inner">
+    <div class="section-heading-row">
+      <div class="section-heading-left">
+        <div class="section-eyebrow">From the Desk Of</div>
+        <div class="section-title">Leadership Notes</div>
+        <div class="section-rule"></div>
+        <div class="section-rule"></div>
+        <p class="leader-quote"><b>Words of wisdom from the visionaries who shaped Design Your Degree</b></p>
+      </div>
+    </div>
+    <div class="leader-cards-row" id="leaderCardsRow">
+      <div class="ldr-card" onclick="setLeader(0)">
+        <div class="ldr-photo">
+          <div class="ldr-photo-fallback" id="fb0">M</div>
+          <img src="lg.png" alt="Sh. Manoj Sinha" onerror="this.style.display='none';document.getElementById('fb0').style.display='flex'"/>
+          <div class="ldr-designation-ribbon"><span>Chancellor</span></div>
+        </div>
+        <div class="ldr-meta">
+          <div class="ldr-name">Sh. Manoj Sinha</div>
+          <div class="ldr-role-tag">LG / Chancellor</div>
+        </div>
+      </div>
+      <div class="ldr-card" onclick="setLeader(1)">
+        <div class="ldr-photo" style="background:linear-gradient(145deg,#cce8f4,#a8cce4);">
+          <div class="ldr-photo-fallback" id="fb1">O</div>
+          <img src="omar.png" alt="Jnb Omar Abdullah" onerror="this.style.display='none';document.getElementById('fb1').style.display='flex'"/>
+          <div class="ldr-designation-ribbon"><span>Pro Chancellor</span></div>
+        </div>
+        <div class="ldr-meta">
+          <div class="ldr-name">Jnb Omar Abdullah</div>
+          <div class="ldr-role-tag">Pro Chancellor</div>
+        </div>
+      </div>
+      <div class="ldr-card" onclick="setLeader(2)">
+        <div class="ldr-photo" style="background:linear-gradient(145deg,#cce4cc,#a8cca8);">
+          <div class="ldr-photo-fallback" id="fb2">D</div>
+          <img src="vice-chairman.jpg" alt="Prof. Dinesh Singh" onerror="this.style.display='none';document.getElementById('fb2').style.display='flex'"/>
+          <div class="ldr-designation-ribbon"><span>Vice Chairman</span></div>
+        </div>
+        <div class="ldr-meta">
+          <div class="ldr-name">Prof. Dinesh Singh</div>
+          <div class="ldr-role-tag">Vice Chairman</div>
+        </div>
+      </div>
+      <div class="ldr-card" onclick="setLeader(3)">
+        <div class="ldr-photo" style="background:linear-gradient(145deg,#e0d8f4,#c4b8ec);">
+          <div class="ldr-photo-fallback" id="fb3">U</div>
+          <img src="vice-chancellor.jpg" alt="Prof. Umesh Rai" style="object-position:right top;" onerror="this.style.display='none';document.getElementById('fb3').style.display='flex'"/>
+          <div class="ldr-designation-ribbon"><span>Vice Chancellor</span></div>
+        </div>
+        <div class="ldr-meta">
+          <div class="ldr-name">Prof. Umesh Rai</div>
+          <div class="ldr-role-tag">Vice Chancellor</div>
+        </div>
+      </div>
+      <div class="ldr-card" onclick="setLeader(4)">
+        <div class="ldr-photo" style="background:linear-gradient(145deg,#f0e4cc,#e0c8a0);">
+          <div class="ldr-photo-fallback" id="fb4">A</div>
+          <img src="director-alka.jpg" alt="Prof. Alka Sharma" onerror="this.style.display='none';document.getElementById('fb4').style.display='flex'"/>
+          <div class="ldr-designation-ribbon"><span>Director</span></div>
+        </div>
+        <div class="ldr-meta">
+          <div class="ldr-name">Prof. Alka Sharma</div>
+          <div class="ldr-role-tag">Director, SIIEDC</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPLORE @ DYD -->
+<section class="explore-section">
+  <div class="explore-inner">
+    <div class="section-heading-row">
+      <div class="section-heading-left">
+        <div class="section-title">Explore @ DYD</div>
+        <div class="section-rule"></div>
+      </div>
+    </div>
+    <div class="explore-grid">
+      <div class="exp-card featured">
+        <div class="exp-card-strip"></div>
+        <div class="exp-img">
+          <img src="img1.jpeg" alt="Collaborative Learning" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="exp-img-bg" style="display:none;">🤝</div>
+          <div class="exp-overlay"></div>
+          <div class="exp-cat-pill">Student Life</div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-title">Collaborative Learning Culture</div>
+          <div class="exp-desc">Students and mentors learning together in an open, inclusive environment. DYD fosters a culture where every voice matters and every idea finds a platform.</div>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-strip" style="background:linear-gradient(90deg,#006633,#44aa66);"></div>
+        <div class="exp-img" style="background:linear-gradient(135deg,#cce8cc,#aad4aa);">
+          <img src="PIK2.jpeg" alt="Faculty Interaction" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="exp-img-bg" style="display:none;">🎓</div>
+          <div class="exp-overlay"></div>
+          <div class="exp-cat-pill" style="background:#006633;">Mentorship</div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-title">Direct Faculty Interaction</div>
+          <div class="exp-desc">Dedicated mentors guiding multidisciplinary cohorts at every step.</div>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-strip" style="background:linear-gradient(90deg,#c87800,#ffaa44);"></div>
+        <div class="exp-img" style="background:linear-gradient(135deg,#f0ddc0,#e4c898);">
+          <img src="PIK3.jpeg" alt="Industry Lab" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="exp-img-bg" style="display:none;">🔬</div>
+          <div class="exp-overlay"></div>
+          <div class="exp-cat-pill" style="background:#c87800;">Industry</div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-title">Hands-On Lab &amp; Tech Visits</div>
+          <div class="exp-desc">Experiencing cutting-edge research labs and industry setups first-hand.</div>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-strip" style="background:linear-gradient(90deg,#5500bb,#8844ee);"></div>
+        <div class="exp-img" style="background:linear-gradient(135deg,#d8ccf0,#bca8e4);">
+          <img src="pk11.jpeg" alt="Computer Lab" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="exp-img-bg" style="display:none;">💻</div>
+          <div class="exp-overlay"></div>
+          <div class="exp-cat-pill" style="background:#5500bb;">Infrastructure</div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-title">State-of-the-Art Computer Labs</div>
+          <div class="exp-desc">Well-equipped labs fostering digital skills and technical excellence.</div>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-strip" style="background:linear-gradient(90deg,#006688,#22aacc);"></div>
+        <div class="exp-img" style="background:linear-gradient(135deg,#c8e4ec,#a0c8d8);">
+          <img src="PIK5.jpeg" alt="Workshops" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="exp-img-bg" style="display:none;">⚡</div>
+          <div class="exp-overlay"></div>
+          <div class="exp-cat-pill" style="background:#006688;">Workshops</div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-title">Expert-Led Skill Sessions</div>
+          <div class="exp-desc">Interactive workshops by industry leaders building real-world competencies.</div>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-strip" style="background:linear-gradient(90deg,#990044,#cc4488);"></div>
+        <div class="exp-img" style="background:linear-gradient(135deg,#f0cce0,#e0a8c8);">
+          <img src="PK6.jpeg" alt="Innovation Lab" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="exp-img-bg" style="display:none;">🚀</div>
+          <div class="exp-overlay"></div>
+          <div class="exp-cat-pill" style="background:#990044;">Innovation</div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-title">DYD Innovation Lab</div>
+          <div class="exp-desc">Prototyping and building startups inside the SIIEDC Innovation Lab, UoJ.</div>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-strip" style="background:linear-gradient(90deg,#664400,#cc8800);"></div>
+        <div class="exp-img" style="background:linear-gradient(135deg,#f0e4c0,#e4cc88);">
+          <img src="PK8.jpeg" alt="Exhibitions" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="exp-img-bg" style="display:none;">🏆</div>
+          <div class="exp-overlay"></div>
+          <div class="exp-cat-pill" style="background:#664400;">Exhibitions</div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-title">Showcasing Student Ideas</div>
+          <div class="exp-desc">From astronomy posters to tech demos — DYD students present boldly.</div>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-strip" style="background:linear-gradient(90deg,#004488,#2266cc);"></div>
+        <div class="exp-img" style="background:linear-gradient(135deg,#c8d8f0,#a0bce4);">
+          <img src="PIK7.jpeg" alt="National Fairs" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="exp-img-bg" style="display:none;">🌐</div>
+          <div class="exp-overlay"></div>
+          <div class="exp-cat-pill" style="background:#004488;">Outreach</div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-title">DYD at National Fairs</div>
+          <div class="exp-desc">Representing interdisciplinary learning at national education expos.</div>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-strip" style="background:linear-gradient(90deg,#660022,#cc2244);"></div>
+        <div class="exp-img" style="background:linear-gradient(135deg,#f0c8cc,#e4a0a8);">
+          <img src="p6.jpeg" alt="Cyber Intelligence" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="exp-img-bg" style="display:none;">🔐</div>
+          <div class="exp-overlay"></div>
+          <div class="exp-cat-pill" style="background:#660022;">Cyber</div>
+        </div>
+        <div class="exp-body">
+          <div class="exp-title">Cyber Intelligence &amp; Forensics</div>
+          <div class="exp-desc">Students exploring cutting-edge digital forensics tools at professional expos.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ✅ id="domains-section" ADD KIYA GAYA HAI -->
+<section class="domains-section" id="domains-section">
+  <div class="domains-inner">
+    <div class="section-heading-row">
+      <div class="section-heading-left">
+        <div class="section-eyebrow">Academic Disciplines</div>
+        <div class="section-title">Domains @ DYD</div>
+        <div class="section-rule"></div>
+      </div>
+    </div>
+
+    <div class="dom-grid">
+
+      <!-- TECHNOLOGY -->
+      <div class="dom-card">
+        <div class="dom-icon-area">
+          <div class="dom-icon-box">
+            <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="8" width="40" height="26" rx="3" stroke="#000080" stroke-width="2.2" fill="none"/>
+              <rect x="10" y="12" width="32" height="18" rx="1.5" fill="#e8f0ff"/>
+              <circle cx="26" cy="21" r="3" fill="#000080" opacity="0.8"><animate attributeName="r" values="3;4;3" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/></circle>
+              <line x1="26" y1="18" x2="26" y2="14" stroke="#000080" stroke-width="1.5" opacity="0.5"/>
+              <line x1="29" y1="23" x2="33" y2="26" stroke="#000080" stroke-width="1.5" opacity="0.5"/>
+              <line x1="23" y1="23" x2="19" y2="26" stroke="#000080" stroke-width="1.5" opacity="0.5"/>
+              <circle cx="26" cy="13" r="1.5" fill="#4488ff"><animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite"/></circle>
+              <circle cx="34" cy="27" r="1.5" fill="#4488ff"><animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/></circle>
+              <circle cx="18" cy="27" r="1.5" fill="#4488ff"><animate attributeName="opacity" values="1;0.3;1" dur="1.8s" repeatCount="indefinite"/></circle>
+              <rect x="22" y="34" width="8" height="4" rx="1" fill="#000080" opacity="0.3"/>
+              <rect x="18" y="38" width="16" height="2.5" rx="1.2" fill="#000080" opacity="0.4"/>
+            </svg>
+          </div>
+        </div>
+        <div class="dom-bottom-accent"></div>
+        <div class="dom-body">
+          <div class="dom-cat">Core Domain</div>
+          <div class="dom-title">Technology</div>
+          <div class="dom-desc">AI, machine learning, cybersecurity &amp; digital innovation at scale.</div>
+          <a class="dom-arrow-link" href="#">Explore Domain →</a>
+        </div>
+      </div>
+
+      <!-- ECONOMICS -->
+      <div class="dom-card teal">
+        <div class="dom-icon-area">
+          <div class="dom-icon-box">
+            <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="8" y="30" width="7" height="12" rx="1.5" fill="#006644" opacity="0.7"><animate attributeName="height" values="12;15;12" dur="2s" repeatCount="indefinite"/><animate attributeName="y" values="30;27;30" dur="2s" repeatCount="indefinite"/></rect>
+              <rect x="18" y="22" width="7" height="20" rx="1.5" fill="#006644" opacity="0.85"><animate attributeName="height" values="20;24;20" dur="2.3s" repeatCount="indefinite"/><animate attributeName="y" values="22;18;22" dur="2.3s" repeatCount="indefinite"/></rect>
+              <rect x="28" y="16" width="7" height="26" rx="1.5" fill="#006644"><animate attributeName="height" values="26;30;26" dur="1.8s" repeatCount="indefinite"/><animate attributeName="y" values="16;12;16" dur="1.8s" repeatCount="indefinite"/></rect>
+              <polyline points="11,28 21,20 31,13 43,8" stroke="#44bb88" stroke-width="2" fill="none" stroke-linecap="round"/>
+              <circle cx="43" cy="8" r="2.5" fill="#44bb88"><animate attributeName="r" values="2.5;3.5;2.5" dur="1.5s" repeatCount="indefinite"/></circle>
+              <line x1="6" y1="43" x2="46" y2="43" stroke="#006644" stroke-width="1.5" opacity="0.4"/>
+            </svg>
+          </div>
+        </div>
+        <div class="dom-bottom-accent"></div>
+        <div class="dom-body">
+          <div class="dom-cat">Core Domain</div>
+          <div class="dom-title">Economics</div>
+          <div class="dom-desc">Markets, policy, trade &amp; financial systems shaping the world.</div>
+          <a class="dom-arrow-link" href="#">Explore Domain →</a>
+        </div>
+      </div>
+
+      <!-- MANAGEMENT & STARTUPS -->
+      <div class="dom-card amber">
+        <div class="dom-icon-area">
+          <div class="dom-icon-box">
+            <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M26 6 C26 6 18 16 18 28 L26 32 L34 28 C34 16 26 6 26 6Z" fill="#c87800" opacity="0.15"/>
+              <path d="M26 6 C26 6 18 16 18 28 L26 32 L34 28 C34 16 26 6 26 6Z" stroke="#c87800" stroke-width="2" fill="none"><animateTransform attributeName="transform" type="translate" values="0,0;0,-3;0,0" dur="2s" repeatCount="indefinite"/></path>
+              <circle cx="26" cy="20" r="4" stroke="#c87800" stroke-width="1.8" fill="#fff5e0"><animateTransform attributeName="transform" type="translate" values="0,0;0,-3;0,0" dur="2s" repeatCount="indefinite"/></circle>
+              <path d="M18 28 L13 34 L18 32Z" fill="#c87800" opacity="0.6"><animateTransform attributeName="transform" type="translate" values="0,0;0,-3;0,0" dur="2s" repeatCount="indefinite"/></path>
+              <path d="M34 28 L39 34 L34 32Z" fill="#c87800" opacity="0.6"><animateTransform attributeName="transform" type="translate" values="0,0;0,-3;0,0" dur="2s" repeatCount="indefinite"/></path>
+              <ellipse cx="26" cy="34" rx="3" ry="5" fill="#ffaa44" opacity="0.9"><animate attributeName="ry" values="5;7;4;6;5" dur="0.4s" repeatCount="indefinite"/><animateTransform attributeName="transform" type="translate" values="0,0;0,-3;0,0" dur="2s" repeatCount="indefinite"/></ellipse>
+              <ellipse cx="26" cy="35" rx="1.5" ry="3" fill="#fff0cc"><animate attributeName="ry" values="3;4;2;3.5;3" dur="0.4s" repeatCount="indefinite"/><animateTransform attributeName="transform" type="translate" values="0,0;0,-3;0,0" dur="2s" repeatCount="indefinite"/></ellipse>
+              <circle cx="12" cy="12" r="1" fill="#c87800" opacity="0.5"><animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite"/></circle>
+              <circle cx="42" cy="18" r="1.2" fill="#c87800" opacity="0.4"><animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/></circle>
+              <circle cx="38" cy="9" r="0.8" fill="#c87800" opacity="0.6"><animate attributeName="opacity" values="1;0.3;1" dur="1.2s" repeatCount="indefinite"/></circle>
+            </svg>
+          </div>
+        </div>
+        <div class="dom-bottom-accent"></div>
+        <div class="dom-body">
+          <div class="dom-cat">Core Domain</div>
+          <div class="dom-title">Management &amp; Startups</div>
+          <div class="dom-desc">Leadership, entrepreneurship &amp; venture building for tomorrow.</div>
+          <a class="dom-arrow-link" href="#">Explore Domain →</a>
+        </div>
+      </div>
+
+      <!-- COMMUNICATION -->
+      <div class="dom-card rose">
+        <div class="dom-icon-area">
+          <div class="dom-icon-box">
+            <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 20 L10 32 L18 32 L36 40 L36 12 L18 20 Z" fill="#990044" opacity="0.15" stroke="#990044" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M39 18 Q44 22 44 26 Q44 30 39 34" stroke="#990044" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.4"><animate attributeName="opacity" values="0.4;1;0.4" dur="1.2s" repeatCount="indefinite"/></path>
+              <path d="M41 15 Q48 20 48 26 Q48 32 41 37" stroke="#990044" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.25"><animate attributeName="opacity" values="0.25;0.8;0.25" dur="1.2s" begin="0.3s" repeatCount="indefinite"/></path>
+              <rect x="10" y="22" width="8" height="8" rx="1" fill="#990044" opacity="0.5"/>
+              <circle cx="36" cy="26" r="2" fill="#990044"><animate attributeName="r" values="2;2.8;2" dur="1.2s" repeatCount="indefinite"/></circle>
+            </svg>
+          </div>
+        </div>
+        <div class="dom-bottom-accent"></div>
+        <div class="dom-body">
+          <div class="dom-cat">Core Domain</div>
+          <div class="dom-title">Communication</div>
+          <div class="dom-desc">Media, rhetoric, journalism &amp; digital storytelling mastery.</div>
+          <a class="dom-arrow-link" href="#">Explore Domain →</a>
+        </div>
+      </div>
+
+      <!-- PSYCHOLOGY -->
+      <div class="dom-card violet">
+        <div class="dom-icon-area">
+          <div class="dom-icon-box">
+            <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M26 38 C26 38 10 34 10 22 C10 14 16 9 22 10 C23 10 24 10.5 25 11" stroke="#5500bb" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+              <path d="M26 38 C26 38 42 34 42 22 C42 14 36 9 30 10 C29 10 28 10.5 27 11" stroke="#5500bb" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+              <line x1="26" y1="11" x2="26" y2="38" stroke="#5500bb" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.5"/>
+              <polyline points="13,22 17,22 19,16 21,28 23,20 25,22 29,22 31,17 33,27 35,22 39,22" stroke="#8844ee" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"><animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" repeatCount="indefinite"/></polyline>
+              <circle cx="26" cy="24" r="2.5" fill="#8844ee" opacity="0.4"><animate attributeName="r" values="2.5;4;2.5" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.4;0.8;0.4" dur="2s" repeatCount="indefinite"/></circle>
+            </svg>
+          </div>
+        </div>
+        <div class="dom-bottom-accent"></div>
+        <div class="dom-body">
+          <div class="dom-cat">Core Domain</div>
+          <div class="dom-title">Psychology</div>
+          <div class="dom-desc">Behaviour, cognition, mental health &amp; therapeutic practice.</div>
+          <a class="dom-arrow-link" href="#">Explore Domain →</a>
+        </div>
+      </div>
+
+      <!-- STATISTICS -->
+      <div class="dom-card green">
+        <div class="dom-icon-area">
+          <div class="dom-icon-box">
+            <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="26" cy="24" r="16" fill="#eef8ee" stroke="#006622" stroke-width="1.5"/>
+              <path d="M26 24 L26 8 A16 16 0 1 1 10.3 32Z" fill="#006622" opacity="0.7"><animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/></path>
+              <path d="M26 24 L10.3 32 A16 16 0 0 1 26 8Z" fill="#44aa55" opacity="0.5"><animate attributeName="opacity" values="0.5;0.9;0.5" dur="2.5s" repeatCount="indefinite"/></path>
+              <circle cx="26" cy="24" r="5" fill="#fff"/>
+              <circle cx="26" cy="24" r="3" fill="#006622" opacity="0.6"><animate attributeName="r" values="3;4;3" dur="1.8s" repeatCount="indefinite"/></circle>
+              <circle cx="12" cy="44" r="2.5" fill="#006622" opacity="0.7"/>
+              <circle cx="22" cy="44" r="2.5" fill="#44aa55" opacity="0.5"/>
+              <circle cx="32" cy="44" r="2.5" fill="#c8f0c8" stroke="#006622" stroke-width="1"/>
+            </svg>
+          </div>
+        </div>
+        <div class="dom-bottom-accent"></div>
+        <div class="dom-body">
+          <div class="dom-cat">Core Domain</div>
+          <div class="dom-title">Statistics</div>
+          <div class="dom-desc">Data analysis, probability &amp; inferential methods driving decisions.</div>
+          <a class="dom-arrow-link" href="#">Explore Domain →</a>
+        </div>
+      </div>
+
+      <!-- ENVIRONMENTAL SCIENCES -->
+      <div class="dom-card cyan">
+        <div class="dom-icon-area">
+          <div class="dom-icon-box">
+            <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="26" cy="26" r="18" fill="#e0f5f8" stroke="#006688" stroke-width="2"/>
+              <ellipse cx="22" cy="22" rx="7" ry="9" fill="#44aa55" opacity="0.7" transform="rotate(-15 22 22)"/>
+              <ellipse cx="33" cy="28" rx="5" ry="7" fill="#44aa55" opacity="0.6" transform="rotate(10 33 28)"/>
+              <ellipse cx="18" cy="33" rx="4" ry="3" fill="#44aa55" opacity="0.5"/>
+              <ellipse cx="26" cy="26" rx="18" ry="6" stroke="#006688" stroke-width="1.2" fill="none" opacity="0.3" transform="rotate(-30 26 26)"><animateTransform attributeName="transform" type="rotate" values="-30 26 26;330 26 26" dur="8s" repeatCount="indefinite"/></ellipse>
+              <path d="M26 8 C26 8 32 4 34 10 C36 16 28 18 26 14 C24 18 16 16 18 10 C20 4 26 8 26 8Z" fill="#44aa55"><animate attributeName="opacity" values="1;0.6;1" dur="2s" repeatCount="indefinite"/></path>
+            </svg>
+          </div>
+        </div>
+        <div class="dom-bottom-accent"></div>
+        <div class="dom-body">
+          <div class="dom-cat">Core Domain</div>
+          <div class="dom-title">Environmental Sciences</div>
+          <div class="dom-desc">Ecology, climate, sustainability &amp; earth systems research.</div>
+          <a class="dom-arrow-link" href="#">Explore Domain →</a>
+        </div>
+      </div>
+
+      <!-- MATHEMATICS -->
+      <div class="dom-card plum">
+        <div class="dom-icon-area">
+          <div class="dom-icon-box">
+            <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <text x="10" y="36" font-family="Georgia,serif" font-size="34" fill="#660088" opacity="0.9">∑</text>
+              <circle cx="26" cy="26" r="20" fill="none" stroke="#9933cc" stroke-width="1" stroke-dasharray="4,4" opacity="0.3"/>
+              <circle r="3" fill="#9933cc"><animateMotion dur="4s" repeatCount="indefinite"><mpath href="#mathOrbit"/></animateMotion><animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/></circle>
+              <path id="mathOrbit" d="M26 6 A20 20 0 1 1 25.9 6Z" fill="none"/>
+              <line x1="40" y1="10" x2="40" y2="18" stroke="#9933cc" stroke-width="2" stroke-linecap="round" opacity="0.5"><animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite"/></line>
+              <line x1="36" y1="14" x2="44" y2="14" stroke="#9933cc" stroke-width="2" stroke-linecap="round" opacity="0.5"><animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite"/></line>
+              <circle cx="10" cy="42" r="1.5" fill="#9933cc" opacity="0.4"><animate attributeName="opacity" values="0.4;1;0.4" dur="1.8s" repeatCount="indefinite"/></circle>
+              <circle cx="14" cy="38" r="1" fill="#9933cc" opacity="0.3"><animate attributeName="opacity" values="0.3;0.9;0.3" dur="2.2s" repeatCount="indefinite"/></circle>
+            </svg>
+          </div>
+        </div>
+        <div class="dom-bottom-accent"></div>
+        <div class="dom-body">
+          <div class="dom-cat">Core Domain</div>
+          <div class="dom-title">Mathematics</div>
+          <div class="dom-desc">Calculus, algebra, number theory &amp; rigorous proofs.</div>
+          <a class="dom-arrow-link" href="#">Explore Domain →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS SECTION -->
+<section class="ach-section">
+  <div class="ach-header">
+    <div class="ach-title-wrap">
+      <span class="ach-eyebrow">Our Students</span>
+      <div class="ach-title">Achievements</div>
+      <div class="ach-underline"></div>
+    </div>
+    <a href="#" class="ach-view-more">View More &rsaquo;</a>
+  </div>
+  <div class="ach-scroll-container">
+    <div class="ach-scroll-track" id="achTrack">
+      <div class="ach-card">
+        <div class="ach-card-top"></div>
+        <div class="ach-img-wrap">
+          <img src="pic12.png" alt="Team Dupahar" onerror="this.style.display='none'"/>
+          <span class="ach-badge">Top 15</span>
+        </div>
+        <div class="ach-body">
+          <div class="ach-venue">India Innovates 2026 · Bharat Mandapam, New Delhi</div>
+          <div class="ach-headline">Team Dupahar Reaches National Finale from 1.26 Crore Applicants</div>
+          <div class="ach-desc">Adil Mahajan, Tavishi Amla, Narayan Choudhary &amp; Gourav Sharma cleared 28,000 teams in Round 2 to reach the national offline finale.</div>
+          <div class="ach-award">🏆 Top 15 — National Finale</div>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-card-top"></div>
+        <div class="ach-img-wrap">
+          <img src="p1.jpeg" alt="AICraft" onerror="this.style.display='none'"/>
+          <span class="ach-badge">3rd Prize</span>
+        </div>
+        <div class="ach-body">
+          <div class="ach-venue">AICraft 3.1 · Amity University, Noida</div>
+          <div class="ach-headline">3rd Prize at National-Level AI Competition — 3,000+ Applicants</div>
+          <div class="ach-desc">DYD students secured 3rd Prize and a cash award of ₹10,000 at this prestigious national-level project and poster competition.</div>
+          <div class="ach-award">🏆 3rd Prize — ₹10,000 Cash Award</div>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-card-top"></div>
+        <div class="ach-img-wrap">
+          <img src="p10.jpeg" alt="Sustainable Development" onerror="this.style.display='none'"/>
+          <span class="ach-badge">1st Prize</span>
+        </div>
+        <div class="ach-body">
+          <div class="ach-venue">Sustainable Development Theme</div>
+          <div class="ach-headline">First Prize — Sustainable Development</div>
+          <div class="ach-desc">DYD students clinched First Prize under the Sustainable Development theme at a competitive inter-university level.</div>
+          <div class="ach-award">🏆 First Prize</div>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-card-top"></div>
+        <div class="ach-img-wrap">
+          <img src="p11.jpeg" alt="Tech Tourism" onerror="this.style.display='none'"/>
+          <span class="ach-badge">Runner-Up</span>
+        </div>
+        <div class="ach-body">
+          <div class="ach-venue">Tech-Enabled Tourism</div>
+          <div class="ach-headline">Runner-Up — Tech-Enabled Tourism</div>
+          <div class="ach-desc">The team showcased a forward-thinking technology solution for the tourism sector, earning the Runner-Up position.</div>
+          <div class="ach-award">🏆 Runner-Up</div>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-card-top"></div>
+        <div class="ach-img-wrap">
+          <img src="p3.jpeg" alt="Anubhav-X" onerror="this.style.display='none'"/>
+          <span class="ach-badge">2nd Prize</span>
+        </div>
+        <div class="ach-body">
+          <div class="ach-venue">Smart Solution Exhibition 2.0 · SMVDU, Ekatva 2026</div>
+          <div class="ach-headline">Anubhav-X Wins First Runner-Up Among 70+ Teams</div>
+          <div class="ach-desc">Diya Rani, Kashvi Vaid, Paridhi Mahajan &amp; Vidhita Arora secured First Runner-Up, receiving ₹3,000 cash award.</div>
+          <div class="ach-award">🏆 First Runner-Up — ₹3,000</div>
+        </div>
+      </div>
+      <div class="ach-card">
+        <div class="ach-card-top"></div>
+        <div class="ach-img-wrap">
+          <img src="p9.jpeg" alt="IUST Hackathon" onerror="this.style.display='none'"/>
+          <span class="ach-badge">Runner-Up</span>
+        </div>
+        <div class="ach-body">
+          <div class="ach-venue">State-Level Hackathon · IUST, Nov 2025</div>
+          <div class="ach-headline">B.Tech (IT) Students Secure Runner-Up at State Hackathon</div>
+          <div class="ach-desc">Students of B.Tech (IT) from the University of Jammu secured the Runner-Up position at IUST's state-level hackathon.</div>
+          <div class="ach-award">🏆 Runner-Up — State Level</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ach-arrows-container">
+    <button class="ach-arrow" id="achLeft">&#8249;</button>
+    <button class="ach-arrow" id="achRight">&#8250;</button>
+  </div>
+</section>
+
+<footer class="footer" id="contact-footer">
+  <div class="footer-inner">
+    <div class="footer-col footer-brand-col">
+      <img src="university.png" alt="UoJ Logo" class="footer-logo" onerror="this.style.display='none'"/>
+      <div class="footer-brand-name">Design Your Degree</div>
+      <div class="footer-brand-sub">University of Jammu</div>
+      <div class="footer-naac">★ NAAC A++</div>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/_dyd2023_?igsh=MTVyaG82MnpqaTV1NA==" target="_blank" class="footer-social-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+          Instagram
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-heading">University of Jammu</div>
+      <div class="footer-divider"></div>
+      <p class="footer-address">
+        University of Jammu<br/>
+        Baba Saheb Ambedkar Road,<br/>
+        Jammu — 180006<br/>
+        Jammu &amp; Kashmir, India
+      </p>
+      <a href="tel:01912435248" class="footer-contact-link">📞 0191-2435248, 2435259</a>
+      <a href="tel:01912453544" class="footer-contact-link">📞 0191-2453544, 2453588</a>
+      <a href="mailto:helpdesk@jammuuniversity.ac.in" class="footer-contact-link">✉️ helpdesk@jammuuniversity.ac.in</a>
+      <a href="https://www.uojammu.ac.in" target="_blank" class="footer-contact-link">🌐 www.uojammu.ac.in</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-heading">DYD Academic Block</div>
+      <div class="footer-divider"></div>
+      <p class="footer-address">
+        Design Your Degree — Academic Block<br/>
+        Opposite Cactus Garden,<br/>
+        University of Jammu Campus,<br/>
+        Jammu — 180006<br/>
+        Jammu &amp; Kashmir, India
+      </p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-heading">Quick Links</div>
+      <div class="footer-divider"></div>
+      <a href="about.html" class="footer-link">About DYD</a>
+      <a href="LG.html" class="footer-link">Leadership Notes</a>
+      <a href="syllabuss.html" class="footer-link">Syllabi</a>
+      <a href="eli.html" class="footer-link">Check Eligibility</a>
+      <a href="DYD.html" class="footer-link">About The Campus</a>
+      <a href="mentors1.html" class="footer-link">Faculty &amp; Staff</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Design Your Degree — University of Jammu. All rights reserved.</span>
+    <span class="footer-bottom-links">
+      <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Sitemap</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+/* HERO SLIDER */
+const TOTAL=11,INTERVAL=5500;
+let current=0,autoTimer=null;
+const track=document.getElementById('slides');
+const allSlides=track.querySelectorAll('.slide');
+const dotsWrap=document.getElementById('heroDots');
+const counterEl=document.getElementById('heroCounter');
+const fill=document.getElementById('progressFill');
+for(let i=0;i<TOTAL;i++){
+  const d=document.createElement('button');
+  d.className='hero-dot'+(i===0?' active':'');
+  d.addEventListener('click',()=>goTo(i,true));
+  dotsWrap.appendChild(d);
+}
+const dots=dotsWrap.querySelectorAll('.hero-dot');
+function goTo(n,reset=true){
+  allSlides[current].classList.remove('active');
+  dots[current].classList.remove('active');
+  current=(n+TOTAL)%TOTAL;
+  allSlides[current].classList.add('active');
+  dots[current].classList.add('active');
+  track.style.transform=`translateX(-${current*100}%)`;
+  counterEl.textContent=`${current+1} / ${TOTAL}`;
+  if(reset){resetProgress();restartAuto();}
+}
+function resetProgress(){
+  fill.style.transition='none';fill.style.width='0%';
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    fill.style.transition=`width ${INTERVAL}ms linear`;fill.style.width='100%';
+  }));
+}
+function restartAuto(){
+  clearInterval(autoTimer);
+  autoTimer=setInterval(()=>goTo(current+1),INTERVAL);
+}
+document.getElementById('prevBtn').addEventListener('click',()=>goTo(current-1,true));
+document.getElementById('nextBtn').addEventListener('click',()=>goTo(current+1,true));
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight')goTo(current+1,true);
+  if(e.key==='ArrowLeft')goTo(current-1,true);
+});
+let touchX=null;
+track.addEventListener('touchstart',e=>{touchX=e.touches[0].clientX;});
+track.addEventListener('touchend',e=>{
+  if(touchX===null)return;
+  const dx=e.changedTouches[0].clientX-touchX;
+  if(Math.abs(dx)>50){goTo(dx<0?current+1:current-1,true);}
+  touchX=null;
+});
+document.getElementById('hero').addEventListener('mouseenter',()=>{clearInterval(autoTimer);fill.style.transition='none';});
+document.getElementById('hero').addEventListener('mouseleave',()=>{resetProgress();restartAuto();});
+resetProgress();restartAuto();
+
+/* ACHIEVEMENT ARROWS */
+const achTrack=document.getElementById('achTrack');
+document.getElementById('achLeft').addEventListener('click',()=>achTrack.scrollBy({left:-310,behavior:'smooth'}));
+document.getElementById('achRight').addEventListener('click',()=>achTrack.scrollBy({left:310,behavior:'smooth'}));
+
+/* SEARCH */
+function doSearch(){const v=document.getElementById('searchInput').value.trim();if(v)alert('Searching: '+v);}
+document.getElementById('searchInput').addEventListener('keydown',e=>{if(e.key==='Enter')doSearch();});
+
+/* LEADERSHIP CARDS */
+function setLeader(i){
+  document.querySelectorAll('.ldr-card').forEach((c,idx)=>c.classList.toggle('active',idx===i));
+  const pages=['LG.html','pro-vice-chancellor.html','vice-chairman.html','vice-chancellor.html','director.html'];
+  window.location.href=pages[i];
+}
+</script>
+</body>
+</html>

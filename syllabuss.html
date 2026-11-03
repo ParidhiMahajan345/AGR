@@ -1,0 +1,317 @@
+v<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Syllabus</title>
+
+<style>
+
+/* ===== RESET ===== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+/* ===== BACKGROUND ===== */
+body{
+    background:linear-gradient(135deg,#020617,#0f172a,#020617);
+    color:white;
+    min-height:100vh;
+}
+
+/* ===== HEADER ===== */
+header{
+    text-align:center;
+    padding:25px;
+    font-size:34px;
+    font-weight:bold;
+    color:#38bdf8;
+    animation:drop 1s ease;
+}
+
+/* ===== MAIN DASHBOARD ===== */
+#main{
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+}
+
+/* ===== GRID (3 COLUMN FIXED) ===== */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+/* ===== SEM CARD ===== */
+.sem{
+    background:rgba(255,255,255,0.06);
+    backdrop-filter:blur(10px);
+    border-radius:18px;
+    overflow:hidden;
+    cursor:pointer;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.4);
+    transition:0.4s;
+    animation:fadeUp 0.8s ease;
+}
+
+.sem img{
+    width:100%;
+    height:160px;
+    object-fit:cover;
+    transition:0.4s;
+}
+
+.sem h3{
+    padding:12px;
+    font-size:18px;
+}
+
+/* ===== HOVER ===== */
+.sem:hover{
+    transform:translateY(-10px) scale(1.05);
+    box-shadow:0 0 25px #38bdf8;
+}
+
+.sem:hover img{
+    transform:scale(1.1);
+}
+
+/* ===== SEM 4 POSITION ===== */
+.grid div:nth-child(4){
+    grid-column:1;
+}
+
+/* ===== SEM 5 CENTER FIX ===== */
+.grid div:nth-child(5){
+    grid-column:2;
+    justify-self:center;
+    width:350px;
+}
+
+/* ===== SECTION PAGE ===== */
+.section{
+    display:none;
+    max-width:700px;
+    margin:30px auto;
+    text-align:center;
+    padding:25px;
+    animation:slide 0.6s ease;
+}
+
+.section h2{
+    font-size:28px;
+    margin-bottom:20px;
+    color:#38bdf8;
+}
+
+/* ===== SUBJECT ===== */
+.sub{
+    background:rgba(255,255,255,0.07);
+    margin:10px auto;
+    padding:14px;
+    border-radius:12px;
+    transition:0.3s;
+    max-width:500px;
+}
+
+.sub:hover{
+    background:#38bdf8;
+    color:black;
+    transform:scale(1.05);
+}
+
+/* ===== BUTTONS ===== */
+button{
+    margin-top:18px;
+    padding:12px 20px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.pdf{
+    background:#22c55e;
+    color:white;
+}
+
+.back{
+    background:#ef4444;
+    color:white;
+}
+
+button:hover{
+    transform:scale(1.08);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes slide{
+    from{opacity:0; transform:translateX(40px);}
+    to{opacity:1; transform:translateX(0);}
+}
+
+@keyframes drop{
+    from{opacity:0; transform:translateY(-30px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .grid div:nth-child(5){
+        width:100%;
+        grid-column:auto;
+        justify-self:auto;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>Syllabus</header>
+
+<!-- ===== MAIN DASHBOARD ===== -->
+<div id="main">
+
+<div class="grid">
+
+<div class="sem" onclick="show('sem1')">
+<img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644">
+<h3>Semester 1</h3>
+</div>
+
+<div class="sem" onclick="show('sem2')">
+<img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c">
+<h3>Semester 2</h3>
+</div>
+
+<div class="sem" onclick="show('sem3')">
+<img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7">
+<h3>Semester 3</h3>
+</div>
+
+<div class="sem" onclick="show('sem4')">
+<img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b">
+<h3>Semester 4</h3>
+</div>
+
+<div class="sem" onclick="show('sem5')">
+<img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40">
+<h3>Semester 5-8</h3>
+</div>
+
+</div>
+
+</div>
+
+<!-- ===== SEM 1 ===== -->
+<div id="sem1" class="section">
+<h2>Semester 1</h2>
+<div class="sub">Life Skills</div>
+<div class="sub">Mathamatics Without Phobia</div>
+<div class="sub">Understanding the World through Data Lens</div>
+<div class="sub">Expressing Creativity</div>
+<div class="sub">Exploring the Surrounding</div>
+<div class="sub">IT in Everyday Life</div>
+
+<a href="sem1.pdf" target="_blank">
+<button class="pdf">📄 View Syllabus PDF</button>
+</a>
+<br>
+<button class="back" onclick="show('main')">⬅ Back</button>
+</div>
+
+<!-- ===== SEM 2 ===== -->
+<div id="sem2" class="section">
+<h2>Semester 2</h2>
+<div class="sub">Discovering the Self</div>
+<div class="sub">Decoding the World through AI</div>
+<div class="sub">World of Startup through Real life Studies</div>
+<div class="sub">Art and Aesthetic of Designing</div>
+<div class="sub">Responsible Citizenship through Experimentation</div>
+<div class="sub">Coding Through GPT-4</div>
+
+<a href="sem2.pdf">
+<button class="pdf">📄 View Syllabus PDF</button>
+</a>
+<br>
+<button class="back" onclick="show('main')">⬅ Back</button>
+</div>
+
+<!-- ===== SEM 3 ===== -->
+<div id="sem3" class="section">
+<h2>Semester 3</h2>
+<div class="sub">Developing Equipose of Mind and Body</div>
+<div class="sub">Understanding the Challanges of Climate Change</div>
+<div class="sub">Does the World Revolve Around Economics</div>
+<div class="sub">Technologies of the Future</div>
+<div class="sub">Social Innovations</div>
+<div class="sub">Art and Science of Communication</div>
+
+<a href="sem3.pdf">
+<button class="pdf">📄 View Syllabus PDF</button>
+</a>
+<br>
+<button class="back" onclick="show('main')">⬅ Back</button>
+</div>
+
+<!-- ===== SEM 4 ===== -->
+<div id="sem4" class="section">
+<h2>Semester 4</h2>
+<div class="sub">Demestify Human Behaviour</div>
+<div class="sub">Marvels of the World</div>
+<div class="sub">Exploring Tourism in J&K: An Entrepreneurial Perspective</div>
+<div class="sub">Exploring the World of Cinema With Smartphones</div>
+<div class="sub">Food as Medicine: Traditional And Modern Practices</div>
+<div class="sub">Digital Humanities</div>
+
+<a href="sem4.pdf">
+<button class="pdf">📄 View Syllabus PDF</button>
+</a>
+<br>
+<button class="back" onclick="show('main')">⬅ Back</button>
+</div>
+
+<!-- ===== SEM 5 ===== -->
+<div id="sem5" class="section">
+<h2>Semester 5-8</h2>
+<div class="sub">
+LIFE SCIENCES / MATEMATICAL SCIENCES / ARTS /
+SOCIAL SCIENCES / EARTH AND ENVIRONMENTAL SCIENCE /
+BUSINESS STUDIES / PHYSICAL SCIENCES / VISUAL AND PERFORMING ARTS
+</div>
+
+<br>
+<button class="back" onclick="show('main')">⬅ Back</button>
+</div>
+
+<script>
+function show(id){
+    let sections=document.querySelectorAll(".section");
+    let main=document.getElementById("main");
+
+    main.style.display="none";
+    sections.forEach(s=>s.style.display="none");
+
+    document.getElementById(id).style.display="block";
+}
+</script>
+
+</body>
+</html>

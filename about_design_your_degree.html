@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design Your Degree - About Programme</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #ffffff 0%, #f5f9ff 50%, #f0f8ff 100%);
+  color: #1e293b;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* SCROLLBAR STYLING */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #2563eb, #1e40af);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #1e40af, #1e3a8a);
+}
+
+/* ANIMATED BACKGROUND */
+.animated-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(135deg, #ffffff 0%, #f5f9ff 50%, #f0f8ff 100%);
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.5;
+}
+
+.blob1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, transparent 70%);
+  top: -150px;
+  left: -100px;
+  animation: blob-move1 20s ease-in-out infinite;
+}
+
+.blob2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+  bottom: -100px;
+  right: -150px;
+  animation: blob-move2 25s ease-in-out infinite;
+}
+
+@keyframes blob-move1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(50px, -50px) scale(1.1); }
+  66% { transform: translate(-30px, 40px) scale(0.9); }
+}
+
+@keyframes blob-move2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-40px, 50px) scale(0.9); }
+  66% { transform: translate(60px, -30px) scale(1.1); }
+}
+
+.main-wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* HEADER SECTION */
+.header {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #2563eb 100%);
+  color: white;
+  padding: 80px 40px 100px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0 0 50px 50px;
+  box-shadow: 0 20px 60px rgba(30, 58, 138, 0.2);
+  margin-bottom: 60px;
+  animation: slideDown 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><defs><pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M 60 0 L 0 0 0 60" fill="none" stroke="white" stroke-width="0.5" opacity="0.05"/></pattern></defs><rect width="1200" height="120" fill="url(%23grid)"/></svg>');
+  opacity: 0.5;
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,60 Q300,0 600,60 T1200,60 L1200,120 L0,120 Z" fill="white"/></svg>');
+  background-size: 600px 120px;
+  animation: wave 15s linear infinite;
+}
+
+@keyframes wave {
+  0% { background-position: 0 0; }
+  100% { background-position: 600px 0; }
+}
+
+.header-content {
+  position: relative;
+  z-index: 2;
+}
+
+.badge-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
+  animation: fadeUp 0.6s ease 0.2s both;
+}
+
+.header h1 {
+  font-size: 64px;
+  font-weight: 900;
+  letter-spacing: -2.5px;
+  margin-bottom: 16px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  animation: fadeUp 0.8s ease 0.3s both;
+  line-height: 1.1;
+}
+
+.header .subtitle {
+  font-size: 20px;
+  opacity: 0.95;
+  max-width: 750px;
+  margin: 0 auto;
+  line-height: 1.8;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  animation: fadeUp 1s ease 0.4s both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* CONTENT SECTIONS */
+.content-wrapper {
+  padding-bottom: 60px;
+}
+
+.section {
+  margin-bottom: 80px;
+  padding: 0 40px;
+  opacity: 0;
+  animation: fadeInSection 0.9s ease forwards;
+}
+
+@keyframes fadeInSection {
+  to {
+    opacity: 1;
+  }
+}
+
+.section:nth-child(1) { animation-delay: 0.1s; }
+.section:nth-child(2) { animation-delay: 0.2s; }
+.section:nth-child(3) { animation-delay: 0.3s; }
+.section:nth-child(4) { animation-delay: 0.4s; }
+.section:nth-child(5) { animation-delay: 0.5s; }
+.section:nth-child(6) { animation-delay: 0.6s; }
+
+/* HERO CARD */
+.hero-card {
+  background: white;
+  border-radius: 28px;
+  padding: 48px 44px;
+  box-shadow: 0 10px 40px rgba(30, 58, 138, 0.12);
+  border: 2px solid #e0e7ff;
+  max-width: 1000px;
+  margin: 0 auto 50px;
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #0f172a, #1e3a8a, #2563eb, #3b82f6);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hero-card:hover::before {
+  transform: scaleX(1);
+}
+
+.hero-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 30px 80px rgba(30, 58, 138, 0.18);
+  border-color: #bfdbfe;
+}
+
+.hero-card h2 {
+  font-size: 32px;
+  color: #0f172a;
+  margin-bottom: 24px;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.hero-card p {
+  font-size: 16px;
+  color: #475569;
+  line-height: 1.9;
+  margin-bottom: 18px;
+  text-align: justify;
+}
+
+.hero-card strong {
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.highlight-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+  color: #1e40af;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 14px;
+  margin: 0 2px;
+}
+
+/* SECTION TITLE */
+.section-title {
+  text-align: center;
+  font-size: 42px;
+  color: #0f172a;
+  margin-bottom: 50px;
+  font-weight: 900;
+  letter-spacing: -1.2px;
+  position: relative;
+}
+
+.section-title::before {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 5px;
+  background: linear-gradient(90deg, #2563eb, #1e40af);
+  border-radius: 3px;
+  margin: -15px auto 20px;
+}
+
+.section-title span {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* GRID LAYOUT */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.card {
+  background: white;
+  border-radius: 24px;
+  padding: 36px 28px;
+  text-align: center;
+  box-shadow: 0 6px 25px rgba(30, 58, 138, 0.08);
+  border: 2px solid #e0e7ff;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  opacity: 0;
+  animation: cardReveal 0.6s ease forwards;
+}
+
+@keyframes cardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.card:nth-child(1) { animation-delay: 0.05s; }
+.card:nth-child(2) { animation-delay: 0.15s; }
+.card:nth-child(3) { animation-delay: 0.25s; }
+.card:nth-child(4) { animation-delay: 0.35s; }
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:hover {
+  transform: translateY(-16px) scale(1.03);
+  box-shadow: 0 25px 60px rgba(30, 58, 138, 0.15);
+  border-color: #bfdbfe;
+}
+
+.card-icon {
+  font-size: 48px;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.card:hover .card-icon {
+  transform: scale(1.2) rotate(8deg);
+}
+
+.card h3 {
+  font-size: 22px;
+  color: #0f172a;
+  font-weight: 800;
+  position: relative;
+  z-index: 1;
+  letter-spacing: -0.4px;
+}
+
+.card p {
+  font-size: 15px;
+  color: #64748b;
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+}
+
+/* FEATURE LIST */
+.features-container {
+  background: white;
+  border-radius: 24px;
+  padding: 44px 40px;
+  box-shadow: 0 6px 25px rgba(30, 58, 138, 0.08);
+  border: 2px solid #e0e7ff;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.feature-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 20px;
+  border-radius: 16px;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  animation: itemSlide 0.5s ease forwards;
+}
+
+@keyframes itemSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.feature-item:nth-child(1) { animation-delay: 0s; }
+.feature-item:nth-child(2) { animation-delay: 0.1s; }
+.feature-item:nth-child(3) { animation-delay: 0.2s; }
+.feature-item:nth-child(4) { animation-delay: 0.3s; }
+
+.feature-item:hover {
+  background: linear-gradient(135deg, #f0f9ff, #f8fafc);
+  padding-left: 26px;
+  transition: all 0.3s;
+}
+
+.feature-icon {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  flex-shrink: 0;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.feature-content {
+  flex: 1;
+}
+
+.feature-content h4 {
+  font-size: 16px;
+  color: #0f172a;
+  margin-bottom: 4px;
+  font-weight: 800;
+}
+
+.feature-content p {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* STATS SECTION */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.stat {
+  background: linear-gradient(135deg, #f0f9ff, #f8fafc);
+  border: 2px solid #e0e7ff;
+  border-radius: 16px;
+  padding: 24px 20px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.stat:hover {
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+  border-color: #bfdbfe;
+  transform: translateY(-4px);
+}
+
+.stat-number {
+  font-size: 28px;
+  font-weight: 900;
+  color: #2563eb;
+  margin-bottom: 6px;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* CTA SECTION */
+.cta-section {
+  text-align: center;
+  padding: 50px 40px 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 18px 42px;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: white;
+  border: none;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.3);
+  letter-spacing: 0.3px;
+  position: relative;
+  overflow: hidden;
+  animation: fadeUp 1.2s ease;
+}
+
+.cta-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.cta-btn:hover::before {
+  left: 100%;
+}
+
+.cta-btn:hover {
+  background: linear-gradient(135deg, #1e40af, #1e3a8a);
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 20px 50px rgba(37, 99, 235, 0.4);
+}
+
+.cta-btn:active {
+  transform: scale(0.96);
+}
+
+.cta-subtitle {
+  margin-top: 18px;
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+  .header {
+    padding: 60px 30px 80px;
+  }
+
+  .header h1 {
+    font-size: 48px;
+  }
+
+  .section-title {
+    font-size: 36px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 40px 24px 60px;
+    border-radius: 0 0 30px 30px;
+    margin-bottom: 40px;
+  }
+
+  .header h1 {
+    font-size: 36px;
+    margin-bottom: 12px;
+  }
+
+  .header .subtitle {
+    font-size: 16px;
+  }
+
+  .section {
+    padding: 0 20px;
+    margin-bottom: 60px;
+  }
+
+  .section-title {
+    font-size: 28px;
+    margin-bottom: 36px;
+  }
+
+  .hero-card {
+    padding: 32px 24px;
+  }
+
+  .hero-card h2 {
+    font-size: 24px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .card {
+    padding: 28px 20px;
+  }
+
+  .card h3 {
+    font-size: 19px;
+  }
+
+  .features-container {
+    padding: 32px 24px;
+  }
+
+  .feature-row {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .stat {
+    padding: 18px 16px;
+  }
+
+  .cta-btn {
+    padding: 16px 36px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 28px;
+  }
+
+  .header .subtitle {
+    font-size: 15px;
+  }
+
+  .badge-group {
+    flex-direction: column;
+  }
+
+  .header-badge {
+    font-size: 11px;
+    padding: 6px 14px;
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+
+  .card {
+    padding: 24px 16px;
+  }
+
+  .feature-item {
+    padding: 16px;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="animated-bg">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+</div>
+
+<div class="main-wrapper">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-content">
+      <div class="badge-group">
+        <span class="header-badge">🎓 University of Jammu</span>
+        <span class="header-badge">📋 NEP-2020</span>
+        <span class="header-badge">⭐ Flagship Programme</span>
+      </div>
+      <h1>Design Your Degree</h1>
+      <p class="subtitle">Create a learning path that reflects your ambitions.</p>
+    </div>
+  </div>
+
+  <!-- CONTENT WRAPPER -->
+  <div class="content-wrapper">
+
+    <!-- ABOUT SECTION -->
+    <section class="section">
+      <div class="hero-card">
+        <h2>🎯 About the Programme</h2>
+        <p>
+          <span class="highlight-badge">Design Your Degree</span> is a flagship programme of the <strong>University of Jammu</strong> under <strong>NEP-2020</strong>, representing a transformative revolution in higher education. This innovative four-year programme is designed specifically for students seeking to harness the power of <strong>personalized, interdisciplinary education</strong> tailored to their unique aspirations and career objectives.
+        </p>
+        <p>
+          With the transformative motto of <strong>"Teach to Transform, Educate to Empower and Learn to Lead,"</strong> this programme equips students with the agility, critical thinking capabilities, and diverse skill set required to excel in the dynamic and rapidly evolving professional landscape of tomorrow.
+        </p>
+        <p>
+          Unlike traditional <strong>one-size-fits-all degree programmes</strong>, Design Your Degree empowers learners to <strong>curate their own personalized curriculum</strong> by strategically selecting courses across diverse disciplines. This innovative approach effectively breaks down academic silos and fosters genuine <strong>interdisciplinary learning</strong>, preparing students with not just specialized domain knowledge, but with the unprecedented <strong>versatility and adaptability</strong> demanded by the modern workforce.
+        </p>
+        <p>
+          The programme recognizes that today's graduates must possess not merely specialized knowledge, but a <strong>comprehensive and diverse skill set</strong>. With the swift pace of technological advancement, the modern economy demands flexible professionals capable of seamlessly transitioning between various fields and navigating complex, interconnected challenges.
+        </p>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE SECTION -->
+    <section class="section">
+      <h2 class="section-title">Why Choose <span>Design Your Degree?</span></h2>
+      <div class="grid">
+        <div class="card">
+          <div class="card-icon">🎯</div>
+          <h3>Personalized Learning Path</h3>
+          <p>Choose courses that align perfectly with your passions, strengths, and career aspirations, not predetermined paths</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔗</div>
+          <h3>Interdisciplinary Excellence</h3>
+          <p>Break down academic silos and explore meaningful connections across diverse fields and disciplines</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">⚡</div>
+          <h3>Industry-Aligned Skills</h3>
+          <p>Develop in-demand competencies alongside domain-specific knowledge with guidance from industry experts</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🚀</div>
+          <h3>Future-Ready Graduates</h3>
+          <p>Excel in a rapidly evolving global landscape with adaptability, innovation, and leadership capabilities</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CORE COMPETENCIES -->
+    <section class="section">
+      <h2 class="section-title">Essential <span>Competencies Developed</span></h2>
+      <div class="features-container">
+        <div class="feature-row">
+          <div class="feature-item">
+            <div class="feature-icon">💡</div>
+            <div class="feature-content">
+              <h4>Critical Thinking</h4>
+              <p>Develop advanced analytical mindset and problem-solving abilities for complex challenges</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🗣️</div>
+            <div class="feature-content">
+              <h4>Effective Communication</h4>
+              <p>Master articulate expression and collaboration across diverse platforms and cultures</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🎨</div>
+            <div class="feature-content">
+              <h4>Creativity & Innovation</h4>
+              <p>Harness your creative potential to develop unique and breakthrough solutions</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">👥</div>
+            <div class="feature-content">
+              <h4>Leadership & Teamwork</h4>
+              <p>Build collaborative skills and inspire meaningful change in your organization</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">📊</div>
+            <div class="feature-content">
+              <h4>Data & Analytics</h4>
+              <p>Understand and leverage data-driven decision-making in your professional domain</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🌍</div>
+            <div class="feature-content">
+              <h4>Global Perspective</h4>
+              <p>Develop awareness of interconnected global systems and cross-cultural competence</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAMME HIGHLIGHTS -->
+    <section class="section">
+      <h2 class="section-title">Programme <span>Highlights</span></h2>
+      <div class="grid">
+        <div class="card">
+          <div class="card-icon">👥</div>
+          <h3>Exclusive Intake</h3>
+          <p>Carefully curated batch of 60 students per year for personalized mentorship and individual attention</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📚</div>
+          <h3>Flexible Curriculum</h3>
+          <p>Select from 40+ diverse courses across multiple disciplines to create your unique educational journey</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🏢</div>
+          <h3>Industry Partnership</h3>
+          <p>Curriculum designed collaboratively with leading industry professionals and expert practitioners</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📈</div>
+          <h3>Continuous Assessment</h3>
+          <p>Regular evaluation, skill development tracking, and personalized feedback throughout the programme</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ELIGIBILITY SECTION -->
+    <section class="section">
+      <h2 class="section-title">Eligibility <span>Criteria</span></h2>
+      <div class="features-container">
+        <div class="feature-row">
+          <div class="feature-item">
+            <div class="feature-icon">📝</div>
+            <div class="feature-content">
+              <h4>Academic Excellence</h4>
+              <p><strong>60% in 12th Standard</strong> (General Category) | <strong>55%</strong> (Reserved Categories)</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">💻</div>
+            <div class="feature-content">
+              <h4>Tech & AI Aptitude</h4>
+              <p>Strong interest in technology, artificial intelligence, and modern computational thinking</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🧠</div>
+            <div class="feature-content">
+              <h4>Analytical Mindset</h4>
+              <p>Demonstrated ability in critical thinking and problem-solving across diverse domains</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🎨</div>
+            <div class="feature-content">
+              <h4>Creative Thinking</h4>
+              <p>Willingness to innovate, explore new ideas, and think beyond conventional boundaries</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAMME REQUIREMENTS -->
+    <section class="section">
+      <h2 class="section-title">Programme <span>Statutes & Requirements</span></h2>
+      <div class="grid">
+        <div class="card">
+          <div class="card-icon">✅</div>
+          <h3>75% Attendance</h3>
+          <p>Mandatory attendance requirement to maintain academic engagement and learning continuity</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">⭐</div>
+          <h3>CGPA 7.5+ Honours</h3>
+          <p>Minimum cumulative grade point average for pursuing the Honours degree track</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🚪</div>
+          <h3>Flexible Exit Options</h3>
+          <p>Ability to exit programme after Year 1, 2, or 3 with appropriate degree qualifications</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📋</div>
+          <h3>Continuous Evaluation</h3>
+          <p>Regular internal assessments, projects, and skill-based evaluations throughout the year</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="section">
+      <h2 class="section-title">By The <span>Numbers</span></h2>
+      <div class="stats-grid">
+        <div class="stat">
+          <div class="stat-number">60</div>
+          <div class="stat-label">Students Per Year</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">4</div>
+          <div class="stat-label">Year Duration</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">40+</div>
+          <div class="stat-label">Course Options</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Placement Ready</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA SECTION -->
+<section class="cta-section">
+  <button class="cta-btn" onclick="window.location.href='syllabus/syllabus/index2.html'">
+    <span>📚</span>
+    <span>Explore Complete Curriculum</span>
+    <span>→</span>
+  </button>
+  <p class="cta-subtitle">
+    View detailed syllabus, course structure, and semester-wise subjects
+  </p>
+</section>
+
+  </div>
+
+</div>
+
+<script>
+// Smooth scroll to syllabus
+function scrollToSyllabus() {
+  // Link to curriculum portal
+  window.location.href = 'curriculum_portal.html';
+}
+
+// Intersection Observer for scroll animations
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver(function(entries) {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, observerOptions);
+
+// Observe sections
+document.querySelectorAll('.section').forEach(el => {
+  observer.observe(el);
+});
+
+// Add smooth scroll behavior
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+});
+
+// Parallax effect on scroll
+window.addEventListener('scroll', () => {
+  const blobs = document.querySelectorAll('.blob');
+  const scrollY = window.scrollY;
+  
+  blobs.forEach((blob, index) => {
+    blob.style.transform = `translateY(${scrollY * (0.3 + index * 0.1)}px)`;
+  });
+});
+</script>
+
+</body>
+</html>

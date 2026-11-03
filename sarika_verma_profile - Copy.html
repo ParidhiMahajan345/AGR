@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile - Dr. Sarika Verma</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top, #2b2d42, #0f172a);
+    color: white;
+    min-height: 100vh;
+}
+
+/* HEADER */
+.header {
+    text-align: center;
+    padding: 28px 20px 18px;
+}
+
+.header h1 {
+    font-size: 3.8em;
+    font-weight: 900;
+    letter-spacing: 4px;
+    margin: 0;
+    background: linear-gradient(90deg, #8b5cf6, #d946ef);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    position: relative;
+}
+
+.header h1::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -35px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(168,85,247,0.3), transparent);
+    filter: blur(60px);
+    z-index: -1;
+}
+
+.header h1::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    width: 100%;
+    height: 4px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #00dbde, #fc00ff);
+    box-shadow: 0 0 10px #fc00ff;
+}
+
+.header p {
+    margin: 14px 0 0;
+    font-size: 1.25em;
+    font-weight: 700;
+    background: linear-gradient(90deg, #00dbde, #fc00ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-style: italic;
+}
+
+/* PROFILE CARD */
+.profile-container {
+    width: min(1100px, 92%);
+    margin: 15px auto 45px;
+}
+
+.profile-card {
+    position: relative;
+    padding: 42px 50px;
+    border-radius: 24px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+}
+
+.profile-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    padding: 2px;
+    background: linear-gradient(45deg, #ff00cc, #3333ff, #00ffcc);
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.profile-name {
+    text-align: center;
+    margin: 0 0 5px;
+    font-size: 2em;
+    font-weight: 700;
+}
+
+.profile-role {
+    text-align: center;
+    margin: 0 0 30px;
+    color: #ddd;
+    font-size: 1.05em;
+}
+
+.profile-card p {
+    color: #e7e7e7;
+    font-size: 1em;
+    line-height: 1.85;
+    margin: 0 0 22px;
+    text-align: justify;
+}
+
+.address {
+    margin-top: 0 !important;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    color: #ddd !important;
+    text-align: center !important;
+}
+
+.contact {
+    text-align: center !important;
+    margin-bottom: 0 !important;
+    color: #ddd !important;
+}
+
+.contact a {
+    color: #00dbde;
+    text-decoration: none;
+}
+
+.contact a:hover {
+    color: #fc00ff;
+}
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+    .header h1 {
+        font-size: 2.4em;
+        letter-spacing: 2px;
+    }
+
+    .header p {
+        font-size: 1em;
+    }
+
+    .profile-card {
+        padding: 28px 22px;
+    }
+
+    .profile-name {
+        font-size: 1.5em;
+    }
+
+    .profile-card p {
+        font-size: 0.92em;
+        line-height: 1.7;
+        text-align: left;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+    <h1>PROFILE</h1>
+    <p>Dr. Sarika Verma</p>
+</div>
+
+<!-- PROFILE -->
+<div class="profile-container">
+    <div class="profile-card">
+
+        <h2 class="profile-name">DR. SARIKA VERMA, ASSOCIATE PROFESSOR</h2>
+        <div class="profile-role">Department of Mathematics</div>
+
+        <p class="address">
+            <strong>Address:</strong><br>
+            Department of Mathematics<br>
+            University of Jammu<br>
+            Baba Saheb Ambedkar Road, Tawi, Jammu<br>
+            Jammu and Kashmir - 180006, India
+        </p>
+
+        <p class="contact">
+            <a href="mailto:drsarikaverma@jammuuniversity.ac.in">
+                drsarikaverma@jammuuniversity.ac.in
+            </a>
+            &nbsp;&nbsp;&nbsp; Mob: (9780354272)
+        </p>
+
+    </div>
+</div>
+
+</body>
+</html>
